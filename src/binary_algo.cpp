@@ -7,13 +7,17 @@
 namespace binary_algo
 {
     using namespace dfa;
+    using pr = std::pair<uint32_t, uint32_t>;
 
-    automaton do_act(const automaton& a, const automaton& b, OPERATOR op)
+    automaton do_act(
+        const automaton& a, const automaton& b,
+        OPERATOR op, 
+        bool print
+    )
     {
         const auto alphabet = a.get_alphabet_num();
         assert(alphabet == b.get_alphabet_num() && "Impossible alphabet");
 
-        using pr = std::pair<uint32_t, uint32_t>;
         std::vector<pr> w_q, c_states, f_states, h_table;
 
         pr c0 = {a.start, b.start};
@@ -55,6 +59,9 @@ namespace binary_algo
             return vec;
         };
 
+        if (print) 
+            print_pairs(c_states, c0, f_states, h_table);
+
         return automaton(
             static_cast<uint32_t>(c_states.size()), 
             convert_fn({c0}).back(), 
@@ -65,6 +72,37 @@ namespace binary_algo
 
     namespace
     {
+        void print_pairs(
+            const std::vector<pr> &states,
+            const pr& start, 
+            const std::vector<pr> &final_states,
+            const std::vector<pr> &table
+        )
+        {
+            std::cout << "\tPaired DFA result\n";
+
+            const auto alph_num = table.size() / states.size();
+            for (uint32_t st = 0; st < states.size(); ++st, std::cout << "\n")
+            {
+                if (states[st] == start) 
+                    std::cout << "->";
+                std::cout << "[" << states[st].first << "," 
+                    << states[st].second << "]";
+
+                const auto &fs = final_states;
+                if (std::find(fs.begin(), fs.end(), states[st]) != fs.end())
+                    std::cout << "*";
+                std::cout << "\t|";
+                
+                for (uint32_t i = 0; i < alph_num; ++i, std::cout << "\t") 
+                {
+                    const auto indx = st * alph_num + i;
+                    std::cout << "[" << table[indx].first << "," 
+                        << table[indx].second << "]";
+                }
+            }
+        }
+
         bool act_condition(bool a, bool b, OPERATOR op)
         {
             switch (op)
