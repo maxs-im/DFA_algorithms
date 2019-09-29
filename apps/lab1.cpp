@@ -13,7 +13,7 @@
 
 using namespace dfa;
 
-automaton proceed_data(char* name, binary_algo::OPERATOR op)
+automaton proceed_data(char* name, binary_algo::OPERATOR op, bool pair_print)
 {
     std::ifstream fs;
     fs.open(name, std::fstream::in);
@@ -23,7 +23,7 @@ automaton proceed_data(char* name, binary_algo::OPERATOR op)
     auto a(construct_read(fs)), b(construct_read(fs));
 
     fs.close();
-    return binary_algo::do_act(a, b, op);
+    return binary_algo::do_act(a, b, op, pair_print);
 }
 
 int main(int argc, char *argv[]) 
@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
     using namespace binary_algo;
     char* name = "test.txt";
     OPERATOR op = OPERATOR::DIFFERENCE;
+    bool pair_print = true;
 
     if (argc > 1)
     {
@@ -40,8 +41,12 @@ int main(int argc, char *argv[])
     {
         name = argv[2];
     }
+    if (argc > 3) 
+    {
+        pair_print = true;
+    }
     
-    auto c = proceed_data(name, op);
+    auto c = proceed_data(name, op, pair_print);
     c.print(std::cout); 
 
     return 0;

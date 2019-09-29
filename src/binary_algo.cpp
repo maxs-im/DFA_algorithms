@@ -58,6 +58,8 @@ namespace binary_algo
             assert(vec.size() == p_vec.size() && "Smth goes wrong in convert");
             return vec;
         };
+        
+        minimizate(c_states, h_table);
 
         if (print) 
             print_pairs(c_states, c0, f_states, h_table);
@@ -72,6 +74,28 @@ namespace binary_algo
 
     namespace
     {
+        void minimizate(
+            std::vector<pr> &states,
+            std::vector<pr> &table
+        )
+        {
+            const auto alph_num = table.size() / states.size();
+            std::set<pr> uniq_states;
+            for (int i = 0; i < states.size(); ++i)
+            {
+                auto res = uniq_states.insert(states[i]);
+                if (!res.second)
+                {
+                    states.erase(states.begin() + i);
+                    table.erase(
+                        table.begin() + alph_num*i, 
+                        table.begin() + alph_num*(i + 1)
+                    );
+                    --i;
+                }
+            }
+        }
+
         void print_pairs(
             const std::vector<pr> &states,
             const pr& start, 
