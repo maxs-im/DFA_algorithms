@@ -10,11 +10,16 @@ namespace binary_algo
     dfa::automaton do_act(
         const dfa::automaton& a, const dfa::automaton& b, 
         OPERATOR op,
-        bool pair = true
+        bool pair
     );
 
     namespace
     {
+        void minimizate(
+            std::vector<std::pair<uint32_t, uint32_t>> &states,
+            std::vector<std::pair<uint32_t, uint32_t>> &table
+        );
+
         void print_pairs(
             const std::vector<std::pair<uint32_t, uint32_t>> &states,
             const std::pair<uint32_t, uint32_t>& start, 
