@@ -1,10 +1,22 @@
-add_library(automaton_library automaton.cpp)
-add_library(binary_algo binary_algo.cpp automaton.cpp)
+##################################### libAutomaton.a #####################################
+add_library(Automaton STATIC
+    utils/automaton.cpp
+    utils/converters.cpp
+)
 
-target_link_libraries(binary_algo PUBLIC automaton_library)
+target_include_directories(Automaton PUBLIC ${PROJECT_SOURCE_DIR}/include/utils)
 
-target_include_directories(automaton_library PUBLIC ../include/utils)
-target_include_directories(binary_algo PUBLIC ../include)
+##################################### libBinaryAlgo.a #####################################
+add_library(BinaryAlgo STATIC binary_algo/binary_algo.cpp)
 
-target_compile_features(automaton_library PUBLIC cxx_std_11)
-target_compile_features(binary_algo PUBLIC cxx_std_11)
+target_link_libraries(BinaryAlgo PUBLIC Automaton)
+target_include_directories(BinaryAlgo PUBLIC ${PROJECT_SOURCE_DIR}/include/binary_algo)
+
+##################################### libEmptinessCheck.a #####################################
+add_library(EmptinessCheck STATIC
+    emptiness_check/dfs/nested.cpp
+    emptiness_check/dfs/two_stack.cpp
+)
+
+target_link_libraries(EmptinessCheck PUBLIC Automaton)
+target_include_directories(EmptinessCheck PUBLIC ${PROJECT_SOURCE_DIR}/include/emptiness_check)

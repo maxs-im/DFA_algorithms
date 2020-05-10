@@ -5,6 +5,7 @@
 
 namespace dfa
 {
+
 struct automaton
 {
     automaton() = delete;
@@ -28,4 +29,5 @@ struct automaton
 };
 
 automaton construct_read(std::istream  &in);
-}
+
+} // namespace dfa

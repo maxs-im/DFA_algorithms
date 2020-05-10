@@ -1,7 +1,5 @@
 #include <automaton.hpp>
 
-#include <cassert>
-#include <string>
 #include <sstream>
 
 namespace dfa
@@ -9,8 +7,8 @@ namespace dfa
 
 automaton::automaton(
     const uint32_t _states, const uint32_t _start,
-    const std::vector<uint32_t> _final_states,
-    const std::vector<uint32_t> _trans_table
+    std::vector<uint32_t> _final_states,
+    std::vector<uint32_t> _trans_table
 ) : states(_states), start(_start), 
     final_states(std::move(_final_states)), 
     trans_table(std::move(_trans_table))  
@@ -21,7 +19,7 @@ automaton::automaton(
         assert(tf < states && "Bad state in transition function");
 }
 
-uint32_t automaton::action(uint32_t curr, uint32_t sym) const noexcept
+uint32_t automaton::action(const uint32_t curr, const uint32_t sym) const noexcept
 {
     const auto alphabet = trans_table.size() / states;
     return trans_table.at(curr * alphabet + sym);
@@ -60,7 +58,7 @@ automaton construct_read(std::istream& in)
     return automaton(states, start, std::move(final_states), std::move(table));
 }
 
-bool automaton::is_final(uint32_t st) const noexcept
+bool automaton::is_final(const uint32_t st) const noexcept
 {
     const auto &fs = final_states;
     return std::find(fs.begin(), fs.end(), st) != fs.end();
@@ -83,4 +81,5 @@ void automaton::print(std::ostream &out)
             out << trans_table[st * alph + i];
     }
 }
-}
+
+} // namespace dfa

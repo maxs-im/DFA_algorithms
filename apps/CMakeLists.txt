@@ -1,4 +1,11 @@
-add_executable(lab1 lab1.cpp)
-target_compile_features(lab1 PRIVATE cxx_std_17)
+set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${DFA_BINARY_DIR})
 
-target_link_libraries(lab1 PRIVATE binary_algo)
+##################################### binalgo #####################################
+add_executable(binalgo bin_algo.cpp)
+target_link_libraries(binalgo PRIVATE BinaryAlgo)
+
+file(INSTALL test.txt DESTINATION ${DFA_BINARY_DIR})
+
+##################################### course #####################################
+add_executable(emptiness emptiness.cpp)
+target_link_libraries(emptiness PRIVATE EmptinessCheck)

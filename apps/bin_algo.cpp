@@ -1,19 +1,11 @@
-// Lab1.h : Include file for standard system include files,
-// or project specific include files.
-
-#pragma once
-
 #include <iostream>
 #include <fstream>
-#include <string> 
-#include <tuple>
-#include <cassert>
 
-#include <binary_algo.hpp>
+#include "binary_algo.hpp"
 
 using namespace dfa;
 
-automaton proceed_data(char* name, binary_algo::OPERATOR op, bool pair_print)
+automaton proceed_data(const char* name, binary_algo::OPERATOR op, bool pair_print)
 {
     std::ifstream fs;
     fs.open(name, std::fstream::in);
@@ -29,7 +21,7 @@ automaton proceed_data(char* name, binary_algo::OPERATOR op, bool pair_print)
 int main(int argc, char *argv[]) 
 {
     using namespace binary_algo;
-    char* name = "test.txt";
+    const char* name = "test.txt";
     OPERATOR op = OPERATOR::DIFFERENCE;
     bool pair_print = true;
 

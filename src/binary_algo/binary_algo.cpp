@@ -2,7 +2,6 @@
 
 #include <set>
 #include <queue>
-#include <cassert>
 
 namespace binary_algo
 {
@@ -20,7 +19,7 @@ namespace binary_algo
 
         std::vector<pr> w_q, c_states, f_states, h_table;
 
-        pr c0 = {a.start, b.start};
+        pr c0 {a.start, b.start};
         w_q.push_back(c0);
         while (!w_q.empty())
         {
@@ -138,9 +137,9 @@ namespace binary_algo
             case DIFFERENCE:
                 return a || !b;
             default:
-                assert(false && "Bad operation");
+                assert(!"Bad operation");
                 return false;
             }
         }
-    }
-}
+    } // namespace anonymous
+} // namespace binary_algo
