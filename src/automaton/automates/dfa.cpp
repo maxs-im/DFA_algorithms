@@ -10,19 +10,18 @@ dfa::dfa(const uint32_t states, const uint32_t start, std::vector<uint32_t> fina
 {
     assert(m_trans_table.size() == m_states * m_alphabet && "Incorrect size of the transition table");
     for (const auto &tf : m_trans_table)
-        assert(tf < m_states && "Incorrect state in transition table");
+        assert(tf <= m_states && "Incorrect state in transition table");
 }
 
 uint32_t dfa::action(const uint32_t curr, const uint32_t sym) const noexcept
 {
-    const auto alphabet = m_trans_table.size() / m_states;
-    return m_trans_table.at(curr * alphabet + sym);
+    return m_trans_table.at((curr - 1) * m_alphabet + (sym - 1));
 }
 
 void dfa::print(std::ostream &out) noexcept
 {
     out << "\tDFA Automaton\n";
-    for (uint32_t st = 0; st < m_states; ++st, out << '\n')
+    for (uint32_t st = 1; st <= m_states; ++st, out << '\n')
     {
         if (st == m_start)
             out << "->";
@@ -32,7 +31,7 @@ void dfa::print(std::ostream &out) noexcept
         out << "\t|";
 
         for (uint32_t i = 0; i < m_alphabet; ++i, out << '\t')
-            out << m_trans_table[st * m_alphabet + i];
+            out << m_trans_table[(st - 1) * m_alphabet + i];
     }
 }
 

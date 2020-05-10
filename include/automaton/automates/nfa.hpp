@@ -28,7 +28,7 @@ public:
 
 /// \brief Construct nondeterministic finite automate from input stream
 ///     first num - a number of states. That means a set of states started from 0 to num-1
-///     second num - an initial/start state: [0, first num)
+///     second num - an initial/start state: (0, first num)
 ///     third num - a number of final states [0, first num)
 ///     fifth vector - a vector o final states (size according to the third parameter)
 ///     sixth vector/matrix - a transition table for input alphabet.

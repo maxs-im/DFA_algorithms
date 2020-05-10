@@ -30,7 +30,7 @@ namespace binary_algo
             if (act_condition(a.is_final(st.first), b.is_final(st.second), op)) 
                 f_states.push_back(st);
 
-            for (uint32_t x = 0; x < alphabet; ++x)
+            for (uint32_t x = 1; x <= alphabet; ++x)
             {
                 pr new_st = { a.action(st.first, x), b.action(st.second, x) };
 
@@ -50,7 +50,7 @@ namespace binary_algo
                 for (uint32_t i = 0; i < c_states.size(); ++i)
                     if (c_states[i] == el)
                     {
-                        vec.push_back(i);
+                        vec.push_back(i + 1);
                         break;
                     }
 

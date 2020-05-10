@@ -24,9 +24,10 @@ public:
         : m_states(states), m_alphabet(alphabet), m_start(start),
           m_final_states(std::move(finals)), m_trans_table(std::move(table))
     {
-        assert(m_start < m_states && "Incorrect start point");
+        assert(m_states && "Empty states");
+        assert(m_start && m_start <= m_states && "Incorrect start/initial point");
         for (const auto &fs : m_final_states)
-            assert(fs < m_states && "Incorrect final state");
+            assert(fs <= m_states && "Incorrect final state");
     }
 
     /// \brief Get a number of unique states
@@ -55,21 +56,23 @@ public:
     virtual void print(std::ostream &out) noexcept = 0;
 
 protected:
-    /// \brief a finite set of states Q: [0, @states)
-    const uint32_t m_states;
+    /// \note State = 0 does not exist. It can be used as empty condition
+
+    /// \brief a finite set of states Q: (0, @states]
+    const uint32_t m_states = 0;
     /// \brief a finite set called the alphabet of A: ∑
-    const uint32_t m_alphabet;
+    const uint32_t m_alphabet = 0;
     /// \brief an initial or start state: q0 ∈ Q
-    const uint32_t m_start;
+    const uint32_t m_start = 0;
 
     /// \brief container for a set of accept states: F ⊆ Q
     /// \attention logic could be overridden
-    const std::vector<uint32_t> m_final_states;
+    const std::vector<uint32_t> m_final_states = {};
     /// \brief container for a transition function: δ
     ///     - deterministic: Q x ∑ → Q
     ///     - nondeterministic: Q x Q → ∑
     /// \attention logic could be overridden
-    const std::vector<uint32_t> m_trans_table;
+    const std::vector<uint32_t> m_trans_table = {};
 
 };
 

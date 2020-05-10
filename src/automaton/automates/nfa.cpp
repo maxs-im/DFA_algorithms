@@ -10,7 +10,7 @@ nfa::nfa(const uint32_t states, const uint32_t start, std::vector<uint32_t> fina
 {
     assert(m_trans_table.size() == m_states * m_states && "Incorrect size of the transition table");
     for (const auto &tf : m_trans_table)
-        assert(tf < m_alphabet && "Incorrect symbol in transition table");
+        assert(tf <= m_alphabet && "Incorrect symbol in transition table");
 }
 
 void nfa::print(std::ostream &out) noexcept
