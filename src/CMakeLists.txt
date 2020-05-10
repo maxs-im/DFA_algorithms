@@ -1,10 +1,13 @@
 ##################################### libAutomaton.a #####################################
 add_library(Automaton STATIC
-    utils/automaton.cpp
-    utils/converters.cpp
+        automaton/automates/dfa.cpp
+        automaton/automates/nfa.cpp
+        automaton/automates/buchi.cpp
+        automaton/converters.cpp
+        ${CMAKE_SOURCE_DIR}/include/automaton/automates/finite_automaton.hpp
 )
 
-target_include_directories(Automaton PUBLIC ${PROJECT_SOURCE_DIR}/include/utils)
+target_include_directories(Automaton PUBLIC ${PROJECT_SOURCE_DIR}/include/automaton)
 
 ##################################### libBinaryAlgo.a #####################################
 add_library(BinaryAlgo STATIC binary_algo/binary_algo.cpp)

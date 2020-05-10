@@ -2,11 +2,11 @@
 
 #include "dfs/nested.hpp"
 #include "dfs/two_stack.hpp"
-#include "converters.hpp"
+#include "utils/converters.hpp"
 
-using namespace dfa;
+using namespace automates;
 
-automaton proceed_data(const char* name)
+dfa proceed_data(const char* name)
 {
     std::ifstream fs;
     fs.open(name, std::fstream::in);

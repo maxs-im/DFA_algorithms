@@ -5,13 +5,13 @@
 
 namespace binary_algo
 {
-    using namespace dfa;
+    using namespace automates;
     using pr = std::pair<uint32_t, uint32_t>;
 
-    automaton do_act(
-        const automaton& a, const automaton& b,
-        OPERATOR op, 
-        bool print
+    dfa do_act(
+            const dfa& a, const dfa& b,
+            OPERATOR op,
+            bool print
     )
     {
         const auto alphabet = a.get_alphabet_num();
@@ -63,7 +63,7 @@ namespace binary_algo
         if (print) 
             print_pairs(c_states, c0, f_states, h_table);
 
-        return automaton(
+        return dfa(
             static_cast<uint32_t>(c_states.size()), 
             convert_fn({c0}).back(), 
             convert_fn(f_states), 

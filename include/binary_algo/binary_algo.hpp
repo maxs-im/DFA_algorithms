@@ -1,16 +1,16 @@
 #pragma once
 
-#include <automaton.hpp>
+#include <automates/dfa.hpp>
 
 namespace binary_algo
 {
     enum OPERATOR
     { ASSOCIATION, INTERSECTION, DIFFERENCE };
 
-    dfa::automaton do_act(
-        const dfa::automaton& a, const dfa::automaton& b, 
-        OPERATOR op,
-        bool pair
+    automates::dfa do_act(
+            const automates::dfa& a, const automates::dfa& b,
+            OPERATOR op,
+            bool pair
     );
 
     namespace

@@ -3,9 +3,9 @@
 
 #include "binary_algo.hpp"
 
-using namespace dfa;
+using namespace automates;
 
-automaton proceed_data(const char* name, binary_algo::OPERATOR op, bool pair_print)
+dfa proceed_data(const char* name, binary_algo::OPERATOR op, bool pair_print)
 {
     std::ifstream fs;
     fs.open(name, std::fstream::in);
