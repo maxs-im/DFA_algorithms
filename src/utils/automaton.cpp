@@ -30,7 +30,7 @@ uint32_t automaton::get_alphabet_num() const noexcept
     return static_cast<uint32_t>(trans_table.size()) / states;
 }
 
-automaton construct_read(std::istream& in) 
+automaton construct_read(std::istream &in)
 {
     uint32_t states, start,
         fs_num, alph_num;

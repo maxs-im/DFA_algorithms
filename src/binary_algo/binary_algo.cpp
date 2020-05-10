@@ -19,7 +19,7 @@ namespace binary_algo
 
         std::vector<pr> w_q, c_states, f_states, h_table;
 
-        pr c0 {a.start, b.start};
+        pr c0 {a.get_initial_state(), b.get_initial_state()};
         w_q.push_back(c0);
         while (!w_q.empty())
         {
