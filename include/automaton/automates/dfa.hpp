@@ -27,12 +27,23 @@ public:
     /// \return state in which the dfa will be
     uint32_t action(uint32_t curr, uint32_t sym) const noexcept;
 
+    /// \brief Check if input number is an accept state
+    /// \param st: state of dfa
+    /// \return whether state belongs to @final_states
+    bool is_final(uint32_t st) const noexcept;
+
     /// \brief Prints Q x ∑ table with elements means next state:
     ///     "->" - at the start of the raw means initial state
     ///     "*" - at the start of the raw means final state
     /// \param out: output stream
     virtual void print(std::ostream &out) noexcept override;
 
+private:
+
+    /// \brief container for a set of accept states: F ⊆ Q
+    const std::vector<uint32_t> m_final_states = {};
+    /// \brief container for a transition function: δ: Q x ∑ → Q
+    const std::vector<uint32_t> m_trans_table = {};
 };
 
 /// \brief Construct deterministic finite automate from input stream

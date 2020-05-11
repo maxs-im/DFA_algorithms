@@ -5,6 +5,6 @@
 namespace converters
 {
 
-automates::dfa nga2nba(const automates::dfa& automat);
+automates::dfa _nga2nba(const automates::dfa& automat);
 
 } // namespace converters

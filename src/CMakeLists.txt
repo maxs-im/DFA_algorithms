@@ -1,10 +1,10 @@
 ##################################### libAutomaton.a #####################################
 add_library(Automaton STATIC
         automaton/automates/dfa.cpp
-        automaton/automates/nfa.cpp
+        automaton/automates/_nfa.cpp
         automaton/automates/buchi.cpp
         automaton/converters.cpp
-        ${CMAKE_SOURCE_DIR}/include/automaton/automates/finite_automaton.hpp
+        ${PROJECT_SOURCE_DIR}/include/automaton/automates/finite_automaton.hpp
 )
 
 target_include_directories(Automaton PUBLIC ${PROJECT_SOURCE_DIR}/include/automaton)

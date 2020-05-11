@@ -3,7 +3,7 @@
 namespace converters
 {
 
-automates::dfa converters::nga2nba(const automates::dfa &automat)
+automates::dfa converters::_nga2nba(const automates::dfa &automat)
 {
     return automat;
 }

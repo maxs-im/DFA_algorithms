@@ -2,11 +2,13 @@
 
 #include "finite_automaton.hpp"
 
+// TODO: remove due to unused
+
 namespace automates
 {
 
 /// \class Nondeterministic finite automaton
-class nfa : public finite_automaton
+class _nfa : public finite_automaton
 {
 public:
 
@@ -16,7 +18,12 @@ public:
     /// \param finals: a correct set of final states
     /// \param trans_table: a correct transition table
     /// \note  @m_alphabet sets by dividing transition table size into number of states
-    explicit nfa(uint32_t states, uint32_t start, std::vector<uint32_t> finals, std::vector<uint32_t> trans_table);
+    explicit _nfa(uint32_t states, uint32_t start, std::vector<uint32_t> finals, std::vector<uint32_t> trans_table);
+
+    /// \brief Check if input number is an accept state
+    /// \param st: state of dfa
+    /// \return whether state belongs to @final_states
+    bool is_final(uint32_t st) const noexcept;
 
     /// \brief Prints Q x Q table with elements means transaction symbol:
     ///     "->" - at the start of the raw means initial state
@@ -24,6 +31,14 @@ public:
     /// \note not displayed same initial|final info for each column
     /// \param out: output stream
     virtual void print(std::ostream &out) noexcept override;
+
+private:
+
+    /// \brief container for a set of accept states: F ⊆ Q
+    const std::vector<uint32_t> m_final_states = {};
+    /// \brief container for a transition function: δ: Q x Q → ∑
+    const std::vector<uint32_t> m_trans_table = {};
+
 };
 
 /// \brief Construct nondeterministic finite automate from input stream
@@ -36,6 +51,6 @@ public:
 /// \note alphabet will be meant a number of the unique elements in the transition table
 /// \param in: input stream
 /// \return constructed automaton
-nfa construct_read(std::istream &in);
+_nfa construct_read(std::istream &in);
 
 } // namespace automates
