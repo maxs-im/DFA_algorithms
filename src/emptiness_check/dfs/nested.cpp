@@ -16,8 +16,8 @@ namespace
 
 /// \brief Check if q is reachable from itself. Will notify NONEMPTY
 /// \param q: the state in which we are now
-/// \param S: DFS state visiting info
-/// \param P: current story of the state of the path
+/// \param[in,out] S: DFS state visiting info
+/// \param[in,out] P: current story of the state of the path
 /// \param automat: investigated automat
 /// \return true if we have to continue investigation
 bool dfs2(const uint32_t q, um& S, us& P, const automates::buchi &automat) noexcept
@@ -26,10 +26,10 @@ bool dfs2(const uint32_t q, um& S, us& P, const automates::buchi &automat) noexc
 
     if (const auto &acceptor = automat.acceptable_transitions(q); acceptor)
     {
-        for (const auto&[r, _] : acceptor.value()->second)
+        for (const auto& [r, _] : acceptor.value()->second)
         {
             if (P.find(r) != P.end())
-                return false; // NONEMPTY
+                return false; // NONEMPTY NBA
             if (const auto &it_bits = S.find(r);
                     it_bits == S.end() || !it_bits->second.test(1))
             {
@@ -44,8 +44,8 @@ bool dfs2(const uint32_t q, um& S, us& P, const automates::buchi &automat) noexc
 
 /// \brief Blackens an accepting state q. Handle @dfs2 notification
 /// \param q: the state in which we are now
-/// \param S: DFS state visiting info
-/// \param P: current story of the state of the path
+/// \param[in,out] S: DFS state visiting info
+/// \param[in,out] P: current story of the state of the path
 /// \param automat: investigated automat
 /// \return true if we have to continue investigation
 bool dfs1(const uint32_t q, um& S, us& P, const automates::buchi &automat) noexcept
@@ -55,7 +55,7 @@ bool dfs1(const uint32_t q, um& S, us& P, const automates::buchi &automat) noexc
 
     if (const auto &acceptor = automat.acceptable_transitions(q); acceptor)
     {
-        for (const auto&[r, _] : acceptor.value()->second)
+        for (const auto& [r, _] : acceptor.value()->second)
             if (const auto &it_bits = S.find(r);
                     it_bits == S.end() || !it_bits->second.test(0))
             {
@@ -73,7 +73,7 @@ bool dfs1(const uint32_t q, um& S, us& P, const automates::buchi &automat) noexc
     return true;
 }
 
-}
+} // namespace anonymous
 
 bool is_empty(const automates::buchi &automat) noexcept
 {

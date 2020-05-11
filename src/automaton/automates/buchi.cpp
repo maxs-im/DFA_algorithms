@@ -53,9 +53,9 @@ bool buchi::is_final(const uint32_t state, const std::optional<uint32_t> set_num
     return false;
 }
 
-std::vector<uint32_t> buchi::indexes_final_sets(const uint32_t state) const noexcept
+buchi::indexes_set buchi::indexes_final_sets(const uint32_t state) const noexcept
 {
-    std::vector<uint32_t> res;
+    indexes_set res;
     res.reserve(m_final_states.size());
 
     for (uint32_t i = 0; i < m_final_states.size(); ++i)
@@ -63,7 +63,7 @@ std::vector<uint32_t> buchi::indexes_final_sets(const uint32_t state) const noex
             res.push_back(i);
 
     res.shrink_to_fit();
-    return res;
+    return std::move(res);
 }
 
 } // namespace automates

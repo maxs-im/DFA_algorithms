@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
         std::cout << "Two stack on NGA: " << std::boolalpha << two_stack::is_empty(automat) << "\n";
     }
 
-    std::cout << automat;
+    std::cout << nba_automat << automat;
 
     return 0;
 }

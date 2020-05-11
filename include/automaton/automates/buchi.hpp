@@ -19,6 +19,8 @@ public:
     using finals_container = std::vector<std::unordered_set<uint32_t>>;
     /// \typedef Container definition of the transition table struct
     using table_container = std::unordered_map<uint32_t, std::unordered_map<uint32_t, uint32_t>>;
+    /// \typedef Container definition of the final set indexes
+    using indexes_set = std::vector<uint32_t>;
 
     /// \brief Creates an Büchi object with simple input verification (by asserting)
     /// \param states: a number of states.
@@ -59,7 +61,7 @@ public:
     /// \note Sorted ascending and unique
     /// \param state: automaton state
     /// \return Sorted ascending and unique vector of @m_final_states indexes that contain according state
-    [[nodiscard]] std::vector<uint32_t> indexes_final_sets(uint32_t state) const noexcept;
+    [[nodiscard]] indexes_set indexes_final_sets(uint32_t state) const noexcept;
 
     /// \brief Simple and user-friendly Büchi automaton representation
     ///     "-NUM->" - means NUM symbol for acceptable transition
