@@ -19,7 +19,7 @@ automates::buchi proceed_data(const char* name)
 int main(int argc, char *argv[])
 {
     using namespace emptiness_check::dfs;
-    const char* name = "test_ec.txt";
+    const char* name = "test_dfs.txt";
 
     const auto automat = proceed_data(name);
     const auto nba_automat = automat.is_generalized() ?

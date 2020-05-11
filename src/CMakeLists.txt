@@ -5,7 +5,7 @@ add_library(Automaton STATIC
         automaton/utils/converters.cpp
         automaton/utils/representation.cpp
         ${PROJECT_SOURCE_DIR}/include/automaton/automates/finite_automaton.hpp
-    )
+)
 
 target_include_directories(Automaton PUBLIC ${PROJECT_SOURCE_DIR}/include/automaton)
 
@@ -19,6 +19,7 @@ target_include_directories(BinaryAlgo PUBLIC ${PROJECT_SOURCE_DIR}/include/binar
 add_library(EmptinessCheck STATIC
     emptiness_check/dfs/nested.cpp
     emptiness_check/dfs/two_stack.cpp
+    emptiness_check/bfs/emerson.cpp
 )
 
 target_link_libraries(EmptinessCheck PUBLIC Automaton)

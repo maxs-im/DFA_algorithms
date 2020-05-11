@@ -6,11 +6,16 @@ target_link_libraries(binalgo PRIVATE BinaryAlgo)
 
 file(INSTALL
         test.txt
-        test_ec.txt
+        test_dfs.txt
+        test_bfs.txt
     DESTINATION
         ${DFA_BINARY_DIR}
 )
 
-##################################### course #####################################
-add_executable(emptiness emptiness.cpp)
-target_link_libraries(emptiness PRIVATE EmptinessCheck)
+##################################### emptiness_dfs #####################################
+add_executable(emptiness_dfs emptiness_dfs.cpp)
+target_link_libraries(emptiness_dfs PRIVATE EmptinessCheck)
+
+##################################### emptiness_bfs #####################################
+add_executable(emptiness_bfs emptiness_bfs.cpp)
+target_link_libraries(emptiness_bfs PRIVATE EmptinessCheck)
