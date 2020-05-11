@@ -6,17 +6,17 @@
 
 namespace utils::representation
 {
-using namespace automates::buchi;
+using namespace automates;
 
 /// \namespace Anonymous namespace. Helpers with reading automaton parts
 namespace
 {
 /// \brief Read final states in format: sets num, {in_set_num, {num}x(in_set_num)}x(sets num)
 /// \param in: input stream
-/// \return container for final states (nba::finals_container)
+/// \return container for final states (buchi::finals_container)
 auto read_final_states(std::istream &in) noexcept
 {
-    nba::finals_container final_states;  // container for accept states
+    buchi::finals_container final_states;  // container for accept states
     uint32_t fs_num;    // number of sets
     // read number of sets
     in >> fs_num;
@@ -45,10 +45,10 @@ auto read_final_states(std::istream &in) noexcept
 /// \brief Read trasition table in format Q x Q → ∑
 /// \param in: input stream
 /// \param states: number of unique states
-/// \return container for the transition table (nba::table_container)
+/// \return container for the transition table (buchi::table_container)
 auto read_transition_table(std::istream &in, const uint32_t states) noexcept
 {
-    nba::table_container table; // container for transition table
+    buchi::table_container table; // container for transition table
     table.reserve(states);
     for (uint32_t st = 0; st < states; ++st)
     {
@@ -72,7 +72,7 @@ auto read_transition_table(std::istream &in, const uint32_t states) noexcept
 
 /// \brief Read input until EOF by three numbers: current state, symbol, acceptable state
 /// \param in: input stream
-/// \return container for final states (nba::finals_container)
+/// \return container for final states (buchi::finals_container)
 auto read_transition_table_paired(std::istream &in) noexcept
 {
     std::unordered_map<uint32_t, std::unordered_map<uint32_t, uint32_t>> table; // container for transition table
@@ -91,7 +91,7 @@ auto read_transition_table_paired(std::istream &in) noexcept
 
 } // namespace anonymous
 
-nba construct_read(std::istream &in, const bool paired) noexcept
+buchi construct_read(std::istream &in, const bool paired) noexcept
 {
     uint32_t states,    // number of unique states
     start;     // initial state
@@ -104,7 +104,7 @@ nba construct_read(std::istream &in, const bool paired) noexcept
                  read_transition_table_paired(in) :
                  read_transition_table(in, states);
 
-    return nba(states, start, std::move(final_states), std::move(table));
+    return buchi(states, start, std::move(final_states), std::move(table));
 }
 
 } // namespace utils::representation
@@ -112,7 +112,7 @@ nba construct_read(std::istream &in, const bool paired) noexcept
 namespace automates
 {
 
-std::ostream& buchi::operator<<(std::ostream &out, const nba &automaton)
+std::ostream& operator<<(std::ostream &out, const buchi &automaton)
 {
     const char *type = automaton.is_generalized() ? "NGA" : "NBA";
     out << "\t" << type << " Automaton\n";

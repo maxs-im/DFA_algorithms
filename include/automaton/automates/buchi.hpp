@@ -5,15 +5,15 @@
 #include <unordered_set>
 #include <optional>
 
-namespace automates::buchi
+namespace automates
 {
 
 /// \class (Nondeterministic) Büchi automaton
-class nba
+class buchi
 {
 public:
-    nba() = delete;
-    nba& operator=(const nba&) = delete;
+    buchi() = delete;
+    buchi& operator=(const buchi&) = delete;
 
     /// \typedef Container definition of the final states struct
     using finals_container = std::vector<std::unordered_set<uint32_t>>;
@@ -25,7 +25,7 @@ public:
     /// \param start: a correct initial/start state
     /// \param finals: a correct set of sets of final states
     /// \param trans_table: a correct transition table (map<state, map<next_state, symbol>>)
-    explicit nba(uint32_t states, uint32_t start, finals_container finals, table_container trans_table) noexcept;
+    explicit buchi(uint32_t states, uint32_t start, finals_container finals, table_container trans_table) noexcept;
 
     /// \brief Getter for a number of unique states
     /// \return maximum state - 1 state number. @m_states value
@@ -67,7 +67,7 @@ public:
     /// \param out: output stream
     /// \param automaton: automaton that will be printed
     /// \return output stream
-    friend std::ostream& operator<<(std::ostream& out, const nba& automaton);
+    friend std::ostream& operator<<(std::ostream& out, const buchi& automaton);
 
 private:
     /// \brief a finite set of states Q: (0, num]
@@ -82,4 +82,4 @@ private:
 
 };
 
-} // namespace automates::buchi
+} // namespace automates

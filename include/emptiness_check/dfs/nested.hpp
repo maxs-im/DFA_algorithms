@@ -5,6 +5,6 @@
 namespace emptiness_check::dfs::nested
 {
 
-bool is_empty(const automates::buchi::nba &automat);
+bool is_empty(const automates::buchi &automat);
 
 } // namespace emptiness_check::dfs::nested

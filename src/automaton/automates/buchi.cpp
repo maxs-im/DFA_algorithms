@@ -1,11 +1,11 @@
 #include "automates/buchi.hpp"
 
-namespace automates::buchi
+namespace automates
 {
 
-nba::nba(const uint32_t states, const uint32_t start, nba::finals_container finals, nba::table_container trans_table
-        ) noexcept : m_states(states), m_start(start),
-          m_final_states(std::move(finals)), m_trans_table(std::move(trans_table))
+buchi::buchi(const uint32_t states, const uint32_t start, finals_container finals, table_container trans_table) noexcept
+    : m_states(states), m_start(start),
+      m_final_states(std::move(finals)), m_trans_table(std::move(trans_table))
 {
     assert(m_states && "Empty states");
     assert(m_start < m_states && "Incorrect start/initial point");
@@ -28,7 +28,7 @@ nba::nba(const uint32_t states, const uint32_t start, nba::finals_container fina
     }
 }
 
-std::optional<nba::table_container::const_iterator> nba::acceptable_transitions(const uint32_t state) const noexcept
+std::optional<buchi::table_container::const_iterator> buchi::acceptable_transitions(const uint32_t state) const noexcept
 {
     if (auto iter = m_trans_table.find(state); iter != m_trans_table.end())
         return iter;
@@ -36,7 +36,7 @@ std::optional<nba::table_container::const_iterator> nba::acceptable_transitions(
     return std::nullopt;
 }
 
-bool nba::is_final(const uint32_t state, const std::optional<uint32_t> set_num) const noexcept
+bool buchi::is_final(const uint32_t state, const std::optional<uint32_t> set_num) const noexcept
 {
     if (set_num)
     {
@@ -53,7 +53,7 @@ bool nba::is_final(const uint32_t state, const std::optional<uint32_t> set_num) 
     return false;
 }
 
-std::vector<uint32_t> nba::indexes_final_sets(const uint32_t state) const noexcept
+std::vector<uint32_t> buchi::indexes_final_sets(const uint32_t state) const noexcept
 {
     std::vector<uint32_t> res;
     res.reserve(m_final_states.size());
@@ -66,4 +66,4 @@ std::vector<uint32_t> nba::indexes_final_sets(const uint32_t state) const noexce
     return res;
 }
 
-} // namespace automates::buchi
+} // namespace automates

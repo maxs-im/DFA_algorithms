@@ -3,7 +3,7 @@
 namespace emptiness_check::dfs::nested
 {
 
-bool is_empty(const automates::buchi::nba &automat)
+bool is_empty(const automates::buchi &automat)
 {
     return automat.is_final(0);
 }

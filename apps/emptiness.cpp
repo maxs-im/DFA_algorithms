@@ -6,9 +6,7 @@
 #include "utils/converters.hpp"
 #include "utils/representation.hpp"
 
-using namespace automates;
-
-automates::buchi::nba proceed_data(const char* name)
+automates::buchi proceed_data(const char* name)
 {
     std::ifstream fs;
     fs.open(name, std::fstream::in);

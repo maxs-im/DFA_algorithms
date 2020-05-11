@@ -30,6 +30,6 @@ namespace utils::representation
 /// \param in: input stream
 /// \param paired: specify transition reader method. Used "state -> symbol -> state" by default
 /// \return constructed automaton
-automates::buchi::nba construct_read(std::istream &in, bool paired = true) noexcept;
+automates::buchi construct_read(std::istream &in, bool paired = true) noexcept;
 
 }

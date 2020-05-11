@@ -4,7 +4,7 @@
 
 namespace utils::converters
 {
-using namespace automates::buchi;
+using namespace automates;
 
 /// \namespace Anonymous namespace. Helpers with paired states
 namespace
@@ -31,9 +31,9 @@ struct pr_hasher
 /// \param F: final states (one set) in paired states
 /// \param delta: transition table in paired states
 /// \return new NBA automaton (not generalized)
-nba decode_paired_states(const std::unordered_set<pr, pr_hasher> &Q, const pr &Q0,
-                         const std::unordered_set<pr, pr_hasher> &F,
-                         const std::unordered_map<pr, std::unordered_map<pr, uint32_t, pr_hasher>, pr_hasher> &delta)
+buchi decode_paired_states(const std::unordered_set<pr, pr_hasher> &Q, const pr &Q0,
+                           const std::unordered_set<pr, pr_hasher> &F,
+                           const std::unordered_map<pr, std::unordered_map<pr, uint32_t, pr_hasher>, pr_hasher> &delta)
 {
     const auto states_num = Q.size();
 
@@ -48,18 +48,18 @@ nba decode_paired_states(const std::unordered_set<pr, pr_hasher> &Q, const pr &Q
     for (const auto& itF : F)
         new_F.insert(dict[itF]);
 
-    nba::table_container new_delta;
+    buchi::table_container new_delta;
     new_delta.reserve(delta.size());
     for (const auto& [old_st, map] : delta)
         for (const auto& [new_st, sym] : map)
             new_delta[dict[old_st]][dict[new_st]] = sym;
 
-    return nba(states_num, dict[Q0], { std::move(new_F) }, std::move(new_delta));
+    return buchi(states_num, dict[Q0], {std::move(new_F) }, std::move(new_delta));
 }
 
 } // namespace anonymous
 
-nba nga2nba(const nba& automat) noexcept
+buchi nga2nba(const buchi& automat) noexcept
 {
     if (automat.is_generalized())
         return automat;
