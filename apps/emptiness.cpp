@@ -22,9 +22,16 @@ int main(int argc, char *argv[])
     const char* name = "test_ec.txt";
 
     const auto automat = proceed_data(name);
+    const auto nba_automat = automat.is_generalized() ?
+            utils::converters::nga2nba(automat) :
+            automat;
 
-    std::cout << "Nested: " << std::boolalpha << nested::is_empty(utils::converters::nga2nba(automat)) << "\n";
-    std::cout << "Two stack: " << std::boolalpha << two_stack::is_empty(automat) << "\n";
+    std::cout << "Nested: " << std::boolalpha << nested::is_empty(nba_automat) << "\n";
+    std::cout << "Two stack on NBA: " << std::boolalpha << two_stack::is_empty(nba_automat) << "\n";
+    if (automat.is_generalized())
+    {
+        std::cout << "Two stack on NGA: " << std::boolalpha << two_stack::is_empty(automat) << "\n";
+    }
 
     std::cout << automat;
 

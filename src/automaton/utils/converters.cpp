@@ -15,11 +15,10 @@ using pr = std::pair<uint32_t, uint32_t>;
 /// \struct helper for using pairs in unordered structs
 struct pr_hasher
 {
-    template <class T1, class T2>
-    std::size_t operator () (std::pair<T1, T2> const &pair) const
+    std::size_t operator()(const std::pair<uint32_t, uint32_t> &pair) const
     {
-        std::size_t h1 = std::hash<T1>()(pair.first);
-        std::size_t h2 = std::hash<T2>()(pair.second);
+        std::size_t h1 = std::hash<uint32_t>()(pair.first);
+        std::size_t h2 = std::hash<uint32_t>()(pair.second);
 
         return h1 ^ h2;
     }
@@ -61,7 +60,7 @@ buchi decode_paired_states(const std::unordered_set<pr, pr_hasher> &Q, const pr 
 
 buchi nga2nba(const buchi& automat) noexcept
 {
-    if (automat.is_generalized())
+    if (!automat.is_generalized())
         return automat;
 
     // state and final state new containers
