@@ -94,7 +94,7 @@ bool is_empty(const automates::buchi &automat)
     std::stack<uint32_t> V;
     uint32_t t = 0;
 
-    return dfs(automat.get_initial_state(), S, C, V, t, automat);
+    return dfs(automates::buchi::INITIAL_STATE, S, C, V, t, automat);
 }
 
 } // namespace emptiness_check::dfs::two_stack

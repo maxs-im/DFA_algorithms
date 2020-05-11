@@ -44,10 +44,12 @@ auto read_final_states(std::istream &in) noexcept
 
 /// \brief Read trasition table in format Q x Q → ∑
 /// \param in: input stream
-/// \param states: number of unique states
 /// \return container for the transition table (buchi::table_container)
-auto read_transition_table(std::istream &in, const uint32_t states) noexcept
+auto read_transition_table(std::istream &in) noexcept
 {
+    uint32_t states;    // number of unique states
+    in >> states;
+
     buchi::table_container table; // container for transition table
     table.reserve(states);
     for (uint32_t st = 0; st < states; ++st)
@@ -93,18 +95,14 @@ auto read_transition_table_paired(std::istream &in) noexcept
 
 buchi construct_read(std::istream &in, const bool paired) noexcept
 {
-    uint32_t states,    // number of unique states
-    start;     // initial state
-    in >> states >> start;
-
     // container for accept states
     auto final_states = read_final_states(in);
     // container for transition table
     auto table = paired ?
                  read_transition_table_paired(in) :
-                 read_transition_table(in, states);
+                 read_transition_table(in);
 
-    return buchi(states, start, std::move(final_states), std::move(table));
+    return buchi(std::move(final_states), std::move(table));
 }
 
 } // namespace utils::representation

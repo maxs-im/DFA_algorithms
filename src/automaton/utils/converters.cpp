@@ -34,13 +34,16 @@ buchi decode_paired_states(const std::unordered_set<pr, pr_hasher> &Q, const pr 
                            const std::unordered_set<pr, pr_hasher> &F,
                            const std::unordered_map<pr, std::unordered_map<pr, uint32_t, pr_hasher>, pr_hasher> &delta)
 {
-    const auto states_num = Q.size();
-
     std::unordered_map<pr, uint32_t, pr_hasher> dict;
-    dict.reserve(states_num);
+    dict.reserve(Q.size());
+
     uint32_t state_num = 0;
     for (const auto& it : Q)
-        dict[it] = state_num++;
+        // reserve default initial state value correctly for the new automaton
+        if (it == Q0)
+            dict[it] = automates::buchi::INITIAL_STATE;
+        else
+            dict[it] = state_num == automates::buchi::INITIAL_STATE ? ++state_num : state_num++;
 
     std::unordered_set<uint32_t> new_F;
     new_F.reserve(F.size());
@@ -53,7 +56,7 @@ buchi decode_paired_states(const std::unordered_set<pr, pr_hasher> &Q, const pr 
         for (const auto& [new_st, sym] : map)
             new_delta[dict[old_st]][dict[new_st]] = sym;
 
-    return buchi(states_num, dict[Q0], {std::move(new_F) }, std::move(new_delta));
+    return buchi({std::move(new_F) }, std::move(new_delta));
 }
 
 } // namespace anonymous
@@ -68,7 +71,7 @@ buchi nga2nba(const buchi& automat) noexcept
     // container for the new transition table
     std::unordered_map<pr, std::unordered_map<pr, uint32_t, pr_hasher>, pr_hasher> delta;
     // new initial point
-    pr Q0 {automat.get_initial_state(), 0};
+    pr Q0 {automates::buchi::INITIAL_STATE, 0};
 
     // queue tracker for new generated state
     std::queue<pr> W;

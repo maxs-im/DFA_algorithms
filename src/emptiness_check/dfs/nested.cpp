@@ -80,7 +80,7 @@ bool is_empty(const automates::buchi &automat) noexcept
     assert(!automat.is_generalized() && "NGA unsupported");
 
     um S; us P;
-    return dfs1(automat.get_initial_state(), S, P, automat);
+    return dfs1(automates::buchi::INITIAL_STATE, S, P, automat);
 }
 
 } // namespace emptiness_check::dfs::nested

@@ -3,27 +3,20 @@
 namespace automates
 {
 
-buchi::buchi(const uint32_t states, const uint32_t start, finals_container finals, table_container trans_table) noexcept
-    : m_states(states), m_start(start),
-      m_final_states(std::move(finals)), m_trans_table(std::move(trans_table))
+buchi::buchi(finals_container finals, table_container trans_table) noexcept
+    : m_final_states(std::move(finals)), m_trans_table(std::move(trans_table))
 {
-    assert(m_states && "Empty states");
-    assert(m_start < m_states && "Incorrect start/initial point");
     for (const auto& set : finals)
     {
         assert(set.empty() && "Empty final set");
-        for (const auto &ac : set)
-            assert(ac < m_states && "Incorrect final state");
     }
     for (const auto& [curr_st, map] : trans_table)
     {
         assert(map.empty() && "Empty transition map");
-        assert(curr_st < m_states && "Incorrect current state");
         for (const auto& [next_st, symbol] : map)
         {
             // note: here we can collect/calculate alphabet
             assert(symbol && "Empty symbol");
-            assert(next_st < m_states && "Incorrect next state");
         }
     }
 }

@@ -15,6 +15,10 @@ public:
     buchi() = delete;
     buchi& operator=(const buchi&) = delete;
 
+    /// \brief an initial or start state: q0 ∈ Q
+    /// \note Use NULL as default for all automates
+    static constexpr uint32_t INITIAL_STATE = 0;
+
     /// \typedef Container definition of the final states struct
     using finals_container = std::vector<std::unordered_set<uint32_t>>;
     /// \typedef Container definition of the transition table struct
@@ -23,19 +27,9 @@ public:
     using indexes_set = std::vector<uint32_t>;
 
     /// \brief Creates an Büchi object with simple input verification (by asserting)
-    /// \param states: a number of states.
-    /// \param start: a correct initial/start state
     /// \param finals: a correct set of sets of final states
     /// \param trans_table: a correct transition table (map<state, map<next_state, symbol>>)
-    explicit buchi(uint32_t states, uint32_t start, finals_container finals, table_container trans_table) noexcept;
-
-    /// \brief Getter for a number of unique states
-    /// \return maximum state - 1 state number. @m_states value
-    [[nodiscard]] uint32_t get_states_num() const noexcept { return m_states; }
-
-    /// \brief Getter for the automaton initial/start state q0
-    /// \return @m_start value
-    [[nodiscard]] uint32_t get_initial_state() const noexcept { return m_start; }
+    explicit buchi(finals_container finals, table_container trans_table) noexcept;
 
     /// \brief Get number of final state
     /// \return size of @m_final_states
@@ -72,10 +66,6 @@ public:
     friend std::ostream& operator<<(std::ostream& out, const buchi& automaton);
 
 private:
-    /// \brief a finite set of states Q: (0, num]
-    const uint32_t m_states = 0;
-    /// \brief an initial or start state: q0 ∈ Q
-    const uint32_t m_start = 0;
     /// \brief container for a set of accept states: f = {F0,..Fm}, Fi ⊆ Q
     const finals_container m_final_states = {};
     /// \note symbol - 0 is EMPTY symbol
