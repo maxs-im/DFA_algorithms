@@ -1,10 +1,13 @@
 #pragma once
 
-#include "automates/dfa.hpp"
+#include "automates/buchi.hpp"
 
-namespace converters
+namespace utils::converters
 {
 
-automates::dfa _nga2nba(const automates::dfa& automat);
+/// \brief Conversion operation for NGA to NBA automatons
+/// \param automat: NGA automaton
+/// \return NBA automaton
+automates::buchi::nba nga2nba(const automates::buchi::nba& automat) noexcept;
 
-} // namespace converters
+} // namespace utils::converters

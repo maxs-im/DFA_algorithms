@@ -1,11 +1,11 @@
 ##################################### libAutomaton.a #####################################
 add_library(Automaton STATIC
         automaton/automates/dfa.cpp
-        automaton/automates/_nfa.cpp
         automaton/automates/buchi.cpp
-        automaton/converters.cpp
+        automaton/utils/converters.cpp
+        automaton/utils/representation.cpp
         ${PROJECT_SOURCE_DIR}/include/automaton/automates/finite_automaton.hpp
-)
+    )
 
 target_include_directories(Automaton PUBLIC ${PROJECT_SOURCE_DIR}/include/automaton)
 

@@ -1,7 +1,5 @@
 #pragma once
 
-#include <istream>
-
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
@@ -22,7 +20,7 @@ public:
     /// \typedef Container definition of the transition table struct
     using table_container = std::unordered_map<uint32_t, std::unordered_map<uint32_t, uint32_t>>;
 
-    /// \brief Creates an NBA objects with simple input verification (by asserting)
+    /// \brief Creates an Büchi object with simple input verification (by asserting)
     /// \param states: a number of states.
     /// \param start: a correct initial/start state
     /// \param finals: a correct set of sets of final states
@@ -63,10 +61,13 @@ public:
     /// \return Sorted ascending and unique vector of @m_final_states indexes that contain according state
     [[nodiscard]] std::vector<uint32_t> indexes_final_sets(uint32_t state) const noexcept;
 
-    /// \brief Simple and user-friendly dfa representation
+    /// \brief Simple and user-friendly Büchi automaton representation
     ///     "-NUM->" - means NUM symbol for acceptable transition
+    ///     \file representation.cpp
     /// \param out: output stream
-    void print(std::ostream &out) const noexcept;
+    /// \param automaton: automaton that will be printed
+    /// \return output stream
+    friend std::ostream& operator<<(std::ostream& out, const nba& automaton);
 
 private:
     /// \brief a finite set of states Q: (0, num]
@@ -80,35 +81,5 @@ private:
     const table_container m_trans_table = {};
 
 };
-
-/// \brief Construct nondeterministic Büchi automaton from input stream
-///     State definition:
-///         first num - a number of states > 0. That means a set of states [0, num)
-///         second num - an initial/start state: [0, first num)
-///     Final states definition:
-///         third num - a number of final states sets [0, num]
-///         Cycle:
-///             fourth num - a number of final states in current set. That means an alphabet: [0, first num]
-///             next "fourth num" nums - final states for current set
-///     Transition table read (specified by @paired):
-///         Not-paired (@paired = false):
-///             vector/matrix - a transition table that constructs from each state (row) for each state (column)
-///                             (right->down decreasing in range [0, first num)) with symbols from alphabet in the cells
-///             Note: Size equal to 'fourth num' x 'first num' and values from alphabet.
-///                   Use "0" (EMPTY) symbol to ignore the edge
-///         Paired (@paired = true):
-///             Cycle while EOF:
-///                 state num - number of the start state
-///                 symbol num - symbol that accepts state num
-///                 successor num - state after acceptancy
-/// \param in: input stream
-/// \param paired: specify transition reader method. Used "state -> symbol -> state" by default
-/// \return constructed automaton
-nba construct_read(std::istream &in, bool paired = true) noexcept;
-
-/// \brief Conversion operation for NGA to NBA automatons
-/// \param automat: NGA automaton
-/// \return NBA automaton
-automates::buchi::nba nga2nba(const automates::buchi::nba& automat) noexcept;
 
 } // namespace automates::buchi
