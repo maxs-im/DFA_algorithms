@@ -20,18 +20,21 @@ int main(int argc, char *argv[])
     using namespace emptiness_check::bfs;
     const char* name = "test_bfs.txt";
 
-    const auto automat = proceed_data(name);
+    auto automat = proceed_data(name);
     const auto nba_automat = automat.is_generalized() ?
                              utils::converters::nga2nba(automat) :
                              automat;
 
-    std::cout << "Emerson: " << std::boolalpha << emerson::is_empty(nba_automat) << "\n";
-    if (automat.is_generalized())
+    // TODO: Example of use
+    automates::inv_buchi inv_automat(std::move(automat));
+
+    std::cout << "Emerson: " << std::boolalpha << emerson::is_empty(inv_automat) << "\n";
+    if (inv_automat.is_generalized())
     {
-        std::cout << "Two stack on NGA: " << std::boolalpha << emerson::is_empty(automat) << "\n";
+        std::cout << "Two stack on NGA: " << std::boolalpha << emerson::is_empty(inv_automat) << "\n";
     }
 
-    std::cout << nba_automat << automat;
+    std::cout << nba_automat << inv_automat;
 
     return 0;
 }

@@ -3,7 +3,7 @@
 namespace emptiness_check::bfs::emerson
 {
 
-bool is_empty(const automates::buchi &automat) noexcept
+bool is_empty(const automates::inv_buchi &automat) noexcept
 {
     return automat.is_generalized();
 }

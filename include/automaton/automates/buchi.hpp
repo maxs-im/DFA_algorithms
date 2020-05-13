@@ -65,7 +65,7 @@ public:
     /// \return output stream
     friend std::ostream& operator<<(std::ostream& out, const buchi& automaton);
 
-private:
+protected:
     /// \brief container for a set of accept states: f = {F0,..Fm}, Fi ⊆ Q
     const finals_container m_final_states = {};
     /// \note symbol - 0 is EMPTY symbol
