@@ -59,9 +59,14 @@ private:
                     {
                         if (idx < argv.size() - 1)
                         {
-                             stringstream value;
-                             value << argv[idx+1];
-                             value >> this->*arg;
+                            if constexpr (std::is_same_v<std::decay_t<decltype(arg)>, bool>)
+                                this->*arg != this->*arg;
+                            else
+                            {
+                                stringstream value;
+                                value << argv[idx+1];
+                                value >> this->*arg;
+                            }
                         }
                     },
                     prop);
