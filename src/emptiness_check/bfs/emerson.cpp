@@ -8,4 +8,4 @@ bool is_empty(const automates::inv_buchi &automat) noexcept
     return automat.is_generalized();
 }
 
-} // namespace emptiness_check::dfs::nested
+} // namespace emptiness_check::dfs::emerson

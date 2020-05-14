@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="DFA_Algorithms"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\src\;CMake Files\apps\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EmptinessCheck">
+				<Option output="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/libEmptinessCheck.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/emptiness_check"/>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/automaton"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 EmptinessCheck"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EmptinessCheck/fast">
+				<Option output="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/libEmptinessCheck.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/emptiness_check"/>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/automaton"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 EmptinessCheck/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="BinaryAlgo">
+				<Option output="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/libBinaryAlgo.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/binary_algo"/>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/automaton"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 BinaryAlgo"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="BinaryAlgo/fast">
+				<Option output="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/libBinaryAlgo.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/binary_algo"/>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/automaton"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 BinaryAlgo/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Automaton">
+				<Option output="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/libAutomaton.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/automaton"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 Automaton"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Automaton/fast">
+				<Option output="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/libAutomaton.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/automaton"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 Automaton/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="emptiness_bfs">
+				<Option output="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/bin/emptiness_bfs" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/emptiness_check"/>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/automaton"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 emptiness_bfs"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="emptiness_bfs/fast">
+				<Option output="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/bin/emptiness_bfs" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/emptiness_check"/>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/automaton"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 emptiness_bfs/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="emptiness_dfs">
+				<Option output="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/bin/emptiness_dfs" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/emptiness_check"/>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/automaton"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 emptiness_dfs"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="emptiness_dfs/fast">
+				<Option output="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/bin/emptiness_dfs" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/emptiness_check"/>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/automaton"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 emptiness_dfs/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="binalgo">
+				<Option output="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/bin/binalgo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/binary_algo"/>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/automaton"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 binalgo"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="binalgo/fast">
+				<Option output="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/bin/binalgo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/binary_algo"/>
+					<Add directory="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/automaton"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 binalgo/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/cmake-build-debug/apps/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/apps/LightweightParsingCMD.hpp">
+			<Option target="emptiness_bfs"/>
+			<Option target="emptiness_dfs"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/apps/bin_algo.cpp">
+			<Option target="binalgo"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/apps/emptiness_bfs.cpp">
+			<Option target="emptiness_bfs"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/apps/emptiness_dfs.cpp">
+			<Option target="emptiness_dfs"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/include/automaton/automates/finite_automaton.hpp">
+			<Option target="Automaton"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/src/automaton/automates/buchi.cpp">
+			<Option target="Automaton"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/src/automaton/automates/dfa.cpp">
+			<Option target="Automaton"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/src/automaton/automates/inv_buchi.cpp">
+			<Option target="Automaton"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/src/automaton/utils/converters.cpp">
+			<Option target="Automaton"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/src/automaton/utils/generator.cpp">
+			<Option target="Automaton"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/src/automaton/utils/representation.cpp">
+			<Option target="Automaton"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/src/binary_algo/binary_algo.cpp">
+			<Option target="BinaryAlgo"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/src/emptiness_check/bfs/emerson.cpp">
+			<Option target="EmptinessCheck"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/src/emptiness_check/dfs/nested.cpp">
+			<Option target="EmptinessCheck"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/src/emptiness_check/dfs/two_stack.cpp">
+			<Option target="EmptinessCheck"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/Users/maksym.halchenko/Documents/Home/Projects/DFA_algorithms/apps/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\apps\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

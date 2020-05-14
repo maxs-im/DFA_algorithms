@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libAutomaton.a  CMakeFiles/Automaton.dir/automaton/automates/dfa.cpp.o CMakeFiles/Automaton.dir/automaton/automates/buchi.cpp.o CMakeFiles/Automaton.dir/automaton/automates/inv_buchi.cpp.o CMakeFiles/Automaton.dir/automaton/utils/converters.cpp.o CMakeFiles/Automaton.dir/automaton/utils/representation.cpp.o CMakeFiles/Automaton.dir/automaton/utils/generator.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libAutomaton.a

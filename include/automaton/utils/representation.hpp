@@ -3,6 +3,7 @@
 #include "automates/buchi.hpp"
 
 #include <istream>
+#include <memory>
 
 namespace utils::representation
 {

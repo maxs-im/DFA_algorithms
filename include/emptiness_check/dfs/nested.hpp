@@ -6,7 +6,7 @@
 namespace emptiness_check::dfs::nested
 {
 
-/// \brief Look for the accepting lasso in NBA automaton
+/// \brief Look for the accepting lasso in NBA automaton. Will assert on NGA usage
 /// \details The nested-DFS algorithm runs in time O(n+m) by using the first phase not only to discover the reachable
 /// accepting states, but also to sort them. The searches of the second phase are conducted according to the order
 /// determined by the sorting.

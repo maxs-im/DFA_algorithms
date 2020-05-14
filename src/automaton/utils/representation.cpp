@@ -77,7 +77,7 @@ auto read_transition_table(std::istream &in) noexcept
 /// \return container for final states (buchi::finals_container)
 auto read_transition_table_paired(std::istream &in) noexcept
 {
-    std::unordered_map<uint32_t, std::unordered_map<uint32_t, uint32_t>> table; // container for transition table
+    buchi::table_container table; // container for transition table
 
     while (!in.eof())
     {

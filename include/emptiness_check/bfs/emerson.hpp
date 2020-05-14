@@ -7,4 +7,4 @@ namespace emptiness_check::bfs::emerson
 
 bool is_empty(const automates::inv_buchi &automat) noexcept;
 
-}
+} // namespace emptiness_check::bfs::emerson

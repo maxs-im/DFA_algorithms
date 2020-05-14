@@ -13,6 +13,7 @@ namespace
 /// \typedef helper for conversion
 using pr = std::pair<uint32_t, uint32_t>;
 /// \struct helper for using pairs in unordered structs
+// TODO: rewrite
 struct pr_hasher
 {
     std::size_t operator()(const std::pair<uint32_t, uint32_t> &pair) const

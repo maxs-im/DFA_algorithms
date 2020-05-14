@@ -5,6 +5,7 @@ add_library(Automaton STATIC
         automaton/automates/inv_buchi.cpp
         automaton/utils/converters.cpp
         automaton/utils/representation.cpp
+        automaton/utils/generator.cpp
         ${PROJECT_SOURCE_DIR}/include/automaton/automates/finite_automaton.hpp
 )
 
