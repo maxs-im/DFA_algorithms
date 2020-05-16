@@ -14,10 +14,13 @@ struct generator_opts
     /// Such default value due to it does not affect calculation complexity
     uint32_t alphabet = 1;
     /// \brief Number of generated trees for the transition table.
-    uint32_t trees = 0;
-    /// \brief Number of sets in final states container. Default value for NBA
+    /// Default value is a minimal for really similar table
+    uint32_t trees = 2;
+    /// \brief Number of sets in final states container.
+    /// Default value for NBA
     uint32_t sets = 1;
-    /// \brief Number of the edges for each (not leaf and not pre-leaf) vertex in the tree. Default value for binary
+    /// \brief Number of the edges for each (not leaf and not pre-leaf) vertex in the tree.
+    /// Default value for binary tree
     uint32_t edges = 2;
 };
 

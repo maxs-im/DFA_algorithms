@@ -92,7 +92,10 @@ automates::buchi utils::generator::generate_automaton(const generator_opts& opts
     for (uint32_t tree = 0; tree < opts.trees; ++tree)
     {
         auto gt = generate_tree(opts.states, opts.alphabet, opts.edges, tree == 0);
-        transitions.insert(gt.begin(), gt.end());
+        // merging trees
+        for (auto& [from, map] : gt)
+            for (auto& [to, symbol] : map)
+                transitions[from][to] = symbol;
     }
 
     return automates::buchi(generate_finals(opts.states, opts.sets, opts.edges), std::move(transitions));
