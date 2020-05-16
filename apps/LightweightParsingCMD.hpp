@@ -16,7 +16,8 @@ using namespace std;
 template <class Opts>
 struct CmdOpts : Opts
 {
-    using MyProp = std::variant<string Opts::*, int Opts::*, double Opts::*, bool Opts::*>;
+    using MyProp = std::variant<string Opts::*, int Opts::*, bool Opts::*, double Opts::*,
+                                uint32_t Opts::*, uint8_t Opts::*>;
     using MyArg = std::pair<string, MyProp>;
 
     ~CmdOpts() = default;

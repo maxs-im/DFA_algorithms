@@ -15,7 +15,7 @@ namespace
 /// \param is_initial: should we left root equal to 0 (initial automaton state) and connect it with all states
 /// \return randomized transition table, but consisting of the one tree
 automates::buchi::table_container generate_tree(const uint32_t states_num, const uint32_t alphabet,
-                                                const uint8_t edges, const bool is_initial = false) noexcept
+                                                const uint32_t edges, const bool is_initial = false) noexcept
 {
     // check on emptiness
     if (!states_num || !alphabet || !edges)

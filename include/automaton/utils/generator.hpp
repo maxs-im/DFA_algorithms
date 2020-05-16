@@ -10,8 +10,9 @@ struct generator_opts
 {
     /// \brief Number of states for the automaton
     uint32_t states = 0;
-    /// \brief Number of symbols in alphabet. Also, alphabet is [1, alphabet]
-    uint32_t alphabet = 0;
+    /// \brief Number of symbols in alphabet. Also, alphabet is [1, alphabet].
+    /// Such default value due to it does not affect calculation complexity
+    uint32_t alphabet = 1;
     /// \brief Number of generated trees for the transition table.
     uint32_t trees = 0;
     /// \brief Number of sets in final states container. Default value for NBA
