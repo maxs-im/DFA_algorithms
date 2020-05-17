@@ -12,7 +12,7 @@ automates::buchi proceed_data(const char* name)
 
     assert(fs.is_open() && "Can not open file for read!");
 
-    return utils::representation::construct_read(fs, true);
+    return utils::representation::construct_read(fs);
 }
 
 int main(int argc, char *argv[])
