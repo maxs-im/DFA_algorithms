@@ -1,11 +1,6 @@
 set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${DFA_BINARY_DIR})
 
-##################################### binalgo #####################################
-add_executable(binalgo bin_algo.cpp)
-target_link_libraries(binalgo PRIVATE BinaryAlgo)
-
 file(INSTALL
-        test.txt
         test_dfs.txt
         test_bfs.txt
     DESTINATION
