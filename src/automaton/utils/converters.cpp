@@ -2,19 +2,9 @@
 
 #include <queue>
 
-namespace utils::converters
-{
-using namespace automates;
-
-/// \namespace Anonymous namespace. Helpers with paired states
-namespace
-{
-
-/// \typedef helper for conversion
-using pr = std::pair<uint32_t, uint32_t>;
 /// \struct helper for using pairs in unordered structs
-// TODO: rewrite
-struct pr_hasher
+template<>
+struct std::hash<std::pair<uint32_t, uint32_t>>
 {
     std::size_t operator()(const std::pair<uint32_t, uint32_t> &pair) const
     {
@@ -25,17 +15,30 @@ struct pr_hasher
     }
 };
 
+namespace utils::converters
+{
+
+using namespace automates;
+
+/// \namespace Anonymous namespace. Helpers with paired states
+namespace
+{
+
+/// \typedef helper for conversion
+/// \note need to be the same with std::hash
+using pr = std::pair<uint32_t, uint32_t>;
+
 /// \brief Translate unique paired states into the numbered and constructs new NBA
 /// \param Q: all paired states
 /// \param Q0: initial paired state
 /// \param F: final states (one set) in paired states
 /// \param delta: transition table in paired states
 /// \return new NBA automaton (not generalized)
-buchi decode_paired_states(const std::unordered_set<pr, pr_hasher> &Q, const pr &Q0,
-                           const std::unordered_set<pr, pr_hasher> &F,
-                           const std::unordered_map<pr, std::unordered_map<pr, uint32_t, pr_hasher>, pr_hasher> &delta)
+buchi decode_paired_states(const std::unordered_set<pr> &Q, const pr &Q0,
+                           const std::unordered_set<pr> &F,
+                           const std::unordered_map<pr, std::unordered_map<pr, uint32_t>> &delta)
 {
-    std::unordered_map<pr, uint32_t, pr_hasher> dict;
+    std::unordered_map<pr, uint32_t> dict;
     dict.reserve(Q.size());
 
     uint32_t state_num = 0;
@@ -68,9 +71,9 @@ std::optional<buchi> nga2nba(const buchi& automat) noexcept
         return std::nullopt;
 
     // state and final state new containers
-    std::unordered_set<pr, pr_hasher> Q, F;
+    std::unordered_set<pr> Q, F;
     // container for the new transition table
-    std::unordered_map<pr, std::unordered_map<pr, uint32_t, pr_hasher>, pr_hasher> delta;
+    std::unordered_map<pr, std::unordered_map<pr, uint32_t>> delta;
     // new initial point
     pr Q0 {automates::buchi::INITIAL_STATE, 0};
 

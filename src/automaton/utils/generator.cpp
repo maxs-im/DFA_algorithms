@@ -43,7 +43,7 @@ automates::buchi::table_container generate_tree(const uint32_t states_num, const
         // generate edges for current state
         for (uint32_t i = 0; i <= edges && turn < stotage.size() - i; ++i)
         {
-            // Note: symbol may be overwritten during further tree merge
+            /// \note: symbol may be overwritten during further tree merge
             tree[stotage[turn]][stotage[turn + i]] = dist(rng);
         }
     }

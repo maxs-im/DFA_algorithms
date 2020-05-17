@@ -220,7 +220,7 @@ void print_statistic(const std::vector<emptiness_check::statistic::one_step>& st
         t.addRow(container);
     }
 
-    t.setAlignment( 2, TextTable::Alignment::RIGHT );
+    t.setAlignment( 0, TextTable::Alignment::RIGHT );
 
     *out << t;
 }

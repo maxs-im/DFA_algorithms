@@ -59,7 +59,7 @@ bool dfs(const uint32_t q, um &S, si &C, std::stack<uint32_t> &V, uint32_t& t, c
                     }
                     else
                     {
-                        // Note: may add 0 due to the NBA
+                        /// \note: may add 0 due to the NBA
                         if (automat.is_final(s))
                             return false; // NONEMPTY NBA
                     }

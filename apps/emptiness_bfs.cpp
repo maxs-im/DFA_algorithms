@@ -34,7 +34,8 @@ int main(int argc, char *argv[])
         std::cout << "Two stack on NGA: " << std::boolalpha << emerson::is_empty(inv_automat) << "\n";
     }
 
-    std::cout << nba_automat;
+    if (nba_automat)
+        std::cout << *nba_automat;
 
     return 0;
 }

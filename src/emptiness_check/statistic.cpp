@@ -181,7 +181,7 @@ one_step one_step_generation(const uint32_t repetition, const callbacks_handler<
 
 } // namespace anonymous
 
-// Note: need to hide template implementation
+/// \note: due to need to hide template implementation
 one_step emptiness_check::statistic::one_step_generation_dfs(const uint32_t repetition,
                             const callbacks_handler<automates::buchi> &callbacks) noexcept
 {

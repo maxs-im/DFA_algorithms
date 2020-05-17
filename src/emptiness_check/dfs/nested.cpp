@@ -63,7 +63,7 @@ bool dfs1(const uint32_t q, um& S, us& P, const automates::buchi &automat) noexc
                     return false;
             }
     }
-    // Note: better to add 0 due to NBA
+    /// \note: better to add 0 due to NBA
     if (automat.is_final(q))
         if (!dfs2(q, S, P, automat))
             return false;
