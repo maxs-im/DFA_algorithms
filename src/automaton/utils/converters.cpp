@@ -36,7 +36,7 @@ using pr = std::pair<uint32_t, uint32_t>;
 /// \return new NBA automaton (not generalized)
 buchi decode_paired_states(const std::unordered_set<pr> &Q, const pr &Q0,
                            const std::unordered_set<pr> &F,
-                           const std::unordered_map<pr, std::unordered_map<pr, uint32_t>> &delta)
+                           const std::unordered_map<pr, std::unordered_set<pr>> &delta)
 {
     std::unordered_map<pr, uint32_t> dict;
     dict.reserve(Q.size());
@@ -56,9 +56,9 @@ buchi decode_paired_states(const std::unordered_set<pr> &Q, const pr &Q0,
 
     buchi::table_container new_delta;
     new_delta.reserve(delta.size());
-    for (const auto& [old_st, map] : delta)
-        for (const auto& [new_st, sym] : map)
-            new_delta[dict[old_st]][dict[new_st]] = sym;
+    for (const auto& [old_st, set] : delta)
+        for (const auto& new_st : set)
+            new_delta[dict[old_st]].insert(dict[new_st]);
 
     return buchi({std::move(new_F) }, std::move(new_delta));
 }
@@ -73,7 +73,7 @@ std::optional<buchi> nga2nba(const buchi& automat) noexcept
     // state and final state new containers
     std::unordered_set<pr> Q, F;
     // container for the new transition table
-    std::unordered_map<pr, std::unordered_map<pr, uint32_t>> delta;
+    std::unordered_map<pr, std::unordered_set<pr>> delta;
     // new initial point
     pr Q0 {automates::buchi::INITIAL_STATE, 0};
 
@@ -92,7 +92,7 @@ std::optional<buchi> nga2nba(const buchi& automat) noexcept
             F.insert(pair);
 
         if (const auto &acceptor = automat.acceptable_transitions(q); acceptor)
-            for (const auto& [qt, a] : acceptor.value()->second)
+            for (const auto& qt : acceptor.value()->second)
             {
                 // generate either new or current states copy
                 pr new_pair {qt, automat.is_final(q, i) ? (i + 1) % automat.get_final_num_sets() : i};
@@ -100,7 +100,7 @@ std::optional<buchi> nga2nba(const buchi& automat) noexcept
                     W.push(new_pair);
 
                 // accepted state for current tracked state
-                delta[pair][new_pair] = a;
+                delta[pair].insert(new_pair);
             }
     }
 

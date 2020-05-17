@@ -19,9 +19,9 @@ std::optional<buchi::table_container::const_iterator> inv_buchi::acceptable_inv_
 buchi::table_container inv_buchi::inverse_trans_table(const buchi::table_container &trans_table) noexcept
 {
     table_container container;
-    for (const auto&[q, map] : trans_table)
-        for (const auto&[qt, sym] : map)
-            container[qt][q] = sym;
+    for (const auto&[q, set] : trans_table)
+        for (const auto& qt : set)
+            container[qt].insert(q);
 
     return std::move(container);
 }

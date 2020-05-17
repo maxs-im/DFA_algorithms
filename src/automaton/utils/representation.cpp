@@ -54,7 +54,7 @@ auto read_transition_table(std::istream &in) noexcept
     table.reserve(states);
     for (uint32_t st = 0; st < states; ++st)
     {
-        std::unordered_map<uint32_t, uint32_t> transitions; // transitions for current state
+        std::unordered_set<uint32_t> transitions; // transitions for current state
         transitions.reserve(states);
 
         for (uint32_t in_st = 0; in_st < states; ++in_st)
@@ -63,7 +63,7 @@ auto read_transition_table(std::istream &in) noexcept
             // read symbol
             in >> x;
             if (x == 0) continue;   // empty symbol. Ignore this transition
-            transitions.insert({ in_st, x });
+            transitions.insert(in_st);
         }
         if (!transitions.empty())
             table.insert({ st, transitions });
@@ -85,7 +85,7 @@ auto read_transition_table_paired(std::istream &in) noexcept
         uint32_t curr_st, symbol, next_st;
         in >> curr_st >> symbol >> next_st;
 
-        table[curr_st][next_st] = symbol;
+        table[curr_st].insert(next_st);
     }
 
     return std::move(table);
@@ -124,11 +124,11 @@ std::ostream& operator<<(std::ostream &out, const buchi &automaton)
     }
 
     // print transition table
-    for (const auto&[from, map] : automaton.m_trans_table)
+    for (const auto&[from, set] : automaton.m_trans_table)
     {
         out << "State " << from << " edges:\n";
-        for (const auto&[to, symbol] : map)
-            out << "\t -" << symbol << "-> " << to << '\n';
+        for (const auto& to : set)
+            out << "\t -> " <<  to << '\n';
     }
 
     return out;

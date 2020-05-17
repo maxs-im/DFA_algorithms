@@ -24,13 +24,13 @@ public:
     /// \typedef Container definition of the final states struct
     using finals_container = std::vector<std::unordered_set<uint32_t>>;
     /// \typedef Container definition of the transition table struct
-    using table_container = std::unordered_map<uint32_t, std::unordered_map<uint32_t, uint32_t>>;
+    using table_container = std::unordered_map<uint32_t, std::unordered_set<uint32_t>>;
     /// \typedef Container definition of the final set indexes
     using indexes_set = std::vector<uint32_t>;
 
     /// \brief Creates an Büchi object with simple input verification (by asserting)
     /// \param finals: a correct set of sets of final states
-    /// \param trans_table: a correct transition table (map<state, map<next_state, symbol>>)
+    /// \param trans_table: a correct transition table (map<state, set<next_state>>)
     explicit buchi(finals_container finals, table_container trans_table) noexcept;
 
     /// \brief Get number of final state
@@ -70,7 +70,6 @@ public:
 protected:
     /// \brief container for a set of accept states: f = {F0,..Fm}, Fi ⊆ Q
     const finals_container m_final_states = {};
-    /// \note symbol - 0 is EMPTY symbol
     /// \brief container for a transition function: δ: Q x Q → ∑
     const table_container m_trans_table = {};
 

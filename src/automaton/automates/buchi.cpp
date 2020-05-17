@@ -8,19 +8,11 @@ buchi::buchi(finals_container finals, table_container trans_table) noexcept
 {
     assert(!m_final_states.empty() && "Empty finals");
     for (const auto& set : m_final_states)
-    {
         assert(!set.empty() && "Empty final set");
-    }
+
     assert(!m_trans_table.empty() && "Empty transition table");
-    for (const auto& [curr_st, map] : m_trans_table)
-    {
-        assert(!map.empty() && "Empty transition map");
-        for (const auto& [next_st, symbol] : map)
-        {
-            // note: here we can collect/calculate alphabet
-            assert(symbol && "Empty symbol");
-        }
-    }
+    for (const auto& [curr_st, set] : m_trans_table)
+        assert(!set.empty() && "Empty transition map");
 }
 
 std::optional<buchi::table_container::const_iterator> buchi::acceptable_transitions(const uint32_t state) const noexcept

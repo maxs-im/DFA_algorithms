@@ -23,8 +23,6 @@ automates::buchi::table_container generate_tree(const uint32_t states_num, const
 
     std::random_device dev;
     std::mt19937 rng(dev());
-    // distribution for symbol selection from alphabet
-    std::uniform_int_distribution<uint32_t> dist(1, alphabet);
 
     // store states for visit. Where index - is a number of the turn and value is a state
     std::vector<uint32_t> stotage(states_num);
@@ -44,7 +42,7 @@ automates::buchi::table_container generate_tree(const uint32_t states_num, const
         for (uint32_t i = 0; i <= edges && turn < stotage.size() - i; ++i)
         {
             /// \note: symbol may be overwritten during further tree merge
-            tree[stotage[turn]][stotage[turn + i]] = dist(rng);
+            tree[stotage[turn]].insert(stotage[turn + i]);
         }
     }
 
@@ -94,9 +92,9 @@ automates::buchi utils::generator::generate_automaton(const generator_opts& opts
     {
         auto gt = generate_tree(opts.states, opts.alphabet, opts.edges, tree == 0);
         // merging trees
-        for (auto& [from, map] : gt)
-            for (auto& [to, symbol] : map)
-                transitions[from][to] = symbol;
+        for (auto& [from, set] : gt)
+            for (auto& to : set)
+                transitions[from].insert(to);
     }
 
     return automates::buchi(generate_finals(opts.states, opts.sets, opts.edges), std::move(transitions));

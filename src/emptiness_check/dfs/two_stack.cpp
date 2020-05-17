@@ -36,7 +36,7 @@ bool dfs(const uint32_t q, um &S, si &C, std::stack<uint32_t> &V, uint32_t& t, c
 
     if (const auto &acceptor = automat.acceptable_transitions(q); acceptor)
     {
-        for (const auto& [r, _] : acceptor.value()->second)
+        for (const auto& r : acceptor.value()->second)
             if (const auto &it_bits = S.find(r); it_bits == S.end())
             {
                 if (!dfs(r, S, C, V, t, automat))

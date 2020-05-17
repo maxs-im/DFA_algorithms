@@ -26,7 +26,7 @@ bool dfs2(const uint32_t q, um& S, us& P, const automates::buchi &automat) noexc
 
     if (const auto &acceptor = automat.acceptable_transitions(q); acceptor)
     {
-        for (const auto& [r, _] : acceptor.value()->second)
+        for (const auto& r : acceptor.value()->second)
         {
             if (P.find(r) != P.end())
                 return false; // NONEMPTY NBA
@@ -55,7 +55,7 @@ bool dfs1(const uint32_t q, um& S, us& P, const automates::buchi &automat) noexc
 
     if (const auto &acceptor = automat.acceptable_transitions(q); acceptor)
     {
-        for (const auto& [r, _] : acceptor.value()->second)
+        for (const auto& r : acceptor.value()->second)
             if (const auto &it_bits = S.find(r);
                     it_bits == S.end() || !it_bits->second.test(0))
             {
