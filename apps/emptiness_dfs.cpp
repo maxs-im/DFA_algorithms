@@ -74,7 +74,7 @@ Year: 2020\n\
 /// \struct options It store command line arguments
 struct options
 {
-    /// \brief TODO:
+    /// \brief enable generation mode. Also, value will repeat execution for each configured automaton
     uint8_t generator = 0;
     /// \brief Show info about this binary (programm)
     bool help = false;
@@ -83,7 +83,7 @@ struct options
     /// \brief Invokes Nested algorithm. We use Two-stack by default (because optimal)
     bool nested = false;
     /// \brief Input file name where we store interested automaton
-    std::string in_file = "";
+    std::string in_file = "test_dfs.txt";
     /// \brief Output file name where we will dump converted automaton (if will exist)
     std::string out_file = "dump.txt";
 };
@@ -230,9 +230,6 @@ void print_statistic(const std::vector<emptiness_check::statistic::one_step>& st
 /// \gen_opts: generation mode options
 void handle_generator_call(const options& opts, utils::generator::generator_opts gen_opts) noexcept
 {
-    if (!gen_opts.states)
-        gen_opts.states = 6;
-
     const emptiness_check::statistic::callbacks_handler<automates::buchi> callbacks = {
             .generation_fn = [&gen_opts]() { return utils::generator::generate_automaton(gen_opts); },
             .conv_fn = &utils::converters::nga2nba,

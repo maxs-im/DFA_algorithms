@@ -8,8 +8,8 @@ namespace utils::generator
 /// \struct Handle generator options to help with randomization and limitation of the output automaton size
 struct generator_opts
 {
-    /// \brief Number of states for the automaton
-    uint32_t states = 0;
+    /// \brief Number of states for the automaton. Random not very small default value
+    uint32_t states = 5;
     /// \brief Number of symbols in alphabet. Also, alphabet is [1, alphabet].
     /// Such default value due to it does not affect calculation complexity
     uint32_t alphabet = 1;
