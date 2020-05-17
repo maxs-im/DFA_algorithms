@@ -83,7 +83,7 @@ struct options
     /// \brief Invokes Nested algorithm. We use Two-stack by default (because optimal)
     bool nested = false;
     /// \brief Input file name where we store interested automaton
-    std::string in_file = "test_dfs.txt";
+    std::string in_file = "";
     /// \brief Output file name where we will dump converted automaton (if will exist)
     std::string out_file = "dump.txt";
 };
@@ -91,11 +91,11 @@ struct options
 /// \brief Read input automaton from file (if it exists) otherwise from console
 /// \param name: input file name
 /// \return automaton
-automates::buchi proceed_data(const char* name) noexcept
+automates::buchi proceed_data(const std::string& name) noexcept
 {
     std::istream *in = &std::cin;
     std::ifstream fs;
-    if (name)
+    if (!name.empty())
     {
         fs.open(name, std::fstream::in);
         if (!fs.is_open())
@@ -104,8 +104,8 @@ automates::buchi proceed_data(const char* name) noexcept
             in = &fs;
     }
 
-    auto automat = utils::representation::construct_read(*in, true);
-    std::cout << "Successfully read from " << name << " file\n";
+    auto automat = utils::representation::construct_read(*in);
+    std::cout << "Successfully read automaton\n";
     return automat;
 }
 
@@ -113,7 +113,7 @@ automates::buchi proceed_data(const char* name) noexcept
 /// \param automaton: automaton for the conversation
 /// \param name: output file name. Dumping will be ignored on incorrect file
 /// \return converted automaton or nullopt in case of redundant conversion
-std::optional<automates::buchi> proceed_conversion(const automates::buchi& automaton, const char* name) noexcept
+std::optional<automates::buchi> proceed_conversion(const automates::buchi& automaton, const std::string& name) noexcept
 {
     auto converted_automat = utils::converters::nga2nba(automaton);
     // no conversion is needed
@@ -122,7 +122,7 @@ std::optional<automates::buchi> proceed_conversion(const automates::buchi& autom
 
     std::cout << "Successfully converted to NGA\n";
 
-    if (name)
+    if (!name.empty())
     {
         std::ofstream fs(name, std::fstream::out);
         if (!fs.is_open())
@@ -141,10 +141,10 @@ std::optional<automates::buchi> proceed_conversion(const automates::buchi& autom
 /// \param opts: parsed command line options
 void handle_user_case_call(const options& opts) noexcept
 {
-    auto automaton = proceed_data(opts.in_file.c_str());
+    auto automaton = proceed_data(opts.in_file);
     // need to convert in case of Nested algorithm for NGA
     auto nba_automaton = (opts.nba || opts.nested) ?
-                          std::move(proceed_conversion(automaton, opts.out_file.c_str())) :
+                          std::move(proceed_conversion(automaton, opts.out_file)) :
                           std::nullopt;
 
     // Return reference on the work automaton (to prevent redundant copying)
@@ -164,11 +164,11 @@ void handle_user_case_call(const options& opts) noexcept
 /// \brief Print user-friendly statistic table
 /// \param stats: generated statistic
 /// \param name: out file name. Otherwise console will be used
-void print_statistic(const std::vector<emptiness_check::statistic::one_step>& stats, const char* name) noexcept
+void print_statistic(const std::vector<emptiness_check::statistic::one_step>& stats, const std::string& name) noexcept
 {
     std::ostream *out = &std::cout;
     std::ofstream fs;
-    if (name)
+    if (name.empty())
     {
         fs.open(name, std::fstream::out);
         if (!fs.is_open())
@@ -257,7 +257,7 @@ void handle_generator_call(const options& opts, utils::generator::generator_opts
         stats.emplace_back(statistic);
     }
 
-    print_statistic(stats, opts.out_file.c_str());
+    print_statistic(stats, opts.out_file);
 }
 
 /// \brief Program entry point: parsing arguments, running selected program mode

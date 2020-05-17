@@ -5,7 +5,7 @@
 #include <unordered_set>
 #include <optional>
 
-#include <iostream>
+#include <ostream>
 
 namespace automates
 {

@@ -2,7 +2,7 @@
 
 #include "automates/buchi.hpp"
 
-#include <istream>
+#include <iostream>
 
 namespace utils::representation
 {
@@ -19,15 +19,22 @@ auto read_final_states(std::istream &in) noexcept
     buchi::finals_container final_states;  // container for accept states
     uint32_t fs_num;    // number of sets
     // read number of sets
+    if (&in == &std::cin)
+        std::cout << "Enter number of final sets: ";
+    // read number of sets
     in >> fs_num;
     final_states.reserve(fs_num);
     for (; fs_num; --fs_num)
     {
         std::unordered_set<uint32_t> final_states_in_set;   // container for one accept set with final states
         uint32_t fs_set; // number of elements in current set
+        if (&in == &std::cin)
+            std::cout << "Enter amount of final states for new set: ";
         // read amount in current set
         in >> fs_set;
         final_states_in_set.reserve(fs_set);
+        if (&in == &std::cin)
+            std::cout << "Enter "<< fs_set << " numbers which will be your final states: ";
         for (; fs_set; --fs_set)
         {
             uint32_t x; // final state
@@ -42,48 +49,29 @@ auto read_final_states(std::istream &in) noexcept
     return std::move(final_states);
 }
 
-/// \brief Read trasition table in format Q x Q → ∑
-/// \param in: input stream
-/// \return container for the transition table (buchi::table_container)
-auto read_transition_table(std::istream &in) noexcept
-{
-    uint32_t states;    // number of unique states
-    in >> states;
-
-    buchi::table_container table; // container for transition table
-    table.reserve(states);
-    for (uint32_t st = 0; st < states; ++st)
-    {
-        std::unordered_set<uint32_t> transitions; // transitions for current state
-        transitions.reserve(states);
-
-        for (uint32_t in_st = 0; in_st < states; ++in_st)
-        {
-            uint32_t x; // symbol for transition from st to in_st
-            // read symbol
-            in >> x;
-            if (x == 0) continue;   // empty symbol. Ignore this transition
-            transitions.insert(in_st);
-        }
-        if (!transitions.empty())
-            table.insert({ st, transitions });
-    }
-
-    return std::move(table);
-}
-
-/// \brief Read input until EOF by three numbers: current state, symbol, acceptable state
+/// \brief Read input until EOF by two numbers: current state, acceptable state
 /// \param in: input stream
 /// \return container for final states (buchi::finals_container)
-auto read_transition_table_paired(std::istream &in) noexcept
+auto read_transition_table(std::istream &in) noexcept
 {
     buchi::table_container table; // container for transition table
 
-    while (!in.eof())
+    const bool is_console = &in == &std::cin;
+
+    uint32_t edges_num = 0;
+    if (is_console)
     {
-        // read current state with symbol that accepts new state
-        uint32_t curr_st, symbol, next_st;
-        in >> curr_st >> symbol >> next_st;
+        std::cout << "Enter how many edges will be in your automaton: ";
+        in >> edges_num;
+    }
+
+    while ((is_console && edges_num--) || (!is_console && !in.eof()))
+    {
+        if (is_console)
+            std::cout << "Enter a pair of vertexes [from, to]: ";
+        // read current state with acceptable new state
+        uint32_t curr_st, next_st;
+        in >> curr_st >> next_st;
 
         table[curr_st].insert(next_st);
     }
@@ -93,14 +81,12 @@ auto read_transition_table_paired(std::istream &in) noexcept
 
 } // namespace anonymous
 
-buchi construct_read(std::istream &in, const bool paired) noexcept
+buchi construct_read(std::istream &in) noexcept
 {
     // container for accept states
     auto final_states = read_final_states(in);
     // container for transition table
-    auto table = paired ?
-                 read_transition_table_paired(in) :
-                 read_transition_table(in);
+    auto table = read_transition_table(in);
 
     return buchi(std::move(final_states), std::move(table));
 }
@@ -109,27 +95,24 @@ buchi construct_read(std::istream &in, const bool paired) noexcept
 
 namespace automates
 {
-
+/// \note: Similar to user input
 std::ostream& operator<<(std::ostream &out, const buchi &automaton)
 {
-    const char *type = automaton.is_generalized() ? "NGA" : "NBA";
-    out << "\t" << type << " Automaton\n";
-
+    // print number of sets
+    out << automaton.m_final_states.size() << "\n";
     // print final sets
     for (size_t i = 0; i < automaton.m_final_states.size(); ++i, out << '\n')
     {
-        out << "Final set " << i << ": ";
+        // print number in set
+        out << automaton.m_final_states[i].size() << " ";
         for (const auto &it : automaton.m_final_states[i])
             out << it << " ";
     }
 
     // print transition table
     for (const auto&[from, set] : automaton.m_trans_table)
-    {
-        out << "State " << from << " edges:\n";
         for (const auto& to : set)
-            out << "\t -> " <<  to << '\n';
-    }
+            out << from << " " << to << '\n';
 
     return out;
 }
