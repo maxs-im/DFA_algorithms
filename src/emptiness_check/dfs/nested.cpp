@@ -6,9 +6,9 @@ namespace emptiness_check::dfs::nested
 {
 
 /// \typedef to storing DFS visiting info: <state, <first entrance bit, final state mark entrance>>
-using um = std::unordered_map<uint32_t, std::bitset<2>>;
+using um = std::unordered_map<automates::buchi::atm_size, std::bitset<2>>;
 /// \typedef to storing states of the path
-using us = std::unordered_set<uint32_t>;
+using us = std::unordered_set<automates::buchi::atm_size>;
 
 /// \namespace Anonymous namespace. Helpers with DFS steps
 namespace
@@ -20,13 +20,13 @@ namespace
 /// \param[in,out] P: current story of the state of the path
 /// \param automat: investigated automat
 /// \return true if we have to continue investigation
-bool dfs2(const uint32_t q, um& S, us& P, const automates::buchi &automat) noexcept
+bool dfs2(const automates::buchi::atm_size q, um& S, const us& P, const automates::buchi &automat) noexcept
 {
     S[q].set(1);
 
-    if (const auto &acceptor = automat.acceptable_transitions(q); acceptor)
+    if (const auto &set = automat.acceptable_transitions(q); set)
     {
-        for (const auto& r : acceptor.value()->second)
+        for (const auto& r : set.value().get())
         {
             if (P.find(r) != P.end())
                 return false; // NONEMPTY NBA
@@ -48,14 +48,14 @@ bool dfs2(const uint32_t q, um& S, us& P, const automates::buchi &automat) noexc
 /// \param[in,out] P: current story of the state of the path
 /// \param automat: investigated automat
 /// \return true if we have to continue investigation
-bool dfs1(const uint32_t q, um& S, us& P, const automates::buchi &automat) noexcept
+bool dfs1(const automates::buchi::atm_size q, um& S, us& P, const automates::buchi &automat) noexcept
 {
     S[q].set(0);
     P.insert(q);
 
-    if (const auto &acceptor = automat.acceptable_transitions(q); acceptor)
+    if (const auto &set = automat.acceptable_transitions(q); set)
     {
-        for (const auto& r : acceptor.value()->second)
+        for (const auto& r : set.value().get())
             if (const auto &it_bits = S.find(r);
                     it_bits == S.end() || !it_bits->second.test(0))
             {

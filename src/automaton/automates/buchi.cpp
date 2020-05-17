@@ -15,15 +15,16 @@ buchi::buchi(finals_container finals, table_container trans_table) noexcept
         assert(!set.empty() && "Empty transition map");
 }
 
-std::optional<buchi::table_container::const_iterator> buchi::acceptable_transitions(const uint32_t state) const noexcept
+std::optional<std::reference_wrapper<const std::unordered_set<buchi::atm_size>>> buchi::acceptable_transitions(
+        const atm_size state) const noexcept
 {
     if (auto iter = m_trans_table.find(state); iter != m_trans_table.end())
-        return iter;
+        return iter->second;
 
     return std::nullopt;
 }
 
-bool buchi::is_final(const uint32_t state, const std::optional<uint32_t> set_num) const noexcept
+bool buchi::is_final(const atm_size state, const std::optional<atm_size> set_num) const noexcept
 {
     if (set_num)
     {
@@ -40,12 +41,12 @@ bool buchi::is_final(const uint32_t state, const std::optional<uint32_t> set_num
     return false;
 }
 
-buchi::indexes_set buchi::indexes_final_sets(const uint32_t state) const noexcept
+buchi::indexes_set buchi::indexes_final_sets(const atm_size state) const noexcept
 {
     indexes_set res;
     res.reserve(m_final_states.size());
 
-    for (uint32_t i = 0; i < m_final_states.size(); ++i)
+    for (atm_size i = 0; i < m_final_states.size(); ++i)
         if (m_final_states[i].find(state) != m_final_states[i].end())
             res.push_back(i);
 

@@ -17,7 +17,7 @@ namespace
 auto read_final_states(std::istream &in) noexcept
 {
     buchi::finals_container final_states;  // container for accept states
-    uint32_t fs_num;    // number of sets
+    buchi::atm_size fs_num;    // number of sets
     // read number of sets
     if (&in == &std::cin)
         std::cout << "Enter number of final sets: ";
@@ -26,8 +26,8 @@ auto read_final_states(std::istream &in) noexcept
     final_states.reserve(fs_num);
     for (; fs_num; --fs_num)
     {
-        std::unordered_set<uint32_t> final_states_in_set;   // container for one accept set with final states
-        uint32_t fs_set; // number of elements in current set
+        std::unordered_set<buchi::atm_size> final_states_in_set;   // container for one accept set with final states
+        buchi::atm_size fs_set; // number of elements in current set
         if (&in == &std::cin)
             std::cout << "Enter amount of final states for new set: ";
         // read amount in current set
@@ -37,7 +37,7 @@ auto read_final_states(std::istream &in) noexcept
             std::cout << "Enter "<< fs_set << " numbers which will be your final states: ";
         for (; fs_set; --fs_set)
         {
-            uint32_t x; // final state
+            buchi::atm_size x; // final state
             // read final state
             in >> x;
             final_states_in_set.insert(x);
@@ -58,7 +58,7 @@ auto read_transition_table(std::istream &in) noexcept
 
     const bool is_console = &in == &std::cin;
 
-    uint32_t edges_num = 0;
+    buchi::atm_size edges_num = 0;
     if (is_console)
     {
         std::cout << "Enter how many edges will be in your automaton: ";
@@ -70,7 +70,7 @@ auto read_transition_table(std::istream &in) noexcept
         if (is_console)
             std::cout << "Enter a pair of vertexes [from, to]: ";
         // read current state with acceptable new state
-        uint32_t curr_st, next_st;
+        buchi::atm_size curr_st, next_st;
         in >> curr_st >> next_st;
 
         table[curr_st].insert(next_st);

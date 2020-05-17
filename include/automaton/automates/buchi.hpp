@@ -17,16 +17,19 @@ public:
     buchi() = delete;
     buchi& operator=(const buchi&) = delete;
 
+    /// \typedef Automation size limitation
+    using atm_size = uint32_t;
+
     /// \brief an initial or start state: q0 ∈ Q
     /// \note Use NULL as default for all automates
-    static constexpr uint32_t INITIAL_STATE = 0;
+    static constexpr atm_size INITIAL_STATE = 0;
 
     /// \typedef Container definition of the final states struct
-    using finals_container = std::vector<std::unordered_set<uint32_t>>;
+    using finals_container = std::vector<std::unordered_set<atm_size>>;
     /// \typedef Container definition of the transition table struct
-    using table_container = std::unordered_map<uint32_t, std::unordered_set<uint32_t>>;
+    using table_container = std::unordered_map<atm_size, std::unordered_set<atm_size>>;
     /// \typedef Container definition of the final set indexes
-    using indexes_set = std::vector<uint32_t>;
+    using indexes_set = std::vector<atm_size>;
 
     /// \brief Creates an Büchi object with simple input verification (by asserting)
     /// \param finals: a correct set of sets of final states
@@ -35,7 +38,7 @@ public:
 
     /// \brief Get number of final state
     /// \return size of @m_final_states
-    [[nodiscard]] uint32_t get_final_num_sets() const noexcept { return m_final_states.size(); }
+    [[nodiscard]] atm_size get_final_num_sets() const noexcept { return m_final_states.size(); }
 
     /// \brief Check if this is Generalized Büchi automaton
     /// \return true if is NGA (more than one set of acceptable states)
@@ -43,21 +46,23 @@ public:
 
     /// \brief Get dictionary (map) of possible transitions for the current state
     /// \param state: automaton state of interest
-    /// \return map <success state -> symbol to apply>
-    [[nodiscard]] std::optional<table_container::const_iterator> acceptable_transitions(uint32_t state) const noexcept;
+    /// \return set of acceptable states
+    [[nodiscard]]
+    std::optional<std::reference_wrapper<const std::unordered_set<atm_size>>> acceptable_transitions(
+                                         atm_size state) const noexcept;
 
     /// \brief Check if input number is an accept/final state
     /// \note May be a misunderstanding for NGA
     /// \param state: automaton state
     /// \param set_num: specify final set number. By default check in all
     /// \return whether state belongs to @m_final_states
-    [[nodiscard]] bool is_final(uint32_t state, std::optional<uint32_t> set_num = std::nullopt) const noexcept;
+    [[nodiscard]] bool is_final(atm_size state, std::optional<atm_size> set_num = std::nullopt) const noexcept;
 
     /// \brief Denotes the set of all indices i ∈ K such that state ∈ Fi
     /// \note Sorted ascending and unique
     /// \param state: automaton state
     /// \return Sorted ascending and unique vector of @m_final_states indexes that contain according state
-    [[nodiscard]] indexes_set indexes_final_sets(uint32_t state) const noexcept;
+    [[nodiscard]] indexes_set indexes_final_sets(atm_size state) const noexcept;
 
     /// \brief Simple and user-friendly Büchi automaton representation
     ///     "-NUM->" - means NUM symbol for acceptable transition

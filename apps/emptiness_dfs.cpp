@@ -75,7 +75,7 @@ Year: 2020\n\
 struct options
 {
     /// \brief enable generation mode. Also, value will repeat execution for each configured automaton
-    uint8_t generator = 0;
+    automates::buchi::atm_size generator = 0;
     /// \brief Show info about this binary (programm)
     bool help = false;
     /// \brief Works only with NBA (converts NGA if needed)
@@ -184,7 +184,7 @@ void print_statistic(const std::vector<emptiness_check::statistic::one_step>& st
     for (auto& stat : stats)
     {
         using namespace emptiness_check::statistic;
-        auto create_word = [](std::optional<uint32_t> num, const call_durration& durr)
+        auto create_word = [](std::optional<automates::buchi::atm_size> num, const call_durration& durr)
         {
             return std::to_string(durr.count()) + "ms" + (num ? " (" + std::to_string(*num) + ")" : "");
         };
@@ -243,8 +243,9 @@ void handle_generator_call(const options& opts, utils::generator::generator_opts
     };
 
     std::vector<emptiness_check::statistic::one_step> stats;
-    auto max_opt_states = std::min(gen_opts.states, 9u);
-    for (uint32_t i = 0; i <= max_opt_states; ++i)
+    // No sense take bigger. UINTMAX < 10^10
+    auto max_opt_states = std::min(static_cast<uint32_t>(gen_opts.states), 9u);
+    for (automates::buchi::atm_size i = 0; i <= max_opt_states; ++i)
     {
         // note to update opts (reference inside generator callback)
         gen_opts.states = std::pow(10, i);

@@ -49,14 +49,12 @@ time_call(std::function<T()> fn) noexcept
 template<typename T>
 one_call calculation(const callbacks_handler<T> &callbacks) noexcept
 {
-
     // run generation
     auto[gen_durr, automaton] = time_call<T>(callbacks.generation_fn);
     // run conversion
     auto[conv_durr, nba_automaton] = time_call<std::optional<T>>(
             [&conv_fn = callbacks.conv_fn, &at = automaton]() { return conv_fn(at); }
     );
-
     // To prevent copying NBA->NBA
     auto get_worker = [&automaton = automaton, &opt_nba = nba_automaton]() -> const T &
     {
@@ -89,7 +87,8 @@ one_call calculation(const callbacks_handler<T> &callbacks) noexcept
 ///                                 due to only NBA generation)
 /// \param one_run: invariable result during the calculation (local statistic)
 /// \return true if answers are not equal -> need to report this information
-bool one_run_algorithms_gather(std::vector<std::pair<uint32_t, call_durration>> &common, uint32_t &common_counter,
+bool one_run_algorithms_gather(std::vector<std::pair<automates::buchi::atm_size, call_durration>> &common,
+                               automates::buchi::atm_size &common_counter,
                                const std::vector<std::pair<call_durration, bool>> &one_run
 ) noexcept
 {
@@ -127,14 +126,15 @@ bool one_run_algorithms_gather(std::vector<std::pair<uint32_t, call_durration>> 
 /// \param callbacks: callbacks to proceed automaton
 /// \return averaged statistic
 template<typename T>
-one_step one_step_generation(const uint32_t repetition, const callbacks_handler<T> &callbacks) noexcept
+one_step one_step_generation(const automates::buchi::atm_size repetition,
+                             const callbacks_handler<T> &callbacks) noexcept
 {
     one_step result{};
     result.repetition = repetition;
 
-    uint32_t nba_calls_counter = 0,
-            nga_calls_counter = 0;
-    for (uint32_t i = 0; i < result.repetition; ++i)
+    automates::buchi::atm_size nba_calls_counter = 0,
+                               nga_calls_counter = 0;
+    for (automates::buchi::atm_size i = 0; i < result.repetition; ++i)
     {
         // calculation call
         one_call run_result = calculation(callbacks);
@@ -182,7 +182,7 @@ one_step one_step_generation(const uint32_t repetition, const callbacks_handler<
 } // namespace anonymous
 
 /// \note: due to need to hide template implementation
-one_step emptiness_check::statistic::one_step_generation_dfs(const uint32_t repetition,
+one_step emptiness_check::statistic::one_step_generation_dfs(const automates::buchi::atm_size repetition,
                             const callbacks_handler<automates::buchi> &callbacks) noexcept
 {
     return one_step_generation(repetition, callbacks);

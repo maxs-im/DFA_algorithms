@@ -27,18 +27,18 @@ struct callbacks_handler
 struct one_step
 {
     /// \brief Future automaton states number
-    uint32_t states = 0;
+    automates::buchi::atm_size states = 0;
     /// \brief Number how many times will we repeat generation
-    uint32_t repetition = 0;
+    automates::buchi::atm_size repetition = 0;
     /// \brief Collect average time for the called conversions <number, time>
-    std::pair<uint32_t, call_durration> average_conversion = {};
+    std::pair<automates::buchi::atm_size, call_durration> average_conversion = {};
     /// \brief Average one automaton generation time
     call_durration average_generation = call_durration::zero();
 
     /// \brief Collect algorithms answers positime (is_empty = true) with their average time calculation
-    std::vector<std::pair<uint32_t, call_durration>> average_nba = {};
+    std::vector<std::pair<automates::buchi::atm_size, call_durration>> average_nba = {};
     /// \brief Collect algorithms answers positime (is_empty = true) with their average time calculation
-    std::vector<std::pair<uint32_t, call_durration>> average_nga = {};
+    std::vector<std::pair<automates::buchi::atm_size, call_durration>> average_nga = {};
 
     /// \brief Store algorithms answers for particular generated automaton.
     /// Only where all outputs (NGA/NBA + all algortithms) are not similar
@@ -49,6 +49,7 @@ struct one_step
 /// \param repetition: number of re-creation and collecting data from almost similar. To get average stats
 /// \param callbacks: callbacks that will be tracked on each call
 /// \return statistic for particular configured automaton
-one_step one_step_generation_dfs(uint32_t repetition, const callbacks_handler<automates::buchi> &callbacks) noexcept;
+one_step one_step_generation_dfs(automates::buchi::atm_size repetition,
+                                 const callbacks_handler<automates::buchi> &callbacks) noexcept;
 
 } // namespace emptiness_check::statistic

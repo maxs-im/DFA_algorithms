@@ -21,12 +21,14 @@ int main(int argc, char *argv[])
     const char* name = "test_bfs.txt";
 
     auto automat = proceed_data(name);
-    const auto nba_automat = automat.is_generalized() ?
-                             utils::converters::nga2nba(automat) :
-                             automat;
+    auto nba_automat = utils::converters::nga2nba(automat);
+
+    // Return reference on the work automaton (to prevent redundant copying)
+    auto get_worker = [&automat, &nba_automat]() -> auto&
+        { return nba_automat ? *nba_automat : automat; };
 
     // TODO: Example of use
-    automates::inv_buchi inv_automat(std::move(automat));
+    automates::inv_buchi inv_automat(std::move(get_worker()));
 
     std::cout << "Emerson: " << std::boolalpha << emerson::is_empty(inv_automat) << "\n";
     if (inv_automat.is_generalized())

@@ -3,13 +3,15 @@
 #include <stack>
 #include <algorithm>
 
+#include <iostream>
+
 namespace emptiness_check::dfs::two_stack
 {
 
 /// \typedef to storing DFS visiting info: <state <V entrance, discovery time>>
-using um = std::unordered_map<uint32_t, std::pair<bool, uint32_t>>;
+using um = std::unordered_map<automates::buchi::atm_size, std::pair<bool, automates::buchi::atm_size>>;
 /// \typedef to storing set of candidates: <state, final indexes set for the state>
-using si = std::stack<std::pair<uint32_t, automates::buchi::indexes_set>>;
+using si = std::stack<std::pair<automates::buchi::atm_size, automates::buchi::indexes_set>>;
 
 /// \namespace Anonymous namespace. Helpers with DFS steps
 namespace
@@ -26,7 +28,8 @@ namespace
 /// \param[in,out] t: timestamps for the states
 /// \param automat: investigated automat
 /// \return true if we have to continue investigation
-bool dfs(const uint32_t q, um &S, si &C, std::stack<uint32_t> &V, uint32_t& t, const automates::buchi &automat)
+bool dfs(const automates::buchi::atm_size q, um &S, si &C, std::stack<automates::buchi::atm_size> &V,
+         automates::buchi::atm_size& t, const automates::buchi &automat) noexcept
 {
     const bool is_nga = automat.is_generalized();
     // To not calculate without a reason indexes set
@@ -34,9 +37,9 @@ bool dfs(const uint32_t q, um &S, si &C, std::stack<uint32_t> &V, uint32_t& t, c
     V.push(q);
     S[q] = { true, ++t };
 
-    if (const auto &acceptor = automat.acceptable_transitions(q); acceptor)
+    if (const auto &set = automat.acceptable_transitions(q); set)
     {
-        for (const auto& r : acceptor.value()->second)
+        for (const auto& r : set.value().get())
             if (const auto &it_bits = S.find(r); it_bits == S.end())
             {
                 if (!dfs(r, S, C, V, t, automat))
@@ -45,7 +48,7 @@ bool dfs(const uint32_t q, um &S, si &C, std::stack<uint32_t> &V, uint32_t& t, c
             else if (it_bits->second.first)
             {
                 automates::buchi::indexes_set I{};
-                uint32_t s;
+                automates::buchi::atm_size s;
                 do {
                     const auto& [s_top, J] = C.top();
                     s = s_top;
@@ -73,7 +76,7 @@ bool dfs(const uint32_t q, um &S, si &C, std::stack<uint32_t> &V, uint32_t& t, c
     if (const auto& [c_q, _] = C.top(); c_q == q)
     {
         C.pop();
-        uint32_t s;
+        automates::buchi::atm_size s;
         do {
             s = V.top();
             V.pop();
@@ -87,12 +90,12 @@ bool dfs(const uint32_t q, um &S, si &C, std::stack<uint32_t> &V, uint32_t& t, c
 
 } // namespace anonymous
 
-bool is_empty(const automates::buchi &automat)
+bool is_empty(const automates::buchi &automat) noexcept
 {
     um S;
     si C;
-    std::stack<uint32_t> V;
-    uint32_t t = 0;
+    std::stack<automates::buchi::atm_size> V;
+    automates::buchi::atm_size t = 0;
 
     return dfs(automates::buchi::INITIAL_STATE, S, C, V, t, automat);
 }

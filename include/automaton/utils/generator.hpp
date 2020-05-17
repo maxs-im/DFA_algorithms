@@ -9,20 +9,20 @@ namespace utils::generator
 struct generator_opts
 {
     /// \brief Number of states for the automaton. Random not very small default value
-    uint32_t states = 5;
+    automates::buchi::atm_size states = 5;
     /// \brief Number of symbols in alphabet. Also, alphabet is [1, alphabet].
     /// Such default value due to it does not affect calculation complexity
-    uint32_t alphabet = 1;
+    automates::buchi::atm_size alphabet = 1;
     /// \brief Number of generated trees for the transition table.
     /// Default value is a minimal for really similar table
-    uint32_t trees = 2;
+    automates::buchi::atm_size trees = 2;
     /// \brief Number of sets in final states container.
     /// Default value for NBA
-    uint32_t sets = 2;
+    automates::buchi::atm_size sets = 2;
     /// \brief Number of the edges for each (not leaf and not pre-leaf) vertex in the tree.
     /// Default value for binary tree
     /// \note: +1 for self-cycle
-    uint32_t edges = 2;
+    automates::buchi::atm_size edges = 2;
 };
 
 /// \brief Generate random Buchi automaton. Emptiness will cause assertion

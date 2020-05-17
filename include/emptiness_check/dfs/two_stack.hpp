@@ -12,6 +12,6 @@ namespace emptiness_check::dfs::two_stack
 /// the currently grey states that do not belong to any cycle of At.
 /// \param automat: investigated automaton
 /// \return false if it finds at least one (first) lasso
-bool is_empty(const automates::buchi &automat);
+bool is_empty(const automates::buchi &automat) noexcept;
 
 } // namespace emptiness_check::dfs::two_stack
