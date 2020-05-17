@@ -18,9 +18,10 @@ struct generator_opts
     uint32_t trees = 2;
     /// \brief Number of sets in final states container.
     /// Default value for NBA
-    uint32_t sets = 1;
+    uint32_t sets = 2;
     /// \brief Number of the edges for each (not leaf and not pre-leaf) vertex in the tree.
     /// Default value for binary tree
+    /// Note: +1 for self-cycle
     uint32_t edges = 2;
 };
 

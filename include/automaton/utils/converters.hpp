@@ -5,10 +5,9 @@
 namespace utils::converters
 {
 
-/// \brief Conversion operation for NGA to NBA automatons
-/// \note Will create a copy in case of NBA input
+/// \brief Conversion operation from NGA to NBA automaton
 /// \param automat: NGA automaton
-/// \return NBA automaton
-automates::buchi nga2nba(const automates::buchi& automat) noexcept;
+/// \return NBA automaton or nullopt if @automat is already NBA
+std::optional<automates::buchi> nga2nba(const automates::buchi& automat) noexcept;
 
 } // namespace utils::converters

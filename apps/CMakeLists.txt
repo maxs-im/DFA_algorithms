@@ -17,5 +17,5 @@ add_executable(emptiness_dfs emptiness_dfs.cpp LightweightParsingCMD.hpp)
 target_link_libraries(emptiness_dfs PRIVATE EmptinessCheck)
 
 ##################################### emptiness_bfs #####################################
-add_executable(emptiness_bfs emptiness_bfs.cpp LightweightParsingCMD.hpp)
+add_executable(emptiness_bfs emptiness_bfs.cpp LightweightParsingCMD.hpp TextTable.h)
 target_link_libraries(emptiness_bfs PRIVATE EmptinessCheck)

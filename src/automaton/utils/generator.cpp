@@ -41,7 +41,7 @@ automates::buchi::table_container generate_tree(const uint32_t states_num, const
     for (uint32_t turn = 0; turn < max_turns; ++turn)
     {
         // generate edges for current state
-        for (uint32_t i = 1; i <= edges && turn < stotage.size() - i; ++i)
+        for (uint32_t i = 0; i <= edges && turn < stotage.size() - i; ++i)
         {
             // Note: symbol may be overwritten during further tree merge
             tree[stotage[turn]][stotage[turn + i]] = dist(rng);
@@ -67,7 +67,8 @@ automates::buchi::finals_container generate_finals(const uint32_t states_num, co
     std::mt19937 rng(dev());
 
     // Some manual decrease for maximum final states number per set
-    std::uniform_int_distribution<uint32_t> dist_set(1, states_num / set_num / ratio);
+    std::uniform_int_distribution<uint32_t> dist_set(1,
+            std::max(static_cast<double>(states_num) / set_num / ratio, 1.0));
     // Distribution for final states
     std::uniform_int_distribution<uint32_t> dist(0, states_num - 1);
     automates::buchi::finals_container finals(set_num);

@@ -62,10 +62,10 @@ buchi decode_paired_states(const std::unordered_set<pr, pr_hasher> &Q, const pr 
 
 } // namespace anonymous
 
-buchi nga2nba(const buchi& automat) noexcept
+std::optional<buchi> nga2nba(const buchi& automat) noexcept
 {
     if (!automat.is_generalized())
-        return automat;
+        return std::nullopt;
 
     // state and final state new containers
     std::unordered_set<pr, pr_hasher> Q, F;
