@@ -16,6 +16,14 @@
 #include "LightweightParsingCMD.hpp"
 #include "TextTable.h"
 
+/// \brief Author info
+constexpr static const char* AUTHOR_TEXT = "\
+\n\
+Author: Maksym Halchenko\n\
+    Github: @maxs-im\n\
+Year: 2020\n\
+\n";
+
 /// \brief Program calculation mode description
 constexpr static const char* INFO_TEXT = "\
 Emptiness check: Algorithms based on depth-first search \n\
@@ -31,18 +39,14 @@ The AIM of the program is to answer if A is nonempty and if it has an accepting 
 \n\
 'emptiness_dfs' usage:\n\
 \n\
---generator     [number > 0]    enable generation mode. See more info by calling it with help parameter;\n\
---help          [NONE/bool]     Show info about this binary (programm);\n\
---nba           [NONE/bool]     Works only with NBA (converts NGA if needed);\n\
---nested        [NONE/bool]     Invokes Nested algorithm. We use Two-stack by default (because optimal);\n\
---in_file       [text]          Input file name where we store interested automaton;\n\
---out_file      [text]          Output file name where we will dump converted automaton (if will exist);\n\
+--generator         [number > 0]    enable generation mode. See more info by calling it with help parameter;\n\
+--help              [NONE/bool]     Show info about this binary (programm);\n\
+--nba               [NONE/bool]     Works only with NBA (converts NGA if needed);\n\
+--non_optimal_only  [NONE/bool]     Invokes Nested algorithm. We use Two-stack by default (because optimal);\n\
+--in_file           [text]          Input file name where we store interested automaton;\n\
+--out_file          [text]          Output file name where we will dump converted automaton (if will exist);\n\
 ************************\n\
 Return true or false for selected algorithm\n\
-\n\
-Author: Maksym Halchenko\n\
-    Github: @maxs-im\n\
-Year: 2020\n\
 \n";
 
 /// \brief Program generate mode description
@@ -64,10 +68,6 @@ There are some additional parameteres to work with generation mode. \n\
                                     Default value for binary tree (2);\n\
 --out_file      [text]          Output file name where we will dump generated information;\n\
 ************************\n\
-\n\
-Author: Maksym Halchenko\n\
-    Github: @maxs-im\n\
-Year: 2020\n\
 \n";
 
 /// \struct options It store command line arguments
@@ -80,7 +80,7 @@ struct options
     /// \brief Works only with NBA (converts NGA if needed)
     bool nba = false;
     /// \brief Invokes Nested algorithm. We use Two-stack by default (because optimal)
-    bool nested = false;
+    bool non_optimal_only = false;
     /// \brief Input file name where we store interested automaton
     std::string in_file = "test_dfs.txt";
     /// \brief Output file name where we will dump converted automaton (if will exist)
@@ -142,7 +142,7 @@ void handle_user_case_call(const options& opts) noexcept
 {
     auto automaton = proceed_data(opts.in_file);
     // need to convert in case of Nested algorithm for NGA
-    auto nba_automaton = (opts.nba || opts.nested) ?
+    auto nba_automaton = (opts.nba || opts.non_optimal_only) ?
                           std::move(proceed_conversion(automaton, opts.out_file)) :
                           std::nullopt;
 
@@ -153,11 +153,25 @@ void handle_user_case_call(const options& opts) noexcept
 
     using namespace emptiness_check::dfs;
     std::cout << std::boolalpha << "...\n";
-    if (opts.nested)
+    if (opts.non_optimal_only)
         std::cout << "Nested: " << nested::is_empty(get_worker()) << "\n";
     else
         std::cout << "Two-stack (" << (get_worker().is_generalized() ? "NGA" : "NBA") << "): " <<
                   two_stack::is_empty(get_worker()) << "\n";
+}
+
+/// \brief Print what and how we decide to generate
+/// \param repetitions: number of re-running procedure for !one automaton
+/// \param gen_opts: generation mode options
+void print_generator_info(const automates::buchi::atm_size repetitions,
+                          const utils::generator::generator_opts &opts) noexcept
+{
+    std::cout << "Generator will invoke " << repetitions << " for each instance of automaton (average calculation).\n"
+        "\tWill be produced " << opts.states << " different generations for 10^0 to 10^" << opts.states <<
+        "states per generation.\n\tEach automaton will have " << opts.sets << " sets of final states.\n\tWith maximum"
+        " states / sets / edges = " << std::max(static_cast<double>(opts.states) / opts.sets / opts.edges, 1.0) <<
+        " final states inside.\n\tAutomaton \"complexity\" is approximately " << opts.trees << " merged "<<
+        opts.edges << "-trees.\n";
 }
 
 /// \brief Print user-friendly statistic table
@@ -224,37 +238,76 @@ void print_statistic(const std::vector<emptiness_check::statistic::one_step>& st
     *out << t;
 }
 
-/// \brief Handle generation logic for user
-/// \opts: options from the main(default or calculation) mode
-/// \gen_opts: generation mode options
-void handle_generator_call(const options& opts, utils::generator::generator_opts gen_opts) noexcept
+/// \brief Initialize callbacks for generation
+/// \param opts: generation options that will be passed for appropriate callback
+/// \return callbacks handler object
+inline emptiness_check::statistic::callbacks_handler<automates::buchi> intialize_callbacks(
+        const utils::generator::generator_opts &opts) noexcept
 {
-    const emptiness_check::statistic::callbacks_handler<automates::buchi> callbacks = {
-            .generation_fn = [&gen_opts]() { return utils::generator::generate_automaton(gen_opts); },
-            .conv_fn = &utils::converters::nga2nba,
-            .nba_algorithms = {
-                    &emptiness_check::dfs::nested::is_empty,
-                    &emptiness_check::dfs::two_stack::is_empty
-            },
-            .nga_algorithms = {
-                    &emptiness_check::dfs::two_stack::is_empty
-            }
+    return {
+        .generation_fn = [&opts]() { return utils::generator::generate_automaton(opts); },
+        .conv_fn = &utils::converters::nga2nba,
+        .nba_algorithms = {
+                &emptiness_check::dfs::nested::is_empty,
+                &emptiness_check::dfs::two_stack::is_empty
+        },
+        .nga_algorithms = {
+                &emptiness_check::dfs::two_stack::is_empty
+        }
     };
+}
 
+/// \brief Run generation with provided parameters
+/// \note Initialize callback logic
+/// \param repetitions: number of re-running procedure for !one automaton
+/// \param gen_opts: generation mode options
+/// \return gather statistic for all stages
+std::vector<emptiness_check::statistic::one_step> run_generator(const automates::buchi::atm_size repetitions,
+        utils::generator::generator_opts gen_opts) noexcept
+{
+    const auto max_opt_states = gen_opts.states;
     std::vector<emptiness_check::statistic::one_step> stats;
-    // No sense take bigger. UINTMAX < 10^10
-    auto max_opt_states = std::min(static_cast<uint32_t>(gen_opts.states), 9u);
+    stats.reserve(max_opt_states);
+
     for (automates::buchi::atm_size i = 0; i <= max_opt_states; ++i)
     {
-        // note to update opts (reference inside generator callback)
+        /// \note need to update gen_opts (reference inside generator callback)
         gen_opts.states = std::pow(10, i);
-        auto statistic = one_step_generation_dfs(opts.generator, callbacks);
+        auto statistic = one_step_generation_dfs(repetitions, intialize_callbacks(gen_opts));
         statistic.states = gen_opts.states;
 
         stats.emplace_back(statistic);
+        std::cout << "Generation of a " << statistic.states << " states completed\n";
     }
 
-    print_statistic(stats, opts.out_file);
+    return stats;
+}
+
+/// \brief Handle generation logic for user
+/// \param repetitions: number of re-running procedure for !one automaton
+/// \param opts: generation mode options
+/// \param file_name: output file name
+void handle_generator_case_call(const automates::buchi::atm_size repetitions,
+                                const utils::generator::generator_opts &opts, const std::string& file_name) noexcept
+{
+    print_generator_info(repetitions, opts);
+
+    std::vector<emptiness_check::statistic::one_step> statistics;
+    // pinpoint generation time
+    std::chrono::duration<double> durration = std::chrono::duration<double>::zero();
+    {
+        using namespace std::chrono;
+        // starting timepoint
+        auto start = high_resolution_clock::now();
+        statistics = run_generator(repetitions, opts);
+        // ending timepoint
+        auto stop = high_resolution_clock::now();
+
+        durration = duration_cast<minutes>(stop - start);
+    }
+    print_statistic(statistics, file_name);
+    // TODO: fix and check time
+    std::cout << "Execution took " << durration.count() << " minutes\n";
 }
 
 /// \brief Program entry point: parsing arguments, running selected program mode
@@ -269,7 +322,7 @@ int main(int argc, const char *argv[])
         {"--generator", &options::generator},
         {"--help", &options::help},
         {"--nba", &options::nba},
-        {"--nested", &options::nested},
+        {"--non_optimal_only", &options::non_optimal_only},
         {"--in_file", &options::in_file},
         {"--out_file", &options::out_file},
     });
@@ -278,7 +331,7 @@ int main(int argc, const char *argv[])
     if (opts.generator)
     {
         if (opts.help)
-            std::cout << GENERATE_INFO_TEXT;
+            std::cout << GENERATE_INFO_TEXT << AUTHOR_TEXT;
         else
         {
             using namespace utils::generator;
@@ -290,14 +343,16 @@ int main(int argc, const char *argv[])
                 {"--edges", &generator_opts::edges},
             });
             auto generate_opts = gen_parser->parse(argc, argv);
+            /// \note No sense take bigger. UINTMAX < 10^10
+            generate_opts.states = std::min(static_cast<uint32_t>(generate_opts.states), 9u);
 
-            handle_generator_call(opts, generate_opts);
+            handle_generator_case_call(opts.generator, generate_opts, opts.out_file);
         }
     }
     else
     {
         if (argc == 1 || opts.help)
-            std::cout << INFO_TEXT;
+            std::cout << INFO_TEXT << AUTHOR_TEXT;
         else
             handle_user_case_call(opts);
     }

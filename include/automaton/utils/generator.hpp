@@ -4,6 +4,7 @@
 
 namespace utils::generator
 {
+// TODO: remove alphabet
 
 /// \struct Handle generator options to help with randomization and limitation of the output automaton size
 struct generator_opts
@@ -18,7 +19,7 @@ struct generator_opts
     automates::buchi::atm_size trees = 2;
     /// \brief Number of sets in final states container.
     /// Default value for NBA
-    automates::buchi::atm_size sets = 2;
+    automates::buchi::atm_size sets = 1;
     /// \brief Number of the edges for each (not leaf and not pre-leaf) vertex in the tree.
     /// Default value for binary tree
     /// \note: +1 for self-cycle
