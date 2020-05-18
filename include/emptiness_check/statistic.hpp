@@ -1,6 +1,6 @@
 #pragma once
 
-#include "automates/buchi.hpp"
+#include "automates/inv_buchi.hpp"
 
 #include <chrono>
 #include <functional>
@@ -43,6 +43,7 @@ struct one_step
     /// \brief Collect algorithms answers positime (is_empty = true) with their average time calculation
     std::vector<std::pair<automates::buchi::atm_size, call_durration>> average_nga = {};
 
+    // TODO: remove
     /// \brief Store algorithms answers for particular generated automaton.
     /// Only where all outputs (NGA/NBA + all algortithms) are not similar
     std::vector<std::pair<std::vector<bool>, std::vector<bool>>> different_results = {};
@@ -52,7 +53,11 @@ struct one_step
 /// \param repetition: number of re-creation and collecting data from almost similar. To get average stats
 /// \param callbacks: callbacks that will be tracked on each call
 /// \return statistic for particular configured automaton
-one_step one_step_generation_dfs(automates::buchi::atm_size repetition,
+one_step one_step_generation(automates::buchi::atm_size repetition,
                                  const callbacks_handler<automates::buchi> &callbacks) noexcept;
+
+/// \note: due to need to hide template implementation
+one_step one_step_generation(automates::buchi::atm_size repetition,
+                                 const callbacks_handler<automates::inv_buchi> &callbacks) noexcept;
 
 } // namespace emptiness_check::statistic

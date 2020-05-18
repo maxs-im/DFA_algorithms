@@ -46,6 +46,7 @@ time_call(std::function<T()> fn) noexcept
 /// \param callbacks: callbacks that will help to proceed automaton
 /// \return return gathered statistic for ONE automaton
 template<typename T>
+// TODO: check on is_base
 one_call calculation(const callbacks_handler<T> &callbacks) noexcept
 {
     // run generation
@@ -181,8 +182,14 @@ one_step one_step_generation(const automates::buchi::atm_size repetition,
 } // namespace anonymous
 
 /// \note: due to need to hide template implementation
-one_step emptiness_check::statistic::one_step_generation_dfs(const automates::buchi::atm_size repetition,
-                            const callbacks_handler<automates::buchi> &callbacks) noexcept
+one_step emptiness_check::statistic::one_step_generation(const automates::buchi::atm_size repetition,
+        const callbacks_handler<automates::buchi> &callbacks) noexcept
 {
-    return one_step_generation(repetition, callbacks);
+    return ::one_step_generation<>(repetition, callbacks);
+}
+
+one_step emptiness_check::statistic::one_step_generation(const automates::buchi::atm_size repetition,
+        const callbacks_handler<automates::inv_buchi> &callbacks) noexcept
+{
+    return ::one_step_generation<>(repetition, callbacks);
 }

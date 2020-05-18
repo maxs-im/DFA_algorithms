@@ -1,4 +1,4 @@
-/// Source: https://www.codeproject.com/Tips/5261900/Cplusplus-Lightweight-Parsing-Command-Line-Argumen
+/// \file Source: https://www.codeproject.com/Tips/5261900/Cplusplus-Lightweight-Parsing-Command-Line-Argumen
 /// \author Daniel Petrovic
 /// \date 13 March 2020
 

@@ -8,9 +8,9 @@ file(INSTALL
 )
 
 ##################################### emptiness_dfs #####################################
-add_executable(emptiness_dfs emptiness_dfs.cpp LightweightParsingCMD.hpp)
+add_executable(emptiness_dfs emptiness_dfs.cpp include/)
 target_link_libraries(emptiness_dfs PRIVATE EmptinessCheck)
 
 ##################################### emptiness_bfs #####################################
-add_executable(emptiness_bfs emptiness_bfs.cpp LightweightParsingCMD.hpp TextTable.h)
+add_executable(emptiness_bfs emptiness_bfs.cpp include/)
 target_link_libraries(emptiness_bfs PRIVATE EmptinessCheck)

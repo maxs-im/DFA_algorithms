@@ -1,4 +1,4 @@
-/// Source: https://github.com/haarcuba/cpp-text-table/blob/master/TextTable.h
+/// \file Source: https://github.com/haarcuba/cpp-text-table/blob/master/TextTable.h
 /// \author Yoav Kleinberger
 /// GNU Lesser General Public License v2.1
 #pragma once
