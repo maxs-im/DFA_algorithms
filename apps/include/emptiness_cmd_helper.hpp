@@ -28,7 +28,6 @@ There are some additional parameteres to work with generation mode. \n\
 \n\
 --help          [NONE/bool]     Show info about this this generated mode;\n\
 --states        [number]        Number of power of 10 for automaton states. Will be generated 10^0, 10^1,..,10^n\n\
---alphabet      [number]        Number of symbols in alphabet. Also, alphabet is [1, alphabet];\n\
 --trees         [number]        Number of generated trees for the transition table. \
                                     Default value is a minimal for really similar table (2);\n\
 --sets          [number]        Number of sets in final states container. Default value for NBA (1);\n\
@@ -299,7 +298,6 @@ void command_line(int argc, const char *argv[], const emp_differences<T>&& diffe
             using namespace utils::generator;
             auto gen_parser = CmdOpts<generator_opts>::Create({
                 {"--states", &generator_opts::states},
-                {"--alphabet", &generator_opts::alphabet},
                 {"--trees", &generator_opts::trees},
                 {"--sets", &generator_opts::sets},
                 {"--edges", &generator_opts::edges},

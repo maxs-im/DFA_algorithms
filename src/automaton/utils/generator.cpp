@@ -15,12 +15,11 @@ namespace
 /// \param is_initial: should we left root equal to 0 (initial automaton state) and connect it with all states
 /// \return randomized transition table, but consisting of the one tree
 automates::buchi::table_container generate_tree(const automates::buchi::atm_size states_num,
-                                                const automates::buchi::atm_size alphabet,
                                                 const automates::buchi::atm_size edges,
                                                 const bool is_initial = false) noexcept
 {
     // check on emptiness
-    if (!states_num || !alphabet || !edges)
+    if (!states_num || !edges)
         return {};
 
     std::random_device dev;
@@ -93,7 +92,7 @@ automates::buchi utils::generator::generate_automaton(const generator_opts& opts
     // trees generating and merging
     for (automates::buchi::atm_size tree = 0; tree < opts.trees; ++tree)
     {
-        auto gt = generate_tree(opts.states, opts.alphabet, opts.edges, tree == 0);
+        auto gt = generate_tree(opts.states, opts.edges, tree == 0);
         // merging trees
         for (auto& [from, set] : gt)
             for (auto& to : set)

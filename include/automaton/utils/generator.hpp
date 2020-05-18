@@ -4,16 +4,12 @@
 
 namespace utils::generator
 {
-// TODO: remove alphabet
 
 /// \struct Handle generator options to help with randomization and limitation of the output automaton size
 struct generator_opts
 {
     /// \brief Number of states for the automaton. Random not very small default value
     automates::buchi::atm_size states = 5;
-    /// \brief Number of symbols in alphabet. Also, alphabet is [1, alphabet].
-    /// Such default value due to it does not affect calculation complexity
-    automates::buchi::atm_size alphabet = 1;
     /// \brief Number of generated trees for the transition table.
     /// Default value is a minimal for really similar table
     automates::buchi::atm_size trees = 2;

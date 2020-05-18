@@ -46,7 +46,6 @@ time_call(std::function<T()> fn) noexcept
 /// \param callbacks: callbacks that will help to proceed automaton
 /// \return return gathered statistic for ONE automaton
 template<typename T>
-// TODO: check on is_base
 one_call calculation(const callbacks_handler<T> &callbacks) noexcept
 {
     // run generation
