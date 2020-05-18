@@ -101,8 +101,9 @@ std::optional<buchi> nga2nba(const buchi& automat) noexcept
         if (automat.is_final(q, 0) && i == 0)
             F.insert(pair);
 
-        if (const auto &set = automat.acceptable_transitions(q); set)
-            for (const auto& qt : (*set).get())
+        if (auto iter = automat.m_trans_table.find(q); iter != automat.m_trans_table.end())
+        {
+            for (const auto& qt : iter->second)
             {
                 // generate either new or current states copy
                 pr new_pair {qt, automat.is_final(q, i) ? (i + 1) % automat.get_final_num_sets() : i};
@@ -112,6 +113,7 @@ std::optional<buchi> nga2nba(const buchi& automat) noexcept
                 // accepted state for current tracked state
                 delta[pair].insert(new_pair);
             }
+        }
     }
 
     return decode_paired_states(Q, Q0, F, delta);

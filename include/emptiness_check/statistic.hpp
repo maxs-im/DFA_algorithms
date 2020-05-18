@@ -2,6 +2,9 @@
 
 #include "automates/buchi.hpp"
 
+#include <chrono>
+#include <functional>
+
 namespace emptiness_check::statistic
 {
 

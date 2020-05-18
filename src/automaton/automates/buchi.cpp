@@ -1,5 +1,7 @@
 #include "automates/buchi.hpp"
 
+#include <cassert>
+
 namespace automates
 {
 
@@ -13,15 +15,6 @@ buchi::buchi(finals_container finals, table_container trans_table) noexcept
     assert(!m_trans_table.empty() && "Empty transition table");
     for (const auto& [curr_st, set] : m_trans_table)
         assert(!set.empty() && "Empty transition map");
-}
-
-std::optional<std::reference_wrapper<const std::unordered_set<buchi::atm_size>>> buchi::acceptable_transitions(
-        const atm_size state) const noexcept
-{
-    if (auto iter = m_trans_table.find(state); iter != m_trans_table.end())
-        return iter->second;
-
-    return std::nullopt;
 }
 
 bool buchi::is_final(const atm_size state, const std::optional<atm_size> set_num) const noexcept

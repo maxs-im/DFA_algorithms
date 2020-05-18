@@ -3,6 +3,7 @@
 #include <random>
 #include <cmath>
 #include <stack>
+#include <algorithm>
 
 /// \namespace Anonymous namespace. Helpers with generating automaton parts
 namespace

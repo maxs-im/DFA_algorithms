@@ -1,8 +1,7 @@
 #include "statistic.hpp"
 
-#include <chrono>
-#include <functional>
 #include <vector>
+#include <cassert>
 
 using namespace emptiness_check::statistic;
 
@@ -39,7 +38,7 @@ time_call(std::function<T()> fn) noexcept
     // ending timepoint
     auto stop = std::chrono::high_resolution_clock::now();
 
-    return {duration_cast<std::chrono::microseconds>(stop - start), std::move(result)};
+    return {std::chrono::duration_cast<std::chrono::microseconds>(stop - start), std::move(result)};
 }
 
 /// \brief Running all available operations with provided authomaton

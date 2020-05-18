@@ -37,9 +37,9 @@ bool dfs(const automates::buchi::atm_size q, um &S, si &C, std::stack<automates:
     V.push(q);
     S[q] = { true, ++t };
 
-    if (const auto &set = automat.acceptable_transitions(q); set)
+    if (auto iter = automat.m_trans_table.find(q); iter != automat.m_trans_table.end())
     {
-        for (const auto& r : set.value().get())
+        for (const auto &r : iter->second)
             if (const auto &it_bits = S.find(r); it_bits == S.end())
             {
                 if (!dfs(r, S, C, V, t, automat))

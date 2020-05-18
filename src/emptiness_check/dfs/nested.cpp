@@ -1,6 +1,7 @@
 #include "dfs/nested.hpp"
 
 #include <bitset>
+#include <cassert>
 
 namespace emptiness_check::dfs::nested
 {
@@ -24,9 +25,9 @@ bool dfs2(const automates::buchi::atm_size q, um& S, const us& P, const automate
 {
     S[q].set(1);
 
-    if (const auto &set = automat.acceptable_transitions(q); set)
+    if (auto iter = automat.m_trans_table.find(q); iter != automat.m_trans_table.end())
     {
-        for (const auto& r : set.value().get())
+        for (const auto &r : iter->second)
         {
             if (P.find(r) != P.end())
                 return false; // NONEMPTY NBA
@@ -53,9 +54,9 @@ bool dfs1(const automates::buchi::atm_size q, um& S, us& P, const automates::buc
     S[q].set(0);
     P.insert(q);
 
-    if (const auto &set = automat.acceptable_transitions(q); set)
+    if (auto iter = automat.m_trans_table.find(q); iter != automat.m_trans_table.end())
     {
-        for (const auto& r : set.value().get())
+        for (const auto &r : iter->second)
             if (const auto &it_bits = S.find(r);
                     it_bits == S.end() || !it_bits->second.test(0))
             {

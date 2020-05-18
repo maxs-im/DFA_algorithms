@@ -1,5 +1,7 @@
 #include "automates/inv_buchi.hpp"
 
+#include <cassert>
+
 namespace automates
 {
 

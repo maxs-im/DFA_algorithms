@@ -44,13 +44,6 @@ public:
     /// \return true if is NGA (more than one set of acceptable states)
     [[nodiscard]] bool is_generalized() const noexcept { return get_final_num_sets() > 1; }
 
-    /// \brief Get dictionary (map) of possible transitions for the current state
-    /// \param state: automaton state of interest
-    /// \return set of acceptable states
-    [[nodiscard]]
-    std::optional<std::reference_wrapper<const std::unordered_set<atm_size>>> acceptable_transitions(
-                                         atm_size state) const noexcept;
-
     /// \brief Check if input number is an accept/final state
     /// \note May be a misunderstanding for NGA
     /// \param state: automaton state
@@ -72,11 +65,11 @@ public:
     /// \return output stream
     friend std::ostream& operator<<(std::ostream& out, const buchi& automaton);
 
+    /// \brief container for a transition function: δ: Q x Q → ∑
+    const table_container m_trans_table = {};
 protected:
     /// \brief container for a set of accept states: f = {F0,..Fm}, Fi ⊆ Q
     const finals_container m_final_states = {};
-    /// \brief container for a transition function: δ: Q x Q → ∑
-    const table_container m_trans_table = {};
 
 };
 
