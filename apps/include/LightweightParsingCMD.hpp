@@ -58,16 +58,14 @@ private:
                 visit(
                     [this, idx, &argv](auto&& arg)
                     {
+                        if constexpr (std::is_same_v<std::decay_t<decltype(arg)>, bool Opts::*>)
+                            this->*arg = true;
+                        else
                         if (idx < argv.size() - 1)
                         {
-                            if constexpr (std::is_same_v<std::decay_t<decltype(arg)>, bool Opts::*>)
-                                this->*arg = true;
-                            else
-                            {
-                                stringstream value;
-                                value << argv[idx+1];
-                                value >> this->*arg;
-                            }
+                            stringstream value;
+                            value << argv[idx+1];
+                            value >> this->*arg;
                         }
                     },
                     prop);
