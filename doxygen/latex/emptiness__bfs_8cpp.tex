@@ -1,0 +1,114 @@
+\hypertarget{emptiness__bfs_8cpp}{}\doxysection{apps/emptiness\+\_\+bfs.cpp File Reference}
+\label{emptiness__bfs_8cpp}\index{apps/emptiness\_bfs.cpp@{apps/emptiness\_bfs.cpp}}
+{\ttfamily \#include \char`\"{}include/emptiness\+\_\+cmd\+\_\+helper.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/converters.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}bfs/emerson.\+hpp\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{emptiness__bfs_8cpp_a4000314f4990f96940d6b08d4864325a}{handle\+\_\+user\+\_\+case\+\_\+call}} (const \mbox{\hyperlink{structemptiness__cmd__helper_1_1options}{emptiness\+\_\+cmd\+\_\+helper\+::options}} \&opts) noexcept
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_handle}{Handle}} default usage case\+: calculation of the input automaton. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$ \mbox{\hyperlink{classautomates_1_1inv__buchi}{automates\+::inv\+\_\+buchi}} $>$ \mbox{\hyperlink{emptiness__bfs_8cpp_aeb055181c1eabfe9d6d5d8e06747bbc3}{intialize\+\_\+callbacks}} (const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&opts) noexcept
+\begin{DoxyCompactList}\small\item\em Initialize callbacks for generation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}} \mbox{\hyperlink{emptiness__bfs_8cpp_ac0f2228420376f4db7e1274f2b41667c}{main}} (\mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}} argc, const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Program entry point\+: parsing arguments, running selected program mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr static const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$ \mbox{\hyperlink{emptiness__bfs_8cpp_a6cf452c1149567962eda566004bf98ed}{A\+U\+T\+H\+O\+R\+\_\+\+T\+E\+XT}}
+\begin{DoxyCompactList}\small\item\em Author info. \end{DoxyCompactList}\item 
+constexpr static const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$ \mbox{\hyperlink{emptiness__bfs_8cpp_afd221fa7b23ba0471efe37a27a4f56cd}{I\+N\+F\+O\+\_\+\+T\+E\+XT}}
+\begin{DoxyCompactList}\small\item\em Program calculation mode description. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{emptiness__bfs_8cpp_a4000314f4990f96940d6b08d4864325a}\label{emptiness__bfs_8cpp_a4000314f4990f96940d6b08d4864325a}} 
+\index{emptiness\_bfs.cpp@{emptiness\_bfs.cpp}!handle\_user\_case\_call@{handle\_user\_case\_call}}
+\index{handle\_user\_case\_call@{handle\_user\_case\_call}!emptiness\_bfs.cpp@{emptiness\_bfs.cpp}}
+\doxysubsubsection{\texorpdfstring{handle\_user\_case\_call()}{handle\_user\_case\_call()}}
+{\footnotesize\ttfamily void handle\+\_\+user\+\_\+case\+\_\+call (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structemptiness__cmd__helper_1_1options}{emptiness\+\_\+cmd\+\_\+helper\+::options}} \&}]{opts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+\mbox{\hyperlink{struct_handle}{Handle}} default usage case\+: calculation of the input automaton. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em opts} & parsed command line options \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{emptiness__bfs_8cpp_aeb055181c1eabfe9d6d5d8e06747bbc3}\label{emptiness__bfs_8cpp_aeb055181c1eabfe9d6d5d8e06747bbc3}} 
+\index{emptiness\_bfs.cpp@{emptiness\_bfs.cpp}!intialize\_callbacks@{intialize\_callbacks}}
+\index{intialize\_callbacks@{intialize\_callbacks}!emptiness\_bfs.cpp@{emptiness\_bfs.cpp}}
+\doxysubsubsection{\texorpdfstring{intialize\_callbacks()}{intialize\_callbacks()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$\mbox{\hyperlink{classautomates_1_1inv__buchi}{automates\+::inv\+\_\+buchi}}$>$ intialize\+\_\+callbacks (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&}]{opts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Initialize callbacks for generation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em opts} & generation options that will be passed for appropriate callback \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+callbacks handler object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Yes, slicing
+\end{DoxyNote}
+\mbox{\Hypertarget{emptiness__bfs_8cpp_ac0f2228420376f4db7e1274f2b41667c}\label{emptiness__bfs_8cpp_ac0f2228420376f4db7e1274f2b41667c}} 
+\index{emptiness\_bfs.cpp@{emptiness\_bfs.cpp}!main@{main}}
+\index{main@{main}!emptiness\_bfs.cpp@{emptiness\_bfs.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}} main (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}}}]{argc,  }\item[{const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Program entry point\+: parsing arguments, running selected program mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & the number of command line arguments \\
+\hline
+{\em argv} & list of command-\/line arguments \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{emptiness__bfs_8cpp_a6cf452c1149567962eda566004bf98ed}\label{emptiness__bfs_8cpp_a6cf452c1149567962eda566004bf98ed}} 
+\index{emptiness\_bfs.cpp@{emptiness\_bfs.cpp}!AUTHOR\_TEXT@{AUTHOR\_TEXT}}
+\index{AUTHOR\_TEXT@{AUTHOR\_TEXT}!emptiness\_bfs.cpp@{emptiness\_bfs.cpp}}
+\doxysubsubsection{\texorpdfstring{AUTHOR\_TEXT}{AUTHOR\_TEXT}}
+{\footnotesize\ttfamily constexpr static const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}$\ast$ A\+U\+T\+H\+O\+R\+\_\+\+T\+E\+XT\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{stringliteral}{"\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{NOT ME =)\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{\(\backslash\)n"}}
+
+\end{DoxyCode}
+
+
+Author info. 
+
+\mbox{\Hypertarget{emptiness__bfs_8cpp_afd221fa7b23ba0471efe37a27a4f56cd}\label{emptiness__bfs_8cpp_afd221fa7b23ba0471efe37a27a4f56cd}} 
+\index{emptiness\_bfs.cpp@{emptiness\_bfs.cpp}!INFO\_TEXT@{INFO\_TEXT}}
+\index{INFO\_TEXT@{INFO\_TEXT}!emptiness\_bfs.cpp@{emptiness\_bfs.cpp}}
+\doxysubsubsection{\texorpdfstring{INFO\_TEXT}{INFO\_TEXT}}
+{\footnotesize\ttfamily constexpr static const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}$\ast$ I\+N\+F\+O\+\_\+\+T\+E\+XT\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{stringliteral}{"\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{TODO: Add desription\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{\(\backslash\)n"}}
+
+\end{DoxyCode}
+
+
+Program calculation mode description. 
+

@@ -1,0 +1,231 @@
+\hypertarget{namespaceemptiness__cmd__helper}{}\doxysection{emptiness\+\_\+cmd\+\_\+helper Namespace Reference}
+\label{namespaceemptiness__cmd__helper}\index{emptiness\_cmd\_helper@{emptiness\_cmd\_helper}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structemptiness__cmd__helper_1_1emp__differences}{emp\+\_\+differences}}
+\item 
+struct \mbox{\hyperlink{structemptiness__cmd__helper_1_1options}{options}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \mbox{\hyperlink{namespaceemptiness__cmd__helper_ab961888f9d2de100b12995e2ba970390}{proceed\+\_\+data}} (const std\+::string \&name) noexcept
+\begin{DoxyCompactList}\small\item\em Read input automaton from file (if it exists) otherwise from console. \end{DoxyCompactList}\item 
+std\+::optional$<$ \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} $>$ \mbox{\hyperlink{namespaceemptiness__cmd__helper_add10a7ddb305297401b364855b1e9506}{proceed\+\_\+conversion}} (const \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \&automaton, const std\+::string \&name) noexcept
+\begin{DoxyCompactList}\small\item\em Help to convert automaton to the N\+BA and dump logs if needed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceemptiness__cmd__helper_ac7677a07cd17dcbc48b450543d0b82c3}{print\+\_\+generator\+\_\+info}} (const \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}} repetitions, const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&opts) noexcept
+\begin{DoxyCompactList}\small\item\em Print what and how we decide to generate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceemptiness__cmd__helper_a916fb37864562252cb6b4111f15d8ca2}{print\+\_\+statistic}} (const std\+::vector$<$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1one__step}{emptiness\+\_\+check\+::statistic\+::one\+\_\+step}} $>$ \&stats, const std\+::string \&name, const std\+::vector$<$ std\+::string $>$ \&algo\+\_\+headers) noexcept
+\begin{DoxyCompactList}\small\item\em Print user-\/friendly statistic table. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1one__step}{emptiness\+\_\+check\+::statistic\+::one\+\_\+step}} $>$ \mbox{\hyperlink{namespaceemptiness__cmd__helper_a8d2d8c7e0efafa3378c510d566efbd1c}{run\+\_\+generator}} (const \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}} repetitions, \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} gen\+\_\+opts, const std\+::function$<$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$ T $>$(const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&opts)$>$ \&gen\+\_\+cb) noexcept
+\begin{DoxyCompactList}\small\item\em Run generation with provided parameters. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceemptiness__cmd__helper_a8deb0268a8e3fe05ab334a1af299911d}{handle\+\_\+generator\+\_\+case\+\_\+call}} (const \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}} repetitions, const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&opts, const std\+::string \&file\+\_\+name, const std\+::vector$<$ std\+::string $>$ \&headers, const std\+::function$<$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$ T $>$(const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&opts)$>$ \&gen\+\_\+cb) noexcept
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_handle}{Handle}} generation logic for user. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceemptiness__cmd__helper_a10a25044e0b26902676a9aa00214686e}{command\+\_\+line}} (\mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}} argc, const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$argv\mbox{[}$\,$\mbox{]}, const \mbox{\hyperlink{structemptiness__cmd__helper_1_1emp__differences}{emp\+\_\+differences}}$<$ T $>$ \&\&differences)
+\begin{DoxyCompactList}\small\item\em Run command line with parsing parameters and invoking needed mode/calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr static const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$ \mbox{\hyperlink{namespaceemptiness__cmd__helper_a05cffaa03794282b4f1e16e915f74fb2}{G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+I\+N\+F\+O\+\_\+\+T\+E\+XT}}
+\begin{DoxyCompactList}\small\item\em Program generate mode description. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceemptiness__cmd__helper_a10a25044e0b26902676a9aa00214686e}\label{namespaceemptiness__cmd__helper_a10a25044e0b26902676a9aa00214686e}} 
+\index{emptiness\_cmd\_helper@{emptiness\_cmd\_helper}!command\_line@{command\_line}}
+\index{command\_line@{command\_line}!emptiness\_cmd\_helper@{emptiness\_cmd\_helper}}
+\doxysubsubsection{\texorpdfstring{command\_line()}{command\_line()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void emptiness\+\_\+cmd\+\_\+helper\+::command\+\_\+line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}}}]{argc,  }\item[{const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{const \mbox{\hyperlink{structemptiness__cmd__helper_1_1emp__differences}{emp\+\_\+differences}}$<$ T $>$ \&\&}]{differences }\end{DoxyParamCaption})}
+
+
+
+Run command line with parsing parameters and invoking needed mode/calculations. 
+
+Four operating modes\+:
+\begin{DoxyItemize}
+\item R\+E\+A\+D\+ME or help
+\item Automaton calculation
+\item Generation calculation statistic
+\item Generation R\+E\+A\+D\+ME or help 
+\begin{DoxyParams}{Parameters}
+{\em T} & supposed automaton \\
+\hline
+{\em argc} & the number of command line arguments \\
+\hline
+{\em argv} & list of command-\/line arguments \\
+\hline
+{\em differences} & initialized dfs/bfs differences \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}\begin{DoxyNote}{Note}
+No sense take bigger. U\+I\+N\+T\+M\+AX $<$ 10$^\wedge$10
+\end{DoxyNote}
+\mbox{\Hypertarget{namespaceemptiness__cmd__helper_a8deb0268a8e3fe05ab334a1af299911d}\label{namespaceemptiness__cmd__helper_a8deb0268a8e3fe05ab334a1af299911d}} 
+\index{emptiness\_cmd\_helper@{emptiness\_cmd\_helper}!handle\_generator\_case\_call@{handle\_generator\_case\_call}}
+\index{handle\_generator\_case\_call@{handle\_generator\_case\_call}!emptiness\_cmd\_helper@{emptiness\_cmd\_helper}}
+\doxysubsubsection{\texorpdfstring{handle\_generator\_case\_call()}{handle\_generator\_case\_call()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void emptiness\+\_\+cmd\+\_\+helper\+::handle\+\_\+generator\+\_\+case\+\_\+call (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}}}]{repetitions,  }\item[{const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&}]{opts,  }\item[{const std\+::string \&}]{file\+\_\+name,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{headers,  }\item[{const std\+::function$<$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$ T $>$(const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&opts)$>$ \&}]{gen\+\_\+cb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+\mbox{\hyperlink{struct_handle}{Handle}} generation logic for user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & supposed automaton type \\
+\hline
+{\em repetitions} & number of re-\/running procedure for !one automaton \\
+\hline
+{\em opts} & generation mode options \\
+\hline
+{\em file\+\_\+name} & output file name \\
+\hline
+{\em headers} & headers algorithms names \\
+\hline
+{\em gen\+\_\+cb} & callback for the initialization of the generation logic callback \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceemptiness__cmd__helper_ac7677a07cd17dcbc48b450543d0b82c3}\label{namespaceemptiness__cmd__helper_ac7677a07cd17dcbc48b450543d0b82c3}} 
+\index{emptiness\_cmd\_helper@{emptiness\_cmd\_helper}!print\_generator\_info@{print\_generator\_info}}
+\index{print\_generator\_info@{print\_generator\_info}!emptiness\_cmd\_helper@{emptiness\_cmd\_helper}}
+\doxysubsubsection{\texorpdfstring{print\_generator\_info()}{print\_generator\_info()}}
+{\footnotesize\ttfamily void emptiness\+\_\+cmd\+\_\+helper\+::print\+\_\+generator\+\_\+info (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}}}]{repetitions,  }\item[{const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&}]{opts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Print what and how we decide to generate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em repetitions} & number of re-\/running procedure for !one automaton \\
+\hline
+{\em gen\+\_\+opts} & generation mode options \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceemptiness__cmd__helper_a916fb37864562252cb6b4111f15d8ca2}\label{namespaceemptiness__cmd__helper_a916fb37864562252cb6b4111f15d8ca2}} 
+\index{emptiness\_cmd\_helper@{emptiness\_cmd\_helper}!print\_statistic@{print\_statistic}}
+\index{print\_statistic@{print\_statistic}!emptiness\_cmd\_helper@{emptiness\_cmd\_helper}}
+\doxysubsubsection{\texorpdfstring{print\_statistic()}{print\_statistic()}}
+{\footnotesize\ttfamily void emptiness\+\_\+cmd\+\_\+helper\+::print\+\_\+statistic (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1one__step}{emptiness\+\_\+check\+::statistic\+::one\+\_\+step}} $>$ \&}]{stats,  }\item[{const std\+::string \&}]{name,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{algo\+\_\+headers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Print user-\/friendly statistic table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stats} & generated statistic \\
+\hline
+{\em name} & out file name. Otherwise console will be used \\
+\hline
+{\em algo\+\_\+headers} & headers algorithms names \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceemptiness__cmd__helper_add10a7ddb305297401b364855b1e9506}\label{namespaceemptiness__cmd__helper_add10a7ddb305297401b364855b1e9506}} 
+\index{emptiness\_cmd\_helper@{emptiness\_cmd\_helper}!proceed\_conversion@{proceed\_conversion}}
+\index{proceed\_conversion@{proceed\_conversion}!emptiness\_cmd\_helper@{emptiness\_cmd\_helper}}
+\doxysubsubsection{\texorpdfstring{proceed\_conversion()}{proceed\_conversion()}}
+{\footnotesize\ttfamily std\+::optional$<$\mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}}$>$ emptiness\+\_\+cmd\+\_\+helper\+::proceed\+\_\+conversion (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \&}]{automaton,  }\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Help to convert automaton to the N\+BA and dump logs if needed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em automaton} & automaton for the conversation \\
+\hline
+{\em name} & output file name. Dumping will be ignored on incorrect file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+converted automaton or nullopt in case of redundant conversion 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceemptiness__cmd__helper_ab961888f9d2de100b12995e2ba970390}\label{namespaceemptiness__cmd__helper_ab961888f9d2de100b12995e2ba970390}} 
+\index{emptiness\_cmd\_helper@{emptiness\_cmd\_helper}!proceed\_data@{proceed\_data}}
+\index{proceed\_data@{proceed\_data}!emptiness\_cmd\_helper@{emptiness\_cmd\_helper}}
+\doxysubsubsection{\texorpdfstring{proceed\_data()}{proceed\_data()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} emptiness\+\_\+cmd\+\_\+helper\+::proceed\+\_\+data (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Read input automaton from file (if it exists) otherwise from console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & input file name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+automaton 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceemptiness__cmd__helper_a8d2d8c7e0efafa3378c510d566efbd1c}\label{namespaceemptiness__cmd__helper_a8d2d8c7e0efafa3378c510d566efbd1c}} 
+\index{emptiness\_cmd\_helper@{emptiness\_cmd\_helper}!run\_generator@{run\_generator}}
+\index{run\_generator@{run\_generator}!emptiness\_cmd\_helper@{emptiness\_cmd\_helper}}
+\doxysubsubsection{\texorpdfstring{run\_generator()}{run\_generator()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$\mbox{\hyperlink{structemptiness__check_1_1statistic_1_1one__step}{emptiness\+\_\+check\+::statistic\+::one\+\_\+step}}$>$ emptiness\+\_\+cmd\+\_\+helper\+::run\+\_\+generator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}}}]{repetitions,  }\item[{\mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}}}]{gen\+\_\+opts,  }\item[{const std\+::function$<$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$ T $>$(const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&opts)$>$ \&}]{gen\+\_\+cb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Run generation with provided parameters. 
+
+\begin{DoxyNote}{Note}
+Initialize callback logic 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em T} & supposed automaton type \\
+\hline
+{\em repetitions} & number of re-\/running procedure for !one automaton \\
+\hline
+{\em gen\+\_\+opts} & generation mode options \\
+\hline
+{\em gen\+\_\+cb} & callback for the initialization of the generation logic callback \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+gather statistic for all stages 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+need to update gen\+\_\+opts (reference inside generator callback)
+\end{DoxyNote}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceemptiness__cmd__helper_a05cffaa03794282b4f1e16e915f74fb2}\label{namespaceemptiness__cmd__helper_a05cffaa03794282b4f1e16e915f74fb2}} 
+\index{emptiness\_cmd\_helper@{emptiness\_cmd\_helper}!GENERATE\_INFO\_TEXT@{GENERATE\_INFO\_TEXT}}
+\index{GENERATE\_INFO\_TEXT@{GENERATE\_INFO\_TEXT}!emptiness\_cmd\_helper@{emptiness\_cmd\_helper}}
+\doxysubsubsection{\texorpdfstring{GENERATE\_INFO\_TEXT}{GENERATE\_INFO\_TEXT}}
+{\footnotesize\ttfamily constexpr static const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}$\ast$ emptiness\+\_\+cmd\+\_\+helper\+::\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+I\+N\+F\+O\+\_\+\+T\+E\+XT\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{stringliteral}{"\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{Statistic generator. Could show comparative characteristic for all methods\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{        \(\backslash\)"-\/-\/generation\(\backslash\)" parameter will set up number of repetition for each approach. 0 -\/ means disabled\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{There are some additional parameteres to work with generation mode. \(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{'THIS\_BINARY -\/-\/generated 1' usage:\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{-\/-\/help          [NONE/bool]     Show info about this this generated mode;\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{-\/-\/states        [number]        Number of power of 10 for automaton states. Will be generated 10\string^0, 10\string^1,..,10\string^n\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{-\/-\/trees         [number]        Number of generated trees for the transition table. \(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{                                    Default value is a minimal for really similar table (2);\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{-\/-\/sets          [number]        Number of sets in final states container. Default value for NBA (1);\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{-\/-\/edges         [number]        Number of the edges for each (not leaf and not pre-\/leaf) vertex in the tree.\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{                                    Default value for binary tree (2);\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{-\/-\/out\_file      [text]          Output file name where we will dump generated information;\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{************************\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{\(\backslash\)n"}}
+
+\end{DoxyCode}
+
+
+Program generate mode description. 
+

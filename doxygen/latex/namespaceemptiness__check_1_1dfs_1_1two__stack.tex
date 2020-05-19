@@ -1,0 +1,58 @@
+\hypertarget{namespaceemptiness__check_1_1dfs_1_1two__stack}{}\doxysection{emptiness\+\_\+check\+::dfs\+::two\+\_\+stack Namespace Reference}
+\label{namespaceemptiness__check_1_1dfs_1_1two__stack}\index{emptiness\_check::dfs::two\_stack@{emptiness\_check::dfs::two\_stack}}
+
+
+The two-\/stack algorithm.  
+
+
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceemptiness__check_1_1dfs_1_1two__stack_af4bdfb7d645431f8b7d4545069b6f88b}{um}} = std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}}, std\+::pair$<$ bool, \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}} $>$ $>$
+\item 
+using \mbox{\hyperlink{namespaceemptiness__check_1_1dfs_1_1two__stack_aa558baab2a53327586be8b38fe5fcc9e}{si}} = std\+::stack$<$ std\+::pair$<$ \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}}, \mbox{\hyperlink{classautomates_1_1buchi_acc60155ea60be9fd4b9c624d89e7593b}{automates\+::buchi\+::indexes\+\_\+set}} $>$ $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespaceemptiness__check_1_1dfs_1_1two__stack_ab319b238aee97591b8c736bc6ca2486a}{is\+\_\+empty}} (const \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \&automat) noexcept
+\begin{DoxyCompactList}\small\item\em Look for the accepting lasso in N\+B\+A/\+N\+GA automaton. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The two-\/stack algorithm. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespaceemptiness__check_1_1dfs_1_1two__stack_aa558baab2a53327586be8b38fe5fcc9e}\label{namespaceemptiness__check_1_1dfs_1_1two__stack_aa558baab2a53327586be8b38fe5fcc9e}} 
+\index{emptiness\_check::dfs::two\_stack@{emptiness\_check::dfs::two\_stack}!si@{si}}
+\index{si@{si}!emptiness\_check::dfs::two\_stack@{emptiness\_check::dfs::two\_stack}}
+\doxysubsubsection{\texorpdfstring{si}{si}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceemptiness__check_1_1dfs_1_1two__stack_aa558baab2a53327586be8b38fe5fcc9e}{emptiness\+\_\+check\+::dfs\+::two\+\_\+stack\+::si}} = typedef std\+::stack$<$std\+::pair$<$\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}}, \mbox{\hyperlink{classautomates_1_1buchi_acc60155ea60be9fd4b9c624d89e7593b}{automates\+::buchi\+::indexes\+\_\+set}}$>$ $>$}
+
+\mbox{\Hypertarget{namespaceemptiness__check_1_1dfs_1_1two__stack_af4bdfb7d645431f8b7d4545069b6f88b}\label{namespaceemptiness__check_1_1dfs_1_1two__stack_af4bdfb7d645431f8b7d4545069b6f88b}} 
+\index{emptiness\_check::dfs::two\_stack@{emptiness\_check::dfs::two\_stack}!um@{um}}
+\index{um@{um}!emptiness\_check::dfs::two\_stack@{emptiness\_check::dfs::two\_stack}}
+\doxysubsubsection{\texorpdfstring{um}{um}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceemptiness__check_1_1dfs_1_1two__stack_af4bdfb7d645431f8b7d4545069b6f88b}{emptiness\+\_\+check\+::dfs\+::two\+\_\+stack\+::um}} = typedef std\+::unordered\+\_\+map$<$\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}}, std\+::pair$<$bool, \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}}$>$ $>$}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceemptiness__check_1_1dfs_1_1two__stack_ab319b238aee97591b8c736bc6ca2486a}\label{namespaceemptiness__check_1_1dfs_1_1two__stack_ab319b238aee97591b8c736bc6ca2486a}} 
+\index{emptiness\_check::dfs::two\_stack@{emptiness\_check::dfs::two\_stack}!is\_empty@{is\_empty}}
+\index{is\_empty@{is\_empty}!emptiness\_check::dfs::two\_stack@{emptiness\_check::dfs::two\_stack}}
+\doxysubsubsection{\texorpdfstring{is\_empty()}{is\_empty()}}
+{\footnotesize\ttfamily bool emptiness\+\_\+check\+::dfs\+::two\+\_\+stack\+::is\+\_\+empty (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \&}]{automat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Look for the accepting lasso in N\+B\+A/\+N\+GA automaton. 
+
+While the state is grey, the algorithm tries to find a cycle containing it. If it succeeds, then the state is removed from C. If not, then the state is removed from C when it is blackened. At any time t, the candidates are the currently grey states that do not belong to any cycle of At. 
+\begin{DoxyParams}{Parameters}
+{\em automat} & investigated automaton \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if it finds at least one (first) lasso 
+\end{DoxyReturn}

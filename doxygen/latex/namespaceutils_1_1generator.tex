@@ -1,0 +1,33 @@
+\hypertarget{namespaceutils_1_1generator}{}\doxysection{utils\+::generator Namespace Reference}
+\label{namespaceutils_1_1generator}\index{utils::generator@{utils::generator}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{generator\+\_\+opts}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \mbox{\hyperlink{namespaceutils_1_1generator_aa4cd79961aaaf03b587fd587f902ed12}{generate\+\_\+automaton}} (const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{generator\+\_\+opts}} \&opts) noexcept
+\begin{DoxyCompactList}\small\item\em Generate random Buchi automaton. Emptiness will cause assertion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceutils_1_1generator_aa4cd79961aaaf03b587fd587f902ed12}\label{namespaceutils_1_1generator_aa4cd79961aaaf03b587fd587f902ed12}} 
+\index{utils::generator@{utils::generator}!generate\_automaton@{generate\_automaton}}
+\index{generate\_automaton@{generate\_automaton}!utils::generator@{utils::generator}}
+\doxysubsubsection{\texorpdfstring{generate\_automaton()}{generate\_automaton()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} utils\+::generator\+::generate\+\_\+automaton (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{generator\+\_\+opts}} \&}]{opts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Generate random Buchi automaton. Emptiness will cause assertion. 
+
+Generator built on idea of binary trees. We generate @opts.trees with fixed edges (@opts.edges) for each vertex and merge them into one -\/ there is how we get the transition table. Note that 0 (initial state for automaton) will be a root of the first tree, that will be constructed from !all @opts.states. Also, we generate @opts.sets for final states. Number equals to 1 will mean N\+BA construction. Maximal amount of the states for each set will be !experimentally calculated with this formula\+: max\+\_\+in\+\_\+set = @opts.states / @opts.sets / @opts.edges 
+\begin{DoxyParams}{Parameters}
+{\em opts} & generator options \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+random Buchi automaton 
+\end{DoxyReturn}

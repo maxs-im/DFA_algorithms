@@ -1,0 +1,69 @@
+\hypertarget{structemptiness__check_1_1statistic_1_1callbacks__handler}{}\doxysection{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler$<$ T $>$ Struct Template Reference}
+\label{structemptiness__check_1_1statistic_1_1callbacks__handler}\index{emptiness\_check::statistic::callbacks\_handler$<$ T $>$@{emptiness\_check::statistic::callbacks\_handler$<$ T $>$}}
+
+
+{\ttfamily \#include $<$statistic.\+hpp$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::function$<$ T()$>$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler_a5d84e79b28b0c91587d805cf22efa123}{generation\+\_\+fn}}
+\begin{DoxyCompactList}\small\item\em generation function \end{DoxyCompactList}\item 
+std\+::function$<$ std\+::optional$<$ T $>$const T \&)$>$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler_a063238c829323219c967a08b5790a9e0}{conv\+\_\+fn}}
+\begin{DoxyCompactList}\small\item\em conversion function \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::function$<$ bool(const T \&)$>$ $>$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler_adf0893287001a6cf43d695720edfd7a7}{nba\+\_\+algorithms}}
+\begin{DoxyCompactList}\small\item\em container of a serial N\+BA algorithms functions \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::function$<$ bool(const T \&)$>$ $>$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler_a357f02152c4c31c8292cd8e5da7ec2f6}{nga\+\_\+algorithms}}
+\begin{DoxyCompactList}\small\item\em container of a serial N\+GA algorithms functions \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structemptiness__check_1_1statistic_1_1callbacks__handler_a063238c829323219c967a08b5790a9e0}\label{structemptiness__check_1_1statistic_1_1callbacks__handler_a063238c829323219c967a08b5790a9e0}} 
+\index{emptiness\_check::statistic::callbacks\_handler$<$ T $>$@{emptiness\_check::statistic::callbacks\_handler$<$ T $>$}!conv\_fn@{conv\_fn}}
+\index{conv\_fn@{conv\_fn}!emptiness\_check::statistic::callbacks\_handler$<$ T $>$@{emptiness\_check::statistic::callbacks\_handler$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{conv\_fn}{conv\_fn}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::function$<$std\+::optional$<$T$>$const T \&)$>$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$ T $>$\+::conv\+\_\+fn}
+
+
+
+conversion function 
+
+\mbox{\Hypertarget{structemptiness__check_1_1statistic_1_1callbacks__handler_a5d84e79b28b0c91587d805cf22efa123}\label{structemptiness__check_1_1statistic_1_1callbacks__handler_a5d84e79b28b0c91587d805cf22efa123}} 
+\index{emptiness\_check::statistic::callbacks\_handler$<$ T $>$@{emptiness\_check::statistic::callbacks\_handler$<$ T $>$}!generation\_fn@{generation\_fn}}
+\index{generation\_fn@{generation\_fn}!emptiness\_check::statistic::callbacks\_handler$<$ T $>$@{emptiness\_check::statistic::callbacks\_handler$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{generation\_fn}{generation\_fn}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::function$<$T()$>$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$ T $>$\+::generation\+\_\+fn}
+
+
+
+generation function 
+
+\mbox{\Hypertarget{structemptiness__check_1_1statistic_1_1callbacks__handler_adf0893287001a6cf43d695720edfd7a7}\label{structemptiness__check_1_1statistic_1_1callbacks__handler_adf0893287001a6cf43d695720edfd7a7}} 
+\index{emptiness\_check::statistic::callbacks\_handler$<$ T $>$@{emptiness\_check::statistic::callbacks\_handler$<$ T $>$}!nba\_algorithms@{nba\_algorithms}}
+\index{nba\_algorithms@{nba\_algorithms}!emptiness\_check::statistic::callbacks\_handler$<$ T $>$@{emptiness\_check::statistic::callbacks\_handler$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{nba\_algorithms}{nba\_algorithms}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$std\+::function$<$bool(const T \&)$>$ $>$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$ T $>$\+::nba\+\_\+algorithms}
+
+
+
+container of a serial N\+BA algorithms functions 
+
+\mbox{\Hypertarget{structemptiness__check_1_1statistic_1_1callbacks__handler_a357f02152c4c31c8292cd8e5da7ec2f6}\label{structemptiness__check_1_1statistic_1_1callbacks__handler_a357f02152c4c31c8292cd8e5da7ec2f6}} 
+\index{emptiness\_check::statistic::callbacks\_handler$<$ T $>$@{emptiness\_check::statistic::callbacks\_handler$<$ T $>$}!nga\_algorithms@{nga\_algorithms}}
+\index{nga\_algorithms@{nga\_algorithms}!emptiness\_check::statistic::callbacks\_handler$<$ T $>$@{emptiness\_check::statistic::callbacks\_handler$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{nga\_algorithms}{nga\_algorithms}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$std\+::function$<$bool(const T \&)$>$ $>$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$ T $>$\+::nga\+\_\+algorithms}
+
+
+
+container of a serial N\+GA algorithms functions 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/emptiness\+\_\+check/\mbox{\hyperlink{statistic_8hpp}{statistic.\+hpp}}\end{DoxyCompactItemize}

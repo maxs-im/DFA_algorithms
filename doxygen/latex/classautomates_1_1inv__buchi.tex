@@ -1,0 +1,88 @@
+\hypertarget{classautomates_1_1inv__buchi}{}\doxysection{automates\+::inv\+\_\+buchi Class Reference}
+\label{classautomates_1_1inv__buchi}\index{automates::inv\_buchi@{automates::inv\_buchi}}
+
+
+{\ttfamily \#include $<$inv\+\_\+buchi.\+hpp$>$}
+
+Inheritance diagram for automates\+::inv\+\_\+buchi\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classautomates_1_1inv__buchi}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classautomates_1_1inv__buchi_ad21a15cf7e7ada8f0b463cde327e0fa9}{inv\+\_\+buchi}} (\mbox{\hyperlink{classautomates_1_1buchi}{buchi}} \&\&automat) noexcept
+\item 
+std\+::optional$<$ table\+\_\+container\+::const\+\_\+iterator $>$ \mbox{\hyperlink{classautomates_1_1inv__buchi_a21392ca1116d728dd6b2200aa12a333f}{acceptable\+\_\+inv\+\_\+transitions}} (\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}} state) const noexcept
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::unordered\+\_\+set$<$ \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}} $>$ \mbox{\hyperlink{classautomates_1_1inv__buchi_ad63ef763c9cf8e197399d11f0b7e7eb2}{m\+\_\+set\+\_\+of\+\_\+states}} = \{\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}{table\+\_\+container}} \mbox{\hyperlink{classautomates_1_1inv__buchi_a83be7fa2f6c8b81d375f218f5d6be813}{inverse\+\_\+trans\+\_\+table}} (const \mbox{\hyperlink{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}{table\+\_\+container}} \&trans\+\_\+table) noexcept
+\item 
+static std\+::unordered\+\_\+set$<$ \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}} $>$ \mbox{\hyperlink{classautomates_1_1inv__buchi_aa4c4f99394f4ed0b0e28955fb55c7c8d}{collect\+\_\+states}} (const \mbox{\hyperlink{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}{table\+\_\+container}} \&trans\+\_\+table) noexcept
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}{table\+\_\+container}} \mbox{\hyperlink{classautomates_1_1inv__buchi_a535ed7aa896e0de7fd6c37064ea8ebe0}{m\+\_\+trans\+\_\+table\+\_\+inv}} = \{\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classautomates_1_1inv__buchi_ad21a15cf7e7ada8f0b463cde327e0fa9}\label{classautomates_1_1inv__buchi_ad21a15cf7e7ada8f0b463cde327e0fa9}} 
+\index{automates::inv\_buchi@{automates::inv\_buchi}!inv\_buchi@{inv\_buchi}}
+\index{inv\_buchi@{inv\_buchi}!automates::inv\_buchi@{automates::inv\_buchi}}
+\doxysubsubsection{\texorpdfstring{inv\_buchi()}{inv\_buchi()}}
+{\footnotesize\ttfamily automates\+::inv\+\_\+buchi\+::inv\+\_\+buchi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classautomates_1_1buchi}{buchi}} \&\&}]{automat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classautomates_1_1inv__buchi_a21392ca1116d728dd6b2200aa12a333f}\label{classautomates_1_1inv__buchi_a21392ca1116d728dd6b2200aa12a333f}} 
+\index{automates::inv\_buchi@{automates::inv\_buchi}!acceptable\_inv\_transitions@{acceptable\_inv\_transitions}}
+\index{acceptable\_inv\_transitions@{acceptable\_inv\_transitions}!automates::inv\_buchi@{automates::inv\_buchi}}
+\doxysubsubsection{\texorpdfstring{acceptable\_inv\_transitions()}{acceptable\_inv\_transitions()}}
+{\footnotesize\ttfamily std\+::optional$<$ buchi\+::table\+\_\+container\+::const\+\_\+iterator $>$ automates\+::inv\+\_\+buchi\+::acceptable\+\_\+inv\+\_\+transitions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}}}]{state }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{classautomates_1_1inv__buchi_aa4c4f99394f4ed0b0e28955fb55c7c8d}\label{classautomates_1_1inv__buchi_aa4c4f99394f4ed0b0e28955fb55c7c8d}} 
+\index{automates::inv\_buchi@{automates::inv\_buchi}!collect\_states@{collect\_states}}
+\index{collect\_states@{collect\_states}!automates::inv\_buchi@{automates::inv\_buchi}}
+\doxysubsubsection{\texorpdfstring{collect\_states()}{collect\_states()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+set$<$ \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}} $>$ automates\+::inv\+\_\+buchi\+::collect\+\_\+states (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}{table\+\_\+container}} \&}]{trans\+\_\+table }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{classautomates_1_1inv__buchi_a83be7fa2f6c8b81d375f218f5d6be813}\label{classautomates_1_1inv__buchi_a83be7fa2f6c8b81d375f218f5d6be813}} 
+\index{automates::inv\_buchi@{automates::inv\_buchi}!inverse\_trans\_table@{inverse\_trans\_table}}
+\index{inverse\_trans\_table@{inverse\_trans\_table}!automates::inv\_buchi@{automates::inv\_buchi}}
+\doxysubsubsection{\texorpdfstring{inverse\_trans\_table()}{inverse\_trans\_table()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}{buchi\+::table\+\_\+container}} automates\+::inv\+\_\+buchi\+::inverse\+\_\+trans\+\_\+table (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}{table\+\_\+container}} \&}]{trans\+\_\+table }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}, {\ttfamily [noexcept]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classautomates_1_1inv__buchi_ad63ef763c9cf8e197399d11f0b7e7eb2}\label{classautomates_1_1inv__buchi_ad63ef763c9cf8e197399d11f0b7e7eb2}} 
+\index{automates::inv\_buchi@{automates::inv\_buchi}!m\_set\_of\_states@{m\_set\_of\_states}}
+\index{m\_set\_of\_states@{m\_set\_of\_states}!automates::inv\_buchi@{automates::inv\_buchi}}
+\doxysubsubsection{\texorpdfstring{m\_set\_of\_states}{m\_set\_of\_states}}
+{\footnotesize\ttfamily const std\+::unordered\+\_\+set$<$\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}}$>$ automates\+::inv\+\_\+buchi\+::m\+\_\+set\+\_\+of\+\_\+states = \{\}}
+
+\mbox{\Hypertarget{classautomates_1_1inv__buchi_a535ed7aa896e0de7fd6c37064ea8ebe0}\label{classautomates_1_1inv__buchi_a535ed7aa896e0de7fd6c37064ea8ebe0}} 
+\index{automates::inv\_buchi@{automates::inv\_buchi}!m\_trans\_table\_inv@{m\_trans\_table\_inv}}
+\index{m\_trans\_table\_inv@{m\_trans\_table\_inv}!automates::inv\_buchi@{automates::inv\_buchi}}
+\doxysubsubsection{\texorpdfstring{m\_trans\_table\_inv}{m\_trans\_table\_inv}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}{table\+\_\+container}} automates\+::inv\+\_\+buchi\+::m\+\_\+trans\+\_\+table\+\_\+inv = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/automaton/automates/\mbox{\hyperlink{inv__buchi_8hpp}{inv\+\_\+buchi.\+hpp}}\item 
+src/automaton/automates/\mbox{\hyperlink{inv__buchi_8cpp}{inv\+\_\+buchi.\+cpp}}\end{DoxyCompactItemize}

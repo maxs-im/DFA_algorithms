@@ -1,0 +1,140 @@
+\hypertarget{emptiness__dfs_8cpp}{}\doxysection{apps/emptiness\+\_\+dfs.cpp File Reference}
+\label{emptiness__dfs_8cpp}\index{apps/emptiness\_dfs.cpp@{apps/emptiness\_dfs.cpp}}
+{\ttfamily \#include \char`\"{}include/emptiness\+\_\+cmd\+\_\+helper.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dfs/nested.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dfs/two\+\_\+stack.\+hpp\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{emptiness__dfs_8cpp_a4000314f4990f96940d6b08d4864325a}{handle\+\_\+user\+\_\+case\+\_\+call}} (const \mbox{\hyperlink{structemptiness__cmd__helper_1_1options}{emptiness\+\_\+cmd\+\_\+helper\+::options}} \&opts) noexcept
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_handle}{Handle}} default usage case\+: calculation of the input automaton. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$ \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} $>$ \mbox{\hyperlink{emptiness__dfs_8cpp_a9866bf9c25d32c832eb77329d4a948eb}{intialize\+\_\+callbacks}} (const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&opts) noexcept
+\begin{DoxyCompactList}\small\item\em Initialize callbacks for generation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}} \mbox{\hyperlink{emptiness__dfs_8cpp_ac0f2228420376f4db7e1274f2b41667c}{main}} (\mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}} argc, const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Program entry point\+: parsing arguments, running selected program mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr static const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$ \mbox{\hyperlink{emptiness__dfs_8cpp_a6cf452c1149567962eda566004bf98ed}{A\+U\+T\+H\+O\+R\+\_\+\+T\+E\+XT}}
+\begin{DoxyCompactList}\small\item\em Author info. \end{DoxyCompactList}\item 
+constexpr static const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$ \mbox{\hyperlink{emptiness__dfs_8cpp_afd221fa7b23ba0471efe37a27a4f56cd}{I\+N\+F\+O\+\_\+\+T\+E\+XT}}
+\begin{DoxyCompactList}\small\item\em Program calculation mode description. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{emptiness__dfs_8cpp_a4000314f4990f96940d6b08d4864325a}\label{emptiness__dfs_8cpp_a4000314f4990f96940d6b08d4864325a}} 
+\index{emptiness\_dfs.cpp@{emptiness\_dfs.cpp}!handle\_user\_case\_call@{handle\_user\_case\_call}}
+\index{handle\_user\_case\_call@{handle\_user\_case\_call}!emptiness\_dfs.cpp@{emptiness\_dfs.cpp}}
+\doxysubsubsection{\texorpdfstring{handle\_user\_case\_call()}{handle\_user\_case\_call()}}
+{\footnotesize\ttfamily void handle\+\_\+user\+\_\+case\+\_\+call (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structemptiness__cmd__helper_1_1options}{emptiness\+\_\+cmd\+\_\+helper\+::options}} \&}]{opts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+\mbox{\hyperlink{struct_handle}{Handle}} default usage case\+: calculation of the input automaton. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em opts} & parsed command line options \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{emptiness__dfs_8cpp_a9866bf9c25d32c832eb77329d4a948eb}\label{emptiness__dfs_8cpp_a9866bf9c25d32c832eb77329d4a948eb}} 
+\index{emptiness\_dfs.cpp@{emptiness\_dfs.cpp}!intialize\_callbacks@{intialize\_callbacks}}
+\index{intialize\_callbacks@{intialize\_callbacks}!emptiness\_dfs.cpp@{emptiness\_dfs.cpp}}
+\doxysubsubsection{\texorpdfstring{intialize\_callbacks()}{intialize\_callbacks()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$\mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}}$>$ intialize\+\_\+callbacks (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&}]{opts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Initialize callbacks for generation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em opts} & generation options that will be passed for appropriate callback \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+callbacks handler object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{emptiness__dfs_8cpp_ac0f2228420376f4db7e1274f2b41667c}\label{emptiness__dfs_8cpp_ac0f2228420376f4db7e1274f2b41667c}} 
+\index{emptiness\_dfs.cpp@{emptiness\_dfs.cpp}!main@{main}}
+\index{main@{main}!emptiness\_dfs.cpp@{emptiness\_dfs.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}} main (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}}}]{argc,  }\item[{const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Program entry point\+: parsing arguments, running selected program mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & the number of command line arguments \\
+\hline
+{\em argv} & list of command-\/line arguments \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{emptiness__dfs_8cpp_a6cf452c1149567962eda566004bf98ed}\label{emptiness__dfs_8cpp_a6cf452c1149567962eda566004bf98ed}} 
+\index{emptiness\_dfs.cpp@{emptiness\_dfs.cpp}!AUTHOR\_TEXT@{AUTHOR\_TEXT}}
+\index{AUTHOR\_TEXT@{AUTHOR\_TEXT}!emptiness\_dfs.cpp@{emptiness\_dfs.cpp}}
+\doxysubsubsection{\texorpdfstring{AUTHOR\_TEXT}{AUTHOR\_TEXT}}
+{\footnotesize\ttfamily constexpr static const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}$\ast$ A\+U\+T\+H\+O\+R\+\_\+\+T\+E\+XT\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{stringliteral}{"\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{Author: Maksym Halchenko\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{    Github: @maxs-\/im\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{Year: 2020\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{\(\backslash\)n"}}
+
+\end{DoxyCode}
+
+
+Author info. 
+
+\begin{DoxyAuthor}{Author}
+Maksym Halchenko \textbackslash{}github @maxs-\/im 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Year 2020 
+\end{DoxyDate}
+\mbox{\Hypertarget{emptiness__dfs_8cpp_afd221fa7b23ba0471efe37a27a4f56cd}\label{emptiness__dfs_8cpp_afd221fa7b23ba0471efe37a27a4f56cd}} 
+\index{emptiness\_dfs.cpp@{emptiness\_dfs.cpp}!INFO\_TEXT@{INFO\_TEXT}}
+\index{INFO\_TEXT@{INFO\_TEXT}!emptiness\_dfs.cpp@{emptiness\_dfs.cpp}}
+\doxysubsubsection{\texorpdfstring{INFO\_TEXT}{INFO\_TEXT}}
+{\footnotesize\ttfamily constexpr static const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}$\ast$ I\+N\+F\+O\+\_\+\+T\+E\+XT\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{stringliteral}{"\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{Emptiness check: Algorithms based on depth-\/first search \(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{We present two emptiness algorithms that explore A using depth-\/first search (DFS):\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{    1. Nested -\/-\/ used by NBA only\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{    2. Two-\/stacked -\/ used by default for both automatone types (NBA/NGA)\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{ NBA -\/-\/ nondeterministic Büchi automaton;\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{ NGA -\/-\/ nondeterministic Generalized Büchi automaton;\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{This program also provide NGA-\/to-\/NBA converter. For greater compatibility.\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{The AIM of the program is to answer if A is nonempty and if it has an accepting lasso!\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{'THIS\_BINARY' usage:\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{-\/-\/generator         [number > 0]    enable generation mode. See more info by calling it with help parameter;\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{-\/-\/help              [NONE/bool]     Show info about this binary (programm);\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{-\/-\/nba               [NONE/bool]     Works only with NBA (converts NGA if needed);\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{-\/-\/non\_optimal\_only  [NONE/bool]     Invokes Nested algorithm. We use Two-\/stack by default (because optimal);\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{-\/-\/in\_file           [text]          Input file name where we store interested automaton;\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{-\/-\/out\_file          [text]          Output file name where we will dump converted automaton (if will exist);\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{************************\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{Return true or false for selected algorithm\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{\textcolor{stringliteral}{\(\backslash\)n"}}
+
+\end{DoxyCode}
+
+
+Program calculation mode description. 
+

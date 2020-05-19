@@ -1,0 +1,47 @@
+\hypertarget{emptiness__cmd__helper_8hpp}{}\doxysection{apps/include/emptiness\+\_\+cmd\+\_\+helper.hpp File Reference}
+\label{emptiness__cmd__helper_8hpp}\index{apps/include/emptiness\_cmd\_helper.hpp@{apps/include/emptiness\_cmd\_helper.hpp}}
+{\ttfamily \#include \char`\"{}automates/buchi.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/generator.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/representation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/converters.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}statistic.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lightweight\+Parsing\+C\+M\+D.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Text\+Table.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structemptiness__cmd__helper_1_1options}{emptiness\+\_\+cmd\+\_\+helper\+::options}}
+\item 
+struct \mbox{\hyperlink{structemptiness__cmd__helper_1_1emp__differences}{emptiness\+\_\+cmd\+\_\+helper\+::emp\+\_\+differences$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_common}{Common}}
+\item 
+ \mbox{\hyperlink{namespaceemptiness__cmd__helper}{emptiness\+\_\+cmd\+\_\+helper}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \mbox{\hyperlink{namespaceemptiness__cmd__helper_ab961888f9d2de100b12995e2ba970390}{emptiness\+\_\+cmd\+\_\+helper\+::proceed\+\_\+data}} (const std\+::string \&name) noexcept
+\begin{DoxyCompactList}\small\item\em Read input automaton from file (if it exists) otherwise from console. \end{DoxyCompactList}\item 
+std\+::optional$<$ \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} $>$ \mbox{\hyperlink{namespaceemptiness__cmd__helper_add10a7ddb305297401b364855b1e9506}{emptiness\+\_\+cmd\+\_\+helper\+::proceed\+\_\+conversion}} (const \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \&automaton, const std\+::string \&name) noexcept
+\begin{DoxyCompactList}\small\item\em Help to convert automaton to the N\+BA and dump logs if needed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceemptiness__cmd__helper_ac7677a07cd17dcbc48b450543d0b82c3}{emptiness\+\_\+cmd\+\_\+helper\+::print\+\_\+generator\+\_\+info}} (const \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}} repetitions, const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&opts) noexcept
+\begin{DoxyCompactList}\small\item\em Print what and how we decide to generate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceemptiness__cmd__helper_a916fb37864562252cb6b4111f15d8ca2}{emptiness\+\_\+cmd\+\_\+helper\+::print\+\_\+statistic}} (const std\+::vector$<$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1one__step}{emptiness\+\_\+check\+::statistic\+::one\+\_\+step}} $>$ \&stats, const std\+::string \&name, const std\+::vector$<$ std\+::string $>$ \&algo\+\_\+headers) noexcept
+\begin{DoxyCompactList}\small\item\em Print user-\/friendly statistic table. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1one__step}{emptiness\+\_\+check\+::statistic\+::one\+\_\+step}} $>$ \mbox{\hyperlink{namespaceemptiness__cmd__helper_a8d2d8c7e0efafa3378c510d566efbd1c}{emptiness\+\_\+cmd\+\_\+helper\+::run\+\_\+generator}} (const \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}} repetitions, \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} gen\+\_\+opts, const std\+::function$<$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$ T $>$(const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&opts)$>$ \&gen\+\_\+cb) noexcept
+\begin{DoxyCompactList}\small\item\em Run generation with provided parameters. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceemptiness__cmd__helper_a8deb0268a8e3fe05ab334a1af299911d}{emptiness\+\_\+cmd\+\_\+helper\+::handle\+\_\+generator\+\_\+case\+\_\+call}} (const \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}} repetitions, const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&opts, const std\+::string \&file\+\_\+name, const std\+::vector$<$ std\+::string $>$ \&headers, const std\+::function$<$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$ T $>$(const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&opts)$>$ \&gen\+\_\+cb) noexcept
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_handle}{Handle}} generation logic for user. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceemptiness__cmd__helper_a10a25044e0b26902676a9aa00214686e}{emptiness\+\_\+cmd\+\_\+helper\+::command\+\_\+line}} (\mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}} argc, const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$argv\mbox{[}$\,$\mbox{]}, const emp\+\_\+differences$<$ T $>$ \&\&differences)
+\begin{DoxyCompactList}\small\item\em Run command line with parsing parameters and invoking needed mode/calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr static const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$ \mbox{\hyperlink{namespaceemptiness__cmd__helper_a05cffaa03794282b4f1e16e915f74fb2}{emptiness\+\_\+cmd\+\_\+helper\+::\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+I\+N\+F\+O\+\_\+\+T\+E\+XT}}
+\begin{DoxyCompactList}\small\item\em Program generate mode description. \end{DoxyCompactList}\end{DoxyCompactItemize}

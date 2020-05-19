@@ -1,0 +1,246 @@
+\hypertarget{classautomates_1_1buchi}{}\doxysection{automates\+::buchi Class Reference}
+\label{classautomates_1_1buchi}\index{automates::buchi@{automates::buchi}}
+
+
+{\ttfamily \#include $<$buchi.\+hpp$>$}
+
+Inheritance diagram for automates\+::buchi\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classautomates_1_1buchi}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}} = uint32\+\_\+t
+\item 
+using \mbox{\hyperlink{classautomates_1_1buchi_ac83a46eaf7f899243f489d43b2048379}{finals\+\_\+container}} = std\+::vector$<$ std\+::unordered\+\_\+set$<$ \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}} $>$ $>$
+\item 
+using \mbox{\hyperlink{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}{table\+\_\+container}} = std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}}, std\+::unordered\+\_\+set$<$ \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}} $>$ $>$
+\item 
+using \mbox{\hyperlink{classautomates_1_1buchi_acc60155ea60be9fd4b9c624d89e7593b}{indexes\+\_\+set}} = std\+::vector$<$ \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classautomates_1_1buchi_a282c61e0c338ecdf0bc7f45963e1aed9}{buchi}} ()=delete
+\item 
+\mbox{\hyperlink{classautomates_1_1buchi}{buchi}} \& \mbox{\hyperlink{classautomates_1_1buchi_a38c2f5c1474f3e44373061309f8b68c7}{operator=}} (const \mbox{\hyperlink{classautomates_1_1buchi}{buchi}} \&)=delete
+\item 
+\mbox{\hyperlink{classautomates_1_1buchi_a53d7889d63c0d6fb2fdc411bb8f15648}{buchi}} (\mbox{\hyperlink{classautomates_1_1buchi_ac83a46eaf7f899243f489d43b2048379}{finals\+\_\+container}} finals, \mbox{\hyperlink{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}{table\+\_\+container}} trans\+\_\+table) noexcept
+\begin{DoxyCompactList}\small\item\em Creates an Büchi object with simple input verification (by asserting) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}} \mbox{\hyperlink{classautomates_1_1buchi_a4f74bdbac1e57d4688a694163220559a}{get\+\_\+final\+\_\+num\+\_\+sets}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get number of final state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classautomates_1_1buchi_a68f55d427c40b38e4b4660d4977aa3e8}{is\+\_\+generalized}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Check if this is Generalized Büchi automaton. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classautomates_1_1buchi_a7ad670aa0f4ce2e485201c9c378aae26}{is\+\_\+final}} (\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}} state, std\+::optional$<$ \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}} $>$ set\+\_\+num=std\+::nullopt) const noexcept
+\begin{DoxyCompactList}\small\item\em Check if input number is an accept/final state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classautomates_1_1buchi_acc60155ea60be9fd4b9c624d89e7593b}{indexes\+\_\+set}} \mbox{\hyperlink{classautomates_1_1buchi_ab5ce69f63397fbfb70df886aadf76ded}{indexes\+\_\+final\+\_\+sets}} (\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}} state) const noexcept
+\begin{DoxyCompactList}\small\item\em Denotes the set of all indices i ∈ K such that state ∈ Fi. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}{table\+\_\+container}} \mbox{\hyperlink{classautomates_1_1buchi_a805e594eca22c50734945b94f30163cd}{m\+\_\+trans\+\_\+table}} = \{\}
+\begin{DoxyCompactList}\small\item\em container for a transition function\+: δ\+: Q x Q → ∑ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}} \mbox{\hyperlink{classautomates_1_1buchi_ad866de1068d9f7e8e3e56b79f8132355}{I\+N\+I\+T\+I\+A\+L\+\_\+\+S\+T\+A\+TE}} = 0
+\begin{DoxyCompactList}\small\item\em an initial or start state\+: q0 ∈ Q \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classautomates_1_1buchi_ac83a46eaf7f899243f489d43b2048379}{finals\+\_\+container}} \mbox{\hyperlink{classautomates_1_1buchi_aa0766f720d60ab157a23b8e42a6e50ff}{m\+\_\+final\+\_\+states}} = \{\}
+\begin{DoxyCompactList}\small\item\em container for a set of accept states\+: f = \{F0,..Fm\}, Fi ⊆ Q \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classautomates_1_1buchi_aa0c28a338649701a47461ae3d9fb45e5}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{classautomates_1_1buchi}{buchi}} \&automaton)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}\label{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}} 
+\index{automates::buchi@{automates::buchi}!atm\_size@{atm\_size}}
+\index{atm\_size@{atm\_size}!automates::buchi@{automates::buchi}}
+\doxysubsubsection{\texorpdfstring{atm\_size}{atm\_size}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}} =  uint32\+\_\+t}
+
+\mbox{\Hypertarget{classautomates_1_1buchi_ac83a46eaf7f899243f489d43b2048379}\label{classautomates_1_1buchi_ac83a46eaf7f899243f489d43b2048379}} 
+\index{automates::buchi@{automates::buchi}!finals\_container@{finals\_container}}
+\index{finals\_container@{finals\_container}!automates::buchi@{automates::buchi}}
+\doxysubsubsection{\texorpdfstring{finals\_container}{finals\_container}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classautomates_1_1buchi_ac83a46eaf7f899243f489d43b2048379}{automates\+::buchi\+::finals\+\_\+container}} =  std\+::vector$<$std\+::unordered\+\_\+set$<$\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}}$>$ $>$}
+
+\mbox{\Hypertarget{classautomates_1_1buchi_acc60155ea60be9fd4b9c624d89e7593b}\label{classautomates_1_1buchi_acc60155ea60be9fd4b9c624d89e7593b}} 
+\index{automates::buchi@{automates::buchi}!indexes\_set@{indexes\_set}}
+\index{indexes\_set@{indexes\_set}!automates::buchi@{automates::buchi}}
+\doxysubsubsection{\texorpdfstring{indexes\_set}{indexes\_set}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classautomates_1_1buchi_acc60155ea60be9fd4b9c624d89e7593b}{automates\+::buchi\+::indexes\+\_\+set}} =  std\+::vector$<$\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}}$>$}
+
+\mbox{\Hypertarget{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}\label{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}} 
+\index{automates::buchi@{automates::buchi}!table\_container@{table\_container}}
+\index{table\_container@{table\_container}!automates::buchi@{automates::buchi}}
+\doxysubsubsection{\texorpdfstring{table\_container}{table\_container}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}{automates\+::buchi\+::table\+\_\+container}} =  std\+::unordered\+\_\+map$<$\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}}, std\+::unordered\+\_\+set$<$\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}}$>$ $>$}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classautomates_1_1buchi_a282c61e0c338ecdf0bc7f45963e1aed9}\label{classautomates_1_1buchi_a282c61e0c338ecdf0bc7f45963e1aed9}} 
+\index{automates::buchi@{automates::buchi}!buchi@{buchi}}
+\index{buchi@{buchi}!automates::buchi@{automates::buchi}}
+\doxysubsubsection{\texorpdfstring{buchi()}{buchi()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily automates\+::buchi\+::buchi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{classautomates_1_1buchi_a53d7889d63c0d6fb2fdc411bb8f15648}\label{classautomates_1_1buchi_a53d7889d63c0d6fb2fdc411bb8f15648}} 
+\index{automates::buchi@{automates::buchi}!buchi@{buchi}}
+\index{buchi@{buchi}!automates::buchi@{automates::buchi}}
+\doxysubsubsection{\texorpdfstring{buchi()}{buchi()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily automates\+::buchi\+::buchi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classautomates_1_1buchi_ac83a46eaf7f899243f489d43b2048379}{finals\+\_\+container}}}]{finals,  }\item[{\mbox{\hyperlink{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}{table\+\_\+container}}}]{trans\+\_\+table }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+Creates an Büchi object with simple input verification (by asserting) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em finals} & a correct set of sets of final states \\
+\hline
+{\em trans\+\_\+table} & a correct transition table (map$<$state, set$<$next\+\_\+state$>$$>$) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classautomates_1_1buchi_a4f74bdbac1e57d4688a694163220559a}\label{classautomates_1_1buchi_a4f74bdbac1e57d4688a694163220559a}} 
+\index{automates::buchi@{automates::buchi}!get\_final\_num\_sets@{get\_final\_num\_sets}}
+\index{get\_final\_num\_sets@{get\_final\_num\_sets}!automates::buchi@{automates::buchi}}
+\doxysubsubsection{\texorpdfstring{get\_final\_num\_sets()}{get\_final\_num\_sets()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}} automates\+::buchi\+::get\+\_\+final\+\_\+num\+\_\+sets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get number of final state. 
+
+\begin{DoxyReturn}{Returns}
+size of @m\+\_\+final\+\_\+states 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classautomates_1_1buchi_ab5ce69f63397fbfb70df886aadf76ded}\label{classautomates_1_1buchi_ab5ce69f63397fbfb70df886aadf76ded}} 
+\index{automates::buchi@{automates::buchi}!indexes\_final\_sets@{indexes\_final\_sets}}
+\index{indexes\_final\_sets@{indexes\_final\_sets}!automates::buchi@{automates::buchi}}
+\doxysubsubsection{\texorpdfstring{indexes\_final\_sets()}{indexes\_final\_sets()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classautomates_1_1buchi_acc60155ea60be9fd4b9c624d89e7593b}{buchi\+::indexes\+\_\+set}} automates\+::buchi\+::indexes\+\_\+final\+\_\+sets (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}}}]{state }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Denotes the set of all indices i ∈ K such that state ∈ Fi. 
+
+\begin{DoxyNote}{Note}
+Sorted ascending and unique 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em state} & automaton state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sorted ascending and unique vector of @m\+\_\+final\+\_\+states indexes that contain according state 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classautomates_1_1buchi_a7ad670aa0f4ce2e485201c9c378aae26}\label{classautomates_1_1buchi_a7ad670aa0f4ce2e485201c9c378aae26}} 
+\index{automates::buchi@{automates::buchi}!is\_final@{is\_final}}
+\index{is\_final@{is\_final}!automates::buchi@{automates::buchi}}
+\doxysubsubsection{\texorpdfstring{is\_final()}{is\_final()}}
+{\footnotesize\ttfamily bool automates\+::buchi\+::is\+\_\+final (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}}}]{state,  }\item[{std\+::optional$<$ \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}} $>$}]{set\+\_\+num = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Check if input number is an accept/final state. 
+
+\begin{DoxyNote}{Note}
+May be a misunderstanding for N\+GA 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em state} & automaton state \\
+\hline
+{\em set\+\_\+num} & specify final set number. By default check in all \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether state belongs to @m\+\_\+final\+\_\+states 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classautomates_1_1buchi_a68f55d427c40b38e4b4660d4977aa3e8}\label{classautomates_1_1buchi_a68f55d427c40b38e4b4660d4977aa3e8}} 
+\index{automates::buchi@{automates::buchi}!is\_generalized@{is\_generalized}}
+\index{is\_generalized@{is\_generalized}!automates::buchi@{automates::buchi}}
+\doxysubsubsection{\texorpdfstring{is\_generalized()}{is\_generalized()}}
+{\footnotesize\ttfamily bool automates\+::buchi\+::is\+\_\+generalized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Check if this is Generalized Büchi automaton. 
+
+\begin{DoxyReturn}{Returns}
+true if is N\+GA (more than one set of acceptable states) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classautomates_1_1buchi_a38c2f5c1474f3e44373061309f8b68c7}\label{classautomates_1_1buchi_a38c2f5c1474f3e44373061309f8b68c7}} 
+\index{automates::buchi@{automates::buchi}!operator=@{operator=}}
+\index{operator=@{operator=}!automates::buchi@{automates::buchi}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classautomates_1_1buchi}{buchi}}\& automates\+::buchi\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classautomates_1_1buchi}{buchi}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classautomates_1_1buchi_aa0c28a338649701a47461ae3d9fb45e5}\label{classautomates_1_1buchi_aa0c28a338649701a47461ae3d9fb45e5}} 
+\index{automates::buchi@{automates::buchi}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!automates::buchi@{automates::buchi}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{classautomates_1_1buchi}{buchi}} \&}]{automaton }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\begin{DoxyNote}{Note}
+\+: Similar to user input 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classautomates_1_1buchi_ad866de1068d9f7e8e3e56b79f8132355}\label{classautomates_1_1buchi_ad866de1068d9f7e8e3e56b79f8132355}} 
+\index{automates::buchi@{automates::buchi}!INITIAL\_STATE@{INITIAL\_STATE}}
+\index{INITIAL\_STATE@{INITIAL\_STATE}!automates::buchi@{automates::buchi}}
+\doxysubsubsection{\texorpdfstring{INITIAL\_STATE}{INITIAL\_STATE}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{atm\+\_\+size}} automates\+::buchi\+::\+I\+N\+I\+T\+I\+A\+L\+\_\+\+S\+T\+A\+TE = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+an initial or start state\+: q0 ∈ Q 
+
+\begin{DoxyNote}{Note}
+Use N\+U\+LL as default for all automates 
+\end{DoxyNote}
+\mbox{\Hypertarget{classautomates_1_1buchi_aa0766f720d60ab157a23b8e42a6e50ff}\label{classautomates_1_1buchi_aa0766f720d60ab157a23b8e42a6e50ff}} 
+\index{automates::buchi@{automates::buchi}!m\_final\_states@{m\_final\_states}}
+\index{m\_final\_states@{m\_final\_states}!automates::buchi@{automates::buchi}}
+\doxysubsubsection{\texorpdfstring{m\_final\_states}{m\_final\_states}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classautomates_1_1buchi_ac83a46eaf7f899243f489d43b2048379}{finals\+\_\+container}} automates\+::buchi\+::m\+\_\+final\+\_\+states = \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+container for a set of accept states\+: f = \{F0,..Fm\}, Fi ⊆ Q 
+
+\mbox{\Hypertarget{classautomates_1_1buchi_a805e594eca22c50734945b94f30163cd}\label{classautomates_1_1buchi_a805e594eca22c50734945b94f30163cd}} 
+\index{automates::buchi@{automates::buchi}!m\_trans\_table@{m\_trans\_table}}
+\index{m\_trans\_table@{m\_trans\_table}!automates::buchi@{automates::buchi}}
+\doxysubsubsection{\texorpdfstring{m\_trans\_table}{m\_trans\_table}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classautomates_1_1buchi_a1aacfb17af1370c33dbb6b8db249b5fb}{table\+\_\+container}} automates\+::buchi\+::m\+\_\+trans\+\_\+table = \{\}}
+
+
+
+container for a transition function\+: δ\+: Q x Q → ∑ 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/automaton/automates/\mbox{\hyperlink{buchi_8hpp}{buchi.\+hpp}}\item 
+src/automaton/automates/\mbox{\hyperlink{buchi_8cpp}{buchi.\+cpp}}\end{DoxyCompactItemize}

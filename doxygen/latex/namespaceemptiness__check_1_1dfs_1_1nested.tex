@@ -1,0 +1,61 @@
+\hypertarget{namespaceemptiness__check_1_1dfs_1_1nested}{}\doxysection{emptiness\+\_\+check\+::dfs\+::nested Namespace Reference}
+\label{namespaceemptiness__check_1_1dfs_1_1nested}\index{emptiness\_check::dfs::nested@{emptiness\_check::dfs::nested}}
+
+
+The nested-\/\+D\+FS algorithm.  
+
+
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceemptiness__check_1_1dfs_1_1nested_a8100c0d1ae1fce4d415615bb8dff019d}{um}} = std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}}, std\+::bitset$<$ 2 $>$ $>$
+\item 
+using \mbox{\hyperlink{namespaceemptiness__check_1_1dfs_1_1nested_a15add505a6536b82a030ff43e49061fb}{us}} = std\+::unordered\+\_\+set$<$ \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespaceemptiness__check_1_1dfs_1_1nested_a6da519f3fe2da7ed234fb4d8b198b977}{is\+\_\+empty}} (const \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \&automat) noexcept
+\begin{DoxyCompactList}\small\item\em Look for the accepting lasso in N\+BA automaton. Will assert on N\+GA usage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The nested-\/\+D\+FS algorithm. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespaceemptiness__check_1_1dfs_1_1nested_a8100c0d1ae1fce4d415615bb8dff019d}\label{namespaceemptiness__check_1_1dfs_1_1nested_a8100c0d1ae1fce4d415615bb8dff019d}} 
+\index{emptiness\_check::dfs::nested@{emptiness\_check::dfs::nested}!um@{um}}
+\index{um@{um}!emptiness\_check::dfs::nested@{emptiness\_check::dfs::nested}}
+\doxysubsubsection{\texorpdfstring{um}{um}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceemptiness__check_1_1dfs_1_1nested_a8100c0d1ae1fce4d415615bb8dff019d}{emptiness\+\_\+check\+::dfs\+::nested\+::um}} = typedef std\+::unordered\+\_\+map$<$\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}}, std\+::bitset$<$2$>$ $>$}
+
+\mbox{\Hypertarget{namespaceemptiness__check_1_1dfs_1_1nested_a15add505a6536b82a030ff43e49061fb}\label{namespaceemptiness__check_1_1dfs_1_1nested_a15add505a6536b82a030ff43e49061fb}} 
+\index{emptiness\_check::dfs::nested@{emptiness\_check::dfs::nested}!us@{us}}
+\index{us@{us}!emptiness\_check::dfs::nested@{emptiness\_check::dfs::nested}}
+\doxysubsubsection{\texorpdfstring{us}{us}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceemptiness__check_1_1dfs_1_1nested_a15add505a6536b82a030ff43e49061fb}{emptiness\+\_\+check\+::dfs\+::nested\+::us}} = typedef std\+::unordered\+\_\+set$<$\mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}}$>$}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceemptiness__check_1_1dfs_1_1nested_a6da519f3fe2da7ed234fb4d8b198b977}\label{namespaceemptiness__check_1_1dfs_1_1nested_a6da519f3fe2da7ed234fb4d8b198b977}} 
+\index{emptiness\_check::dfs::nested@{emptiness\_check::dfs::nested}!is\_empty@{is\_empty}}
+\index{is\_empty@{is\_empty}!emptiness\_check::dfs::nested@{emptiness\_check::dfs::nested}}
+\doxysubsubsection{\texorpdfstring{is\_empty()}{is\_empty()}}
+{\footnotesize\ttfamily bool emptiness\+\_\+check\+::dfs\+::nested\+::is\+\_\+empty (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \&}]{automat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Look for the accepting lasso in N\+BA automaton. Will assert on N\+GA usage. 
+
+The nested-\/\+D\+FS algorithm runs in time O(n+m) by using the first phase not only to discover the reachable accepting states, but also to sort them. The searches of the second phase are conducted according to the order determined by the sorting. \begin{DoxyNote}{Note}
+The algorithm, however, also has two important weak points\+: It cannot be extended to N\+G\+As, and it is not optimal 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em automat} & investigated automaton \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if it finds at least one (first) lasso 
+\end{DoxyReturn}

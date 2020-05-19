@@ -1,0 +1,43 @@
+\hypertarget{representation_8cpp}{}\doxysection{src/automaton/utils/representation.cpp File Reference}
+\label{representation_8cpp}\index{src/automaton/utils/representation.cpp@{src/automaton/utils/representation.cpp}}
+
+
+Simple and user-\/friendly Büchi automaton representation \char`\"{}-\/\+N\+U\+M-\/$>$\char`\"{} -\/ means N\+UM symbol for acceptable transition.  
+
+
+{\ttfamily \#include \char`\"{}utils/representation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}automates/buchi.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceutils}{utils}}
+\item 
+ \mbox{\hyperlink{namespaceutils_1_1representation}{utils\+::representation}}
+\item 
+ \mbox{\hyperlink{namespace_anonymous}{Anonymous}}
+\item 
+ \mbox{\hyperlink{namespaceautomates}{automates}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \mbox{\hyperlink{namespaceutils_1_1representation_a10e1cd9e66dcab6ea211150de0f613d0}{utils\+::representation\+::construct\+\_\+read}} (std\+::istream \&in) noexcept
+\begin{DoxyCompactList}\small\item\em Construct nondeterministic Büchi automaton from input stream Final states definition\+: set num -\/ a number of final states sets \mbox{[}0, num\mbox{]} Cycle\+: set\+\_\+in num -\/ a number of final states in current set. next \char`\"{}set\+\_\+in num\char`\"{} nums -\/ final states for current set Transition table read (specified by @paired)\+: Cycle while E\+OF\+: state num -\/ number of the start state symbol num -\/ symbol that accepts state num successor num -\/ state after acceptancy. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{namespaceautomates_af11ad1443494b27367779ad86f2d9ca0}{automates\+::operator$<$$<$}} (std\+::ostream \&out, const buchi \&automaton)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple and user-\/friendly Büchi automaton representation \char`\"{}-\/\+N\+U\+M-\/$>$\char`\"{} -\/ means N\+UM symbol for acceptable transition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & output stream \\
+\hline
+{\em automaton} & automaton that will be printed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output stream 
+\end{DoxyReturn}

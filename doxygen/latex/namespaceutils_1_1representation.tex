@@ -1,0 +1,31 @@
+\hypertarget{namespaceutils_1_1representation}{}\doxysection{utils\+::representation Namespace Reference}
+\label{namespaceutils_1_1representation}\index{utils::representation@{utils::representation}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \mbox{\hyperlink{namespaceutils_1_1representation_a10e1cd9e66dcab6ea211150de0f613d0}{construct\+\_\+read}} (std\+::istream \&in) noexcept
+\begin{DoxyCompactList}\small\item\em Construct nondeterministic Büchi automaton from input stream Final states definition\+: set num -\/ a number of final states sets \mbox{[}0, num\mbox{]} Cycle\+: set\+\_\+in num -\/ a number of final states in current set. next \char`\"{}set\+\_\+in num\char`\"{} nums -\/ final states for current set Transition table read (specified by @paired)\+: Cycle while E\+OF\+: state num -\/ number of the start state symbol num -\/ symbol that accepts state num successor num -\/ state after acceptancy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceutils_1_1representation_a10e1cd9e66dcab6ea211150de0f613d0}\label{namespaceutils_1_1representation_a10e1cd9e66dcab6ea211150de0f613d0}} 
+\index{utils::representation@{utils::representation}!construct\_read@{construct\_read}}
+\index{construct\_read@{construct\_read}!utils::representation@{utils::representation}}
+\doxysubsubsection{\texorpdfstring{construct\_read()}{construct\_read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classautomates_1_1buchi}{buchi}} utils\+::representation\+::construct\+\_\+read (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Construct nondeterministic Büchi automaton from input stream Final states definition\+: set num -\/ a number of final states sets \mbox{[}0, num\mbox{]} Cycle\+: set\+\_\+in num -\/ a number of final states in current set. next \char`\"{}set\+\_\+in num\char`\"{} nums -\/ final states for current set Transition table read (specified by @paired)\+: Cycle while E\+OF\+: state num -\/ number of the start state symbol num -\/ symbol that accepts state num successor num -\/ state after acceptancy. 
+
+\begin{DoxyNote}{Note}
+\+: Hints will be printed to the std\+::cout in case of in == std\+::cin 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em in} & input stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+constructed automaton 
+\end{DoxyReturn}

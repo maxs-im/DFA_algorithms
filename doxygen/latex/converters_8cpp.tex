@@ -1,0 +1,42 @@
+\hypertarget{converters_8cpp}{}\doxysection{src/automaton/utils/converters.cpp File Reference}
+\label{converters_8cpp}\index{src/automaton/utils/converters.cpp@{src/automaton/utils/converters.cpp}}
+{\ttfamily \#include \char`\"{}utils/converters.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structstd_1_1hash_3_01std_1_1pair_3_01_s_00_01_t_01_4_01_4}{std\+::hash$<$ std\+::pair$<$ S, T $>$ $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceutils}{utils}}
+\item 
+ \mbox{\hyperlink{namespaceutils_1_1converters}{utils\+::converters}}
+\item 
+ \mbox{\hyperlink{namespace_anonymous}{Anonymous}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{converters_8cpp_a04cc1b733a2f4d205f13f7a59facba64}{hash\+\_\+combine}} (std\+::size\+\_\+t \&seed, const T \&v)
+\begin{DoxyCompactList}\small\item\em hash\+\_\+combine you could hash an entire (ordered) container, for example, as long as each member is individually hashable \end{DoxyCompactList}\item 
+std\+::optional$<$ \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} $>$ \mbox{\hyperlink{namespaceutils_1_1converters_a81c74fe2aaf1244e4a194978ee9989e9}{utils\+::converters\+::nga2nba}} (const \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \&automat) noexcept
+\begin{DoxyCompactList}\small\item\em Conversion operation from N\+GA to N\+BA automaton. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{converters_8cpp_a04cc1b733a2f4d205f13f7a59facba64}\label{converters_8cpp_a04cc1b733a2f4d205f13f7a59facba64}} 
+\index{converters.cpp@{converters.cpp}!hash\_combine@{hash\_combine}}
+\index{hash\_combine@{hash\_combine}!converters.cpp@{converters.cpp}}
+\doxysubsubsection{\texorpdfstring{hash\_combine()}{hash\_combine()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void hash\+\_\+combine (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t \&}]{seed,  }\item[{const T \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+hash\+\_\+combine you could hash an entire (ordered) container, for example, as long as each member is individually hashable 
+
+\begin{DoxyNote}{Note}
+Boost realization 
+\end{DoxyNote}

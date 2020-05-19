@@ -1,0 +1,28 @@
+\hypertarget{namespaceutils_1_1converters}{}\doxysection{utils\+::converters Namespace Reference}
+\label{namespaceutils_1_1converters}\index{utils::converters@{utils::converters}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::optional$<$ \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} $>$ \mbox{\hyperlink{namespaceutils_1_1converters_a81c74fe2aaf1244e4a194978ee9989e9}{nga2nba}} (const \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \&automat) noexcept
+\begin{DoxyCompactList}\small\item\em Conversion operation from N\+GA to N\+BA automaton. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceutils_1_1converters_a81c74fe2aaf1244e4a194978ee9989e9}\label{namespaceutils_1_1converters_a81c74fe2aaf1244e4a194978ee9989e9}} 
+\index{utils::converters@{utils::converters}!nga2nba@{nga2nba}}
+\index{nga2nba@{nga2nba}!utils::converters@{utils::converters}}
+\doxysubsubsection{\texorpdfstring{nga2nba()}{nga2nba()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{classautomates_1_1buchi}{buchi}} $>$ utils\+::converters\+::nga2nba (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \&}]{automat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Conversion operation from N\+GA to N\+BA automaton. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em automat} & N\+GA automaton \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+BA automaton or nullopt if @automat is already N\+BA 
+\end{DoxyReturn}

@@ -1,0 +1,85 @@
+\hypertarget{structemptiness__cmd__helper_1_1emp__differences}{}\doxysection{emptiness\+\_\+cmd\+\_\+helper\+::emp\+\_\+differences$<$ T $>$ Struct Template Reference}
+\label{structemptiness__cmd__helper_1_1emp__differences}\index{emptiness\_cmd\_helper::emp\_differences$<$ T $>$@{emptiness\_cmd\_helper::emp\_differences$<$ T $>$}}
+
+
+{\ttfamily \#include $<$emptiness\+\_\+cmd\+\_\+helper.\+hpp$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$ \mbox{\hyperlink{structemptiness__cmd__helper_1_1emp__differences_a9a95680703f211d724b59aaed690cb99}{author}}
+\begin{DoxyCompactList}\small\item\em Author info. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$ \mbox{\hyperlink{structemptiness__cmd__helper_1_1emp__differences_ae7b48599f9144f08de9dc5d12ace1d19}{user\+\_\+cases\+\_\+info}}
+\begin{DoxyCompactList}\small\item\em Program calculation mode description. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{structemptiness__cmd__helper_1_1emp__differences_a8a0d3f1f4af2e70a159ba14e3baea91e}{algorithm\+\_\+names}}
+\begin{DoxyCompactList}\small\item\em Algorithms names that will be printed. \end{DoxyCompactList}\item 
+std\+::function$<$ void(const \mbox{\hyperlink{structemptiness__cmd__helper_1_1options}{options}} \&opts)$>$ \mbox{\hyperlink{structemptiness__cmd__helper_1_1emp__differences_a3e0a8df1c2b9ce5a65de1c5c937ed9b8}{user\+\_\+case}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_handle}{Handle}} default usage case\+: calculation of the input automaton. \end{DoxyCompactList}\item 
+std\+::function$<$ \mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$ T $>$const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&opts)$>$ \mbox{\hyperlink{structemptiness__cmd__helper_1_1emp__differences_a35ccdfacdb50c9a2ec577492ca045347}{gener\+\_\+cb\+\_\+init}}
+\begin{DoxyCompactList}\small\item\em Callbacks initializer for generation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structemptiness__cmd__helper_1_1emp__differences_a8a0d3f1f4af2e70a159ba14e3baea91e}\label{structemptiness__cmd__helper_1_1emp__differences_a8a0d3f1f4af2e70a159ba14e3baea91e}} 
+\index{emptiness\_cmd\_helper::emp\_differences$<$ T $>$@{emptiness\_cmd\_helper::emp\_differences$<$ T $>$}!algorithm\_names@{algorithm\_names}}
+\index{algorithm\_names@{algorithm\_names}!emptiness\_cmd\_helper::emp\_differences$<$ T $>$@{emptiness\_cmd\_helper::emp\_differences$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{algorithm\_names}{algorithm\_names}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$std\+::string$>$ \mbox{\hyperlink{structemptiness__cmd__helper_1_1emp__differences}{emptiness\+\_\+cmd\+\_\+helper\+::emp\+\_\+differences}}$<$ T $>$\+::algorithm\+\_\+names}
+
+
+
+Algorithms names that will be printed. 
+
+\begin{DoxyNote}{Note}
+First N\+BA then N\+GA. @gener\+\_\+cb\+\_\+init.nba\+\_\+algorithms + @gener\+\_\+cb\+\_\+initnga\+\_\+algorithms size equality expected 
+\end{DoxyNote}
+\mbox{\Hypertarget{structemptiness__cmd__helper_1_1emp__differences_a9a95680703f211d724b59aaed690cb99}\label{structemptiness__cmd__helper_1_1emp__differences_a9a95680703f211d724b59aaed690cb99}} 
+\index{emptiness\_cmd\_helper::emp\_differences$<$ T $>$@{emptiness\_cmd\_helper::emp\_differences$<$ T $>$}!author@{author}}
+\index{author@{author}!emptiness\_cmd\_helper::emp\_differences$<$ T $>$@{emptiness\_cmd\_helper::emp\_differences$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{author}{author}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}$\ast$ \mbox{\hyperlink{structemptiness__cmd__helper_1_1emp__differences}{emptiness\+\_\+cmd\+\_\+helper\+::emp\+\_\+differences}}$<$ T $>$\+::author}
+
+
+
+Author info. 
+
+\mbox{\Hypertarget{structemptiness__cmd__helper_1_1emp__differences_a35ccdfacdb50c9a2ec577492ca045347}\label{structemptiness__cmd__helper_1_1emp__differences_a35ccdfacdb50c9a2ec577492ca045347}} 
+\index{emptiness\_cmd\_helper::emp\_differences$<$ T $>$@{emptiness\_cmd\_helper::emp\_differences$<$ T $>$}!gener\_cb\_init@{gener\_cb\_init}}
+\index{gener\_cb\_init@{gener\_cb\_init}!emptiness\_cmd\_helper::emp\_differences$<$ T $>$@{emptiness\_cmd\_helper::emp\_differences$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{gener\_cb\_init}{gener\_cb\_init}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::function$<$\mbox{\hyperlink{structemptiness__check_1_1statistic_1_1callbacks__handler}{emptiness\+\_\+check\+::statistic\+::callbacks\+\_\+handler}}$<$T$>$const \mbox{\hyperlink{structutils_1_1generator_1_1generator__opts}{utils\+::generator\+::generator\+\_\+opts}} \&opts)$>$ \mbox{\hyperlink{structemptiness__cmd__helper_1_1emp__differences}{emptiness\+\_\+cmd\+\_\+helper\+::emp\+\_\+differences}}$<$ T $>$\+::gener\+\_\+cb\+\_\+init}
+
+
+
+Callbacks initializer for generation. 
+
+\mbox{\Hypertarget{structemptiness__cmd__helper_1_1emp__differences_a3e0a8df1c2b9ce5a65de1c5c937ed9b8}\label{structemptiness__cmd__helper_1_1emp__differences_a3e0a8df1c2b9ce5a65de1c5c937ed9b8}} 
+\index{emptiness\_cmd\_helper::emp\_differences$<$ T $>$@{emptiness\_cmd\_helper::emp\_differences$<$ T $>$}!user\_case@{user\_case}}
+\index{user\_case@{user\_case}!emptiness\_cmd\_helper::emp\_differences$<$ T $>$@{emptiness\_cmd\_helper::emp\_differences$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{user\_case}{user\_case}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::function$<$void(const \mbox{\hyperlink{structemptiness__cmd__helper_1_1options}{options}}\& opts)$>$ \mbox{\hyperlink{structemptiness__cmd__helper_1_1emp__differences}{emptiness\+\_\+cmd\+\_\+helper\+::emp\+\_\+differences}}$<$ T $>$\+::user\+\_\+case}
+
+
+
+\mbox{\hyperlink{struct_handle}{Handle}} default usage case\+: calculation of the input automaton. 
+
+\mbox{\Hypertarget{structemptiness__cmd__helper_1_1emp__differences_ae7b48599f9144f08de9dc5d12ace1d19}\label{structemptiness__cmd__helper_1_1emp__differences_ae7b48599f9144f08de9dc5d12ace1d19}} 
+\index{emptiness\_cmd\_helper::emp\_differences$<$ T $>$@{emptiness\_cmd\_helper::emp\_differences$<$ T $>$}!user\_cases\_info@{user\_cases\_info}}
+\index{user\_cases\_info@{user\_cases\_info}!emptiness\_cmd\_helper::emp\_differences$<$ T $>$@{emptiness\_cmd\_helper::emp\_differences$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{user\_cases\_info}{user\_cases\_info}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}$\ast$ \mbox{\hyperlink{structemptiness__cmd__helper_1_1emp__differences}{emptiness\+\_\+cmd\+\_\+helper\+::emp\+\_\+differences}}$<$ T $>$\+::user\+\_\+cases\+\_\+info}
+
+
+
+Program calculation mode description. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+apps/include/\mbox{\hyperlink{emptiness__cmd__helper_8hpp}{emptiness\+\_\+cmd\+\_\+helper.\+hpp}}\end{DoxyCompactItemize}

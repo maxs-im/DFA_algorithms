@@ -1,0 +1,173 @@
+\hypertarget{struct_cmd_opts}{}\doxysection{Cmd\+Opts$<$ Opts $>$ Struct Template Reference}
+\label{struct_cmd_opts}\index{CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}}
+
+
+{\ttfamily \#include $<$Lightweight\+Parsing\+C\+M\+D.\+hpp$>$}
+
+Inheritance diagram for Cmd\+Opts$<$ Opts $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_cmd_opts}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{struct_cmd_opts_a3a07d05551cdabc5e5f342377bf5611c}{My\+Prop}} = std\+::variant$<$ string Opts\+::$\ast$, \mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}} Opts\+::$\ast$, bool Opts\+::$\ast$, double Opts\+::$\ast$, uint32\+\_\+t Opts\+::$\ast$, uint8\+\_\+t Opts\+::$\ast$ $>$
+\item 
+using \mbox{\hyperlink{struct_cmd_opts_ad5672d9dd020b00a578ab98e7941b402}{My\+Arg}} = std\+::pair$<$ string, \mbox{\hyperlink{struct_cmd_opts_a3a07d05551cdabc5e5f342377bf5611c}{My\+Prop}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_cmd_opts_a97f3ade0f0b498114c47360ead95022a}{$\sim$\+Cmd\+Opts}} ()=default
+\item 
+Opts \mbox{\hyperlink{struct_cmd_opts_a7ed08411d6bd9745ba81948d816b60a5}{parse}} (\mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}} argc, const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}} $>$ \mbox{\hyperlink{struct_cmd_opts_a5f2a1c1dd1f11bddb29f1153bf9fb42a}{Create}} (std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{struct_cmd_opts_ad5672d9dd020b00a578ab98e7941b402}{My\+Arg}} $>$ args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{struct_cmd_opts_a1bf1e85967589f2f949aa3cde33a1338}{callback\+\_\+t}} = function$<$ void(\mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}}, const vector$<$ string\+\_\+view $>$ \&)$>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_cmd_opts_ae1faf787121f414da2135a4d03e146c4}{Cmd\+Opts}} ()=default
+\item 
+\mbox{\hyperlink{struct_cmd_opts_a9dcd66c384b1f0f1e2f0401a6eb49d8f}{Cmd\+Opts}} (const \mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}} \&)=delete
+\item 
+\mbox{\hyperlink{struct_cmd_opts_aefd09b93c6d5f6cf2467cef9fc5fb426}{Cmd\+Opts}} (\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}} \&\&)=delete
+\item 
+\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}} \& \mbox{\hyperlink{struct_cmd_opts_a54aac98a3fb3e6e3abe3318d62807b61}{operator=}} (const \mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}} \&)=delete
+\item 
+\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}} \& \mbox{\hyperlink{struct_cmd_opts_aa7ddf973d8a06323bdaaa452c06e1863}{operator=}} (\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}} \&\&)=delete
+\item 
+auto \mbox{\hyperlink{struct_cmd_opts_a2ce12c71d3b5d1f3c00684ed3892e8d2}{register\+\_\+callback}} (string name, \mbox{\hyperlink{struct_cmd_opts_a3a07d05551cdabc5e5f342377bf5611c}{My\+Prop}} prop)
+\item 
+auto \mbox{\hyperlink{struct_cmd_opts_a2e27bbb7c9eedc1e9aee7f0e42054e8c}{register\+\_\+callback}} (\mbox{\hyperlink{struct_cmd_opts_ad5672d9dd020b00a578ab98e7941b402}{My\+Arg}} p)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+map$<$ string, \mbox{\hyperlink{struct_cmd_opts_a1bf1e85967589f2f949aa3cde33a1338}{callback\+\_\+t}} $>$ \mbox{\hyperlink{struct_cmd_opts_a2c99606ea87e182326a180f603705c8a}{callbacks}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{struct_cmd_opts_a1bf1e85967589f2f949aa3cde33a1338}\label{struct_cmd_opts_a1bf1e85967589f2f949aa3cde33a1338}} 
+\index{CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}!callback\_t@{callback\_t}}
+\index{callback\_t@{callback\_t}!CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}}
+\doxysubsubsection{\texorpdfstring{callback\_t}{callback\_t}}
+{\footnotesize\ttfamily template$<$class Opts $>$ \\
+using \mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$\+::\mbox{\hyperlink{struct_cmd_opts_a1bf1e85967589f2f949aa3cde33a1338}{callback\+\_\+t}} =  function$<$void(\mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}}, const vector$<$string\+\_\+view$>$\&)$>$\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{struct_cmd_opts_ad5672d9dd020b00a578ab98e7941b402}\label{struct_cmd_opts_ad5672d9dd020b00a578ab98e7941b402}} 
+\index{CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}!MyArg@{MyArg}}
+\index{MyArg@{MyArg}!CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}}
+\doxysubsubsection{\texorpdfstring{MyArg}{MyArg}}
+{\footnotesize\ttfamily template$<$class Opts $>$ \\
+using \mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$\+::\mbox{\hyperlink{struct_cmd_opts_ad5672d9dd020b00a578ab98e7941b402}{My\+Arg}} =  std\+::pair$<$string, \mbox{\hyperlink{struct_cmd_opts_a3a07d05551cdabc5e5f342377bf5611c}{My\+Prop}}$>$}
+
+\mbox{\Hypertarget{struct_cmd_opts_a3a07d05551cdabc5e5f342377bf5611c}\label{struct_cmd_opts_a3a07d05551cdabc5e5f342377bf5611c}} 
+\index{CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}!MyProp@{MyProp}}
+\index{MyProp@{MyProp}!CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}}
+\doxysubsubsection{\texorpdfstring{MyProp}{MyProp}}
+{\footnotesize\ttfamily template$<$class Opts $>$ \\
+using \mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$\+::\mbox{\hyperlink{struct_cmd_opts_a3a07d05551cdabc5e5f342377bf5611c}{My\+Prop}} =  std\+::variant$<$string Opts\+::$\ast$, \mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}} Opts\+::$\ast$, bool Opts\+::$\ast$, double Opts\+::$\ast$, uint32\+\_\+t Opts\+::$\ast$, uint8\+\_\+t Opts\+::$\ast$$>$}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_cmd_opts_a97f3ade0f0b498114c47360ead95022a}\label{struct_cmd_opts_a97f3ade0f0b498114c47360ead95022a}} 
+\index{CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}!````~CmdOpts@{$\sim$CmdOpts}}
+\index{````~CmdOpts@{$\sim$CmdOpts}!CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$CmdOpts()}{~CmdOpts()}}
+{\footnotesize\ttfamily template$<$class Opts $>$ \\
+\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$\+::$\sim$\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{struct_cmd_opts_ae1faf787121f414da2135a4d03e146c4}\label{struct_cmd_opts_ae1faf787121f414da2135a4d03e146c4}} 
+\index{CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}!CmdOpts@{CmdOpts}}
+\index{CmdOpts@{CmdOpts}!CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}}
+\doxysubsubsection{\texorpdfstring{CmdOpts()}{CmdOpts()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class Opts $>$ \\
+\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$\+::\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [default]}}
+
+\mbox{\Hypertarget{struct_cmd_opts_a9dcd66c384b1f0f1e2f0401a6eb49d8f}\label{struct_cmd_opts_a9dcd66c384b1f0f1e2f0401a6eb49d8f}} 
+\index{CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}!CmdOpts@{CmdOpts}}
+\index{CmdOpts@{CmdOpts}!CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}}
+\doxysubsubsection{\texorpdfstring{CmdOpts()}{CmdOpts()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class Opts $>$ \\
+\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$\+::\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+\mbox{\Hypertarget{struct_cmd_opts_aefd09b93c6d5f6cf2467cef9fc5fb426}\label{struct_cmd_opts_aefd09b93c6d5f6cf2467cef9fc5fb426}} 
+\index{CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}!CmdOpts@{CmdOpts}}
+\index{CmdOpts@{CmdOpts}!CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}}
+\doxysubsubsection{\texorpdfstring{CmdOpts()}{CmdOpts()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class Opts $>$ \\
+\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$\+::\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_cmd_opts_a5f2a1c1dd1f11bddb29f1153bf9fb42a}\label{struct_cmd_opts_a5f2a1c1dd1f11bddb29f1153bf9fb42a}} 
+\index{CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}!Create@{Create}}
+\index{Create@{Create}!CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily template$<$class Opts $>$ \\
+static unique\+\_\+ptr$<$\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$>$ \mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$\+::Create (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{struct_cmd_opts_ad5672d9dd020b00a578ab98e7941b402}{My\+Arg}} $>$}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{struct_cmd_opts_aa7ddf973d8a06323bdaaa452c06e1863}\label{struct_cmd_opts_aa7ddf973d8a06323bdaaa452c06e1863}} 
+\index{CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Opts $>$ \\
+\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}\& \mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+\mbox{\Hypertarget{struct_cmd_opts_a54aac98a3fb3e6e3abe3318d62807b61}\label{struct_cmd_opts_a54aac98a3fb3e6e3abe3318d62807b61}} 
+\index{CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Opts $>$ \\
+\mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}\& \mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+\mbox{\Hypertarget{struct_cmd_opts_a7ed08411d6bd9745ba81948d816b60a5}\label{struct_cmd_opts_a7ed08411d6bd9745ba81948d816b60a5}} 
+\index{CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}!parse@{parse}}
+\index{parse@{parse}!CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily template$<$class Opts $>$ \\
+Opts \mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$\+::parse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}}}]{argc,  }\item[{const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_cmd_opts_a2e27bbb7c9eedc1e9aee7f0e42054e8c}\label{struct_cmd_opts_a2e27bbb7c9eedc1e9aee7f0e42054e8c}} 
+\index{CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}!register\_callback@{register\_callback}}
+\index{register\_callback@{register\_callback}!CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}}
+\doxysubsubsection{\texorpdfstring{register\_callback()}{register\_callback()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Opts $>$ \\
+auto \mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$\+::register\+\_\+callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cmd_opts_ad5672d9dd020b00a578ab98e7941b402}{My\+Arg}}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{struct_cmd_opts_a2ce12c71d3b5d1f3c00684ed3892e8d2}\label{struct_cmd_opts_a2ce12c71d3b5d1f3c00684ed3892e8d2}} 
+\index{CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}!register\_callback@{register\_callback}}
+\index{register\_callback@{register\_callback}!CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}}
+\doxysubsubsection{\texorpdfstring{register\_callback()}{register\_callback()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Opts $>$ \\
+auto \mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$\+::register\+\_\+callback (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{\mbox{\hyperlink{struct_cmd_opts_a3a07d05551cdabc5e5f342377bf5611c}{My\+Prop}}}]{prop }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_cmd_opts_a2c99606ea87e182326a180f603705c8a}\label{struct_cmd_opts_a2c99606ea87e182326a180f603705c8a}} 
+\index{CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}!callbacks@{callbacks}}
+\index{callbacks@{callbacks}!CmdOpts$<$ Opts $>$@{CmdOpts$<$ Opts $>$}}
+\doxysubsubsection{\texorpdfstring{callbacks}{callbacks}}
+{\footnotesize\ttfamily template$<$class Opts $>$ \\
+map$<$string, \mbox{\hyperlink{struct_cmd_opts_a1bf1e85967589f2f949aa3cde33a1338}{callback\+\_\+t}}$>$ \mbox{\hyperlink{struct_cmd_opts}{Cmd\+Opts}}$<$ Opts $>$\+::callbacks\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+apps/include/\mbox{\hyperlink{_lightweight_parsing_c_m_d_8hpp}{Lightweight\+Parsing\+C\+M\+D.\+hpp}}\end{DoxyCompactItemize}

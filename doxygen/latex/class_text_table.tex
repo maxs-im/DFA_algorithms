@@ -1,0 +1,319 @@
+\hypertarget{class_text_table}{}\doxysection{Text\+Table Class Reference}
+\label{class_text_table}\index{TextTable@{TextTable}}
+
+
+{\ttfamily \#include $<$Text\+Table.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_text_table_a3921e381a9bfdd728619b6e48968d190}{Alignment}} \{ \mbox{\hyperlink{class_text_table_a3921e381a9bfdd728619b6e48968d190a684d325a7303f52e64011467ff5c5758}{Alignment\+::\+L\+E\+FT}}, 
+\mbox{\hyperlink{class_text_table_a3921e381a9bfdd728619b6e48968d190a21507b40c80068eda19865706fdc2403}{Alignment\+::\+R\+I\+G\+HT}}
+ \}
+\item 
+typedef std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_text_table_a28c4e9f705f83a254c98d2cc54e19f19}{Row}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_text_table_ae309ce9d1c09276f7f2ba8ed255158b3}{Text\+Table}} ()
+\item 
+\mbox{\hyperlink{class_text_table_ad1be4aa965a7032a4e3c129d28499217}{Text\+Table}} (\mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} \mbox{\hyperlink{class_text_table_ad6770e6a7ac6a1138da214dbcb9ec4cd}{horizontal}}, \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} \mbox{\hyperlink{class_text_table_ac4e5f6c6afcaa47d839fa98c81400248}{vertical}}, \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} corner)
+\item 
+\mbox{\hyperlink{class_text_table_aad09d5fc548d0bee75071e0bd73637a9}{Text\+Table}} (\mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} \mbox{\hyperlink{class_text_table_ac4e5f6c6afcaa47d839fa98c81400248}{vertical}})
+\item 
+void \mbox{\hyperlink{class_text_table_a185c3b20536bb11bb4928272cd1e3902}{set\+Alignment}} (unsigned \mbox{\hyperlink{_c_make_cache_8txt_a7e98b8a17c0aad30ba64d47b74e2a6c1}{i}}, \mbox{\hyperlink{class_text_table_a3921e381a9bfdd728619b6e48968d190}{Alignment}} \mbox{\hyperlink{class_text_table_a9712e5bc77ac1b65b1fdf6120dba74eb}{alignment}})
+\item 
+\mbox{\hyperlink{class_text_table_a3921e381a9bfdd728619b6e48968d190}{Alignment}} \mbox{\hyperlink{class_text_table_a9712e5bc77ac1b65b1fdf6120dba74eb}{alignment}} (unsigned \mbox{\hyperlink{_c_make_cache_8txt_a7e98b8a17c0aad30ba64d47b74e2a6c1}{i}}) const
+\item 
+\mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} \mbox{\hyperlink{class_text_table_ac4e5f6c6afcaa47d839fa98c81400248}{vertical}} () const
+\item 
+\mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} \mbox{\hyperlink{class_text_table_ad6770e6a7ac6a1138da214dbcb9ec4cd}{horizontal}} () const
+\item 
+void \mbox{\hyperlink{class_text_table_adcb12fff145ebe7153ed0f69201d2b62}{add}} (std\+::string const \&content)
+\item 
+void \mbox{\hyperlink{class_text_table_a7916848a5d1e82047115f00ff8b86ad8}{end\+Of\+Row}} ()
+\item 
+{\footnotesize template$<$typename Iterator $>$ }\\void \mbox{\hyperlink{class_text_table_a7cd2de95bab3275d6a611e7a3443c746}{add\+Row}} (Iterator begin, Iterator end)
+\item 
+{\footnotesize template$<$typename Container $>$ }\\void \mbox{\hyperlink{class_text_table_a0a27c7f13cfd9c28fa08014fe03ac409}{add\+Row}} (Container const \&container)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_text_table_a28c4e9f705f83a254c98d2cc54e19f19}{Row}} $>$ const  \& \mbox{\hyperlink{class_text_table_a9d7b3ef697180ac3ee957a436a8e1f77}{rows}} () const
+\item 
+void \mbox{\hyperlink{class_text_table_a85a77368f0ab509066b8299abddd3545}{setup}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_text_table_afc5e9e3705e36a32b80ba62b30331476}{ruler}} () const
+\item 
+\mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}} \mbox{\hyperlink{class_text_table_ad29f49525b33b5f69deb7ad85b705854}{width}} (unsigned \mbox{\hyperlink{_c_make_cache_8txt_a7e98b8a17c0aad30ba64d47b74e2a6c1}{i}}) const
+\item 
+bool \mbox{\hyperlink{class_text_table_a710dc2670dfb1e60a8f6f6ef5da16133}{has\+\_\+ruler}} () const
+\item 
+\mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}} \mbox{\hyperlink{class_text_table_a028646d5a59500ed7abc48dc2980fc59}{correct\+Distance}} (std\+::string string\+\_\+to\+\_\+correct) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \mbox{\hyperlink{class_text_table_a933b114135ac6668ecf866e5b3484732}{columns}} () const
+\item 
+unsigned \mbox{\hyperlink{class_text_table_ab331d3b661ba91f00ef8002d1b6818df}{glyph\+Length}} (std\+::string s) const
+\item 
+void \mbox{\hyperlink{class_text_table_ac58cf511f1f3c795d21d3e1bd664e059}{determine\+Widths}} () const
+\item 
+void \mbox{\hyperlink{class_text_table_a42de5f9310451f33b9b4ba64a9d2df29}{setup\+Alignment}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{class_text_table_a972e57210f6c9166ae330d019824fd47}{repeat}} (unsigned times, \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} c)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} \mbox{\hyperlink{class_text_table_a342c2f84cb0ff1e31053c992d177ba34}{\+\_\+horizontal}}
+\item 
+const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} \mbox{\hyperlink{class_text_table_a74912d7a2f17ede37837f47cf7147475}{\+\_\+vertical}}
+\item 
+const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} \mbox{\hyperlink{class_text_table_aede169ab222c056d083a2fd33a6732b0}{\+\_\+corner}}
+\item 
+const bool \mbox{\hyperlink{class_text_table_a9c3fdde23d06b74c484c6929a27d9a8e}{\+\_\+has\+\_\+ruler}}
+\item 
+\mbox{\hyperlink{class_text_table_a28c4e9f705f83a254c98d2cc54e19f19}{Row}} \mbox{\hyperlink{class_text_table_a96f4b7b4826c847d6d9540c1c10dba53}{\+\_\+current}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_text_table_a28c4e9f705f83a254c98d2cc54e19f19}{Row}} $>$ \mbox{\hyperlink{class_text_table_ac9ce549720b3577f68d20e48312601b1}{\+\_\+rows}}
+\item 
+std\+::vector$<$ unsigned $>$ \mbox{\hyperlink{class_text_table_a8c8070752ac708663659b6d6f2025d95}{\+\_\+width}}
+\item 
+std\+::vector$<$ unsigned $>$ \mbox{\hyperlink{class_text_table_a3653313c05232710fcde98a54f1f7218}{\+\_\+utf8width}}
+\item 
+std\+::map$<$ unsigned, \mbox{\hyperlink{class_text_table_a3921e381a9bfdd728619b6e48968d190}{Alignment}} $>$ \mbox{\hyperlink{class_text_table_a45aac9fcc25aeb87cadd1280157dc7eb}{\+\_\+alignment}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_text_table_a28c4e9f705f83a254c98d2cc54e19f19}\label{class_text_table_a28c4e9f705f83a254c98d2cc54e19f19}} 
+\index{TextTable@{TextTable}!Row@{Row}}
+\index{Row@{Row}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{Row}{Row}}
+{\footnotesize\ttfamily typedef std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_text_table_a28c4e9f705f83a254c98d2cc54e19f19}{Text\+Table\+::\+Row}}}
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_text_table_a3921e381a9bfdd728619b6e48968d190}\label{class_text_table_a3921e381a9bfdd728619b6e48968d190}} 
+\index{TextTable@{TextTable}!Alignment@{Alignment}}
+\index{Alignment@{Alignment}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{Alignment}{Alignment}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_text_table_a3921e381a9bfdd728619b6e48968d190}{Text\+Table\+::\+Alignment}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!TextTable@{TextTable}}\index{TextTable@{TextTable}!LEFT@{LEFT}}}\mbox{\Hypertarget{class_text_table_a3921e381a9bfdd728619b6e48968d190a684d325a7303f52e64011467ff5c5758}\label{class_text_table_a3921e381a9bfdd728619b6e48968d190a684d325a7303f52e64011467ff5c5758}} 
+L\+E\+FT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT@{RIGHT}!TextTable@{TextTable}}\index{TextTable@{TextTable}!RIGHT@{RIGHT}}}\mbox{\Hypertarget{class_text_table_a3921e381a9bfdd728619b6e48968d190a21507b40c80068eda19865706fdc2403}\label{class_text_table_a3921e381a9bfdd728619b6e48968d190a21507b40c80068eda19865706fdc2403}} 
+R\+I\+G\+HT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_text_table_ae309ce9d1c09276f7f2ba8ed255158b3}\label{class_text_table_ae309ce9d1c09276f7f2ba8ed255158b3}} 
+\index{TextTable@{TextTable}!TextTable@{TextTable}}
+\index{TextTable@{TextTable}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{TextTable()}{TextTable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Text\+Table\+::\+Text\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_text_table_ad1be4aa965a7032a4e3c129d28499217}\label{class_text_table_ad1be4aa965a7032a4e3c129d28499217}} 
+\index{TextTable@{TextTable}!TextTable@{TextTable}}
+\index{TextTable@{TextTable}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{TextTable()}{TextTable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Text\+Table\+::\+Text\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}}]{horizontal,  }\item[{\mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}}]{vertical,  }\item[{\mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}}]{corner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_text_table_aad09d5fc548d0bee75071e0bd73637a9}\label{class_text_table_aad09d5fc548d0bee75071e0bd73637a9}} 
+\index{TextTable@{TextTable}!TextTable@{TextTable}}
+\index{TextTable@{TextTable}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{TextTable()}{TextTable()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Text\+Table\+::\+Text\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}}]{vertical }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_text_table_adcb12fff145ebe7153ed0f69201d2b62}\label{class_text_table_adcb12fff145ebe7153ed0f69201d2b62}} 
+\index{TextTable@{TextTable}!add@{add}}
+\index{add@{add}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void Text\+Table\+::add (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{content }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_text_table_a0a27c7f13cfd9c28fa08014fe03ac409}\label{class_text_table_a0a27c7f13cfd9c28fa08014fe03ac409}} 
+\index{TextTable@{TextTable}!addRow@{addRow}}
+\index{addRow@{addRow}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{addRow()}{addRow()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Container $>$ \\
+void Text\+Table\+::add\+Row (\begin{DoxyParamCaption}\item[{Container const \&}]{container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_text_table_a7cd2de95bab3275d6a611e7a3443c746}\label{class_text_table_a7cd2de95bab3275d6a611e7a3443c746}} 
+\index{TextTable@{TextTable}!addRow@{addRow}}
+\index{addRow@{addRow}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{addRow()}{addRow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Iterator $>$ \\
+void Text\+Table\+::add\+Row (\begin{DoxyParamCaption}\item[{Iterator}]{begin,  }\item[{Iterator}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_text_table_a9712e5bc77ac1b65b1fdf6120dba74eb}\label{class_text_table_a9712e5bc77ac1b65b1fdf6120dba74eb}} 
+\index{TextTable@{TextTable}!alignment@{alignment}}
+\index{alignment@{alignment}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{alignment()}{alignment()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_text_table_a3921e381a9bfdd728619b6e48968d190}{Alignment}} Text\+Table\+::alignment (\begin{DoxyParamCaption}\item[{unsigned}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_text_table_a933b114135ac6668ecf866e5b3484732}\label{class_text_table_a933b114135ac6668ecf866e5b3484732}} 
+\index{TextTable@{TextTable}!columns@{columns}}
+\index{columns@{columns}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{columns()}{columns()}}
+{\footnotesize\ttfamily unsigned Text\+Table\+::columns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_text_table_a028646d5a59500ed7abc48dc2980fc59}\label{class_text_table_a028646d5a59500ed7abc48dc2980fc59}} 
+\index{TextTable@{TextTable}!correctDistance@{correctDistance}}
+\index{correctDistance@{correctDistance}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{correctDistance()}{correctDistance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}} Text\+Table\+::correct\+Distance (\begin{DoxyParamCaption}\item[{std\+::string}]{string\+\_\+to\+\_\+correct }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_text_table_ac58cf511f1f3c795d21d3e1bd664e059}\label{class_text_table_ac58cf511f1f3c795d21d3e1bd664e059}} 
+\index{TextTable@{TextTable}!determineWidths@{determineWidths}}
+\index{determineWidths@{determineWidths}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{determineWidths()}{determineWidths()}}
+{\footnotesize\ttfamily void Text\+Table\+::determine\+Widths (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_text_table_a7916848a5d1e82047115f00ff8b86ad8}\label{class_text_table_a7916848a5d1e82047115f00ff8b86ad8}} 
+\index{TextTable@{TextTable}!endOfRow@{endOfRow}}
+\index{endOfRow@{endOfRow}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{endOfRow()}{endOfRow()}}
+{\footnotesize\ttfamily void Text\+Table\+::end\+Of\+Row (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_text_table_ab331d3b661ba91f00ef8002d1b6818df}\label{class_text_table_ab331d3b661ba91f00ef8002d1b6818df}} 
+\index{TextTable@{TextTable}!glyphLength@{glyphLength}}
+\index{glyphLength@{glyphLength}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{glyphLength()}{glyphLength()}}
+{\footnotesize\ttfamily unsigned Text\+Table\+::glyph\+Length (\begin{DoxyParamCaption}\item[{std\+::string}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_text_table_a710dc2670dfb1e60a8f6f6ef5da16133}\label{class_text_table_a710dc2670dfb1e60a8f6f6ef5da16133}} 
+\index{TextTable@{TextTable}!has\_ruler@{has\_ruler}}
+\index{has\_ruler@{has\_ruler}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{has\_ruler()}{has\_ruler()}}
+{\footnotesize\ttfamily bool Text\+Table\+::has\+\_\+ruler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_text_table_ad6770e6a7ac6a1138da214dbcb9ec4cd}\label{class_text_table_ad6770e6a7ac6a1138da214dbcb9ec4cd}} 
+\index{TextTable@{TextTable}!horizontal@{horizontal}}
+\index{horizontal@{horizontal}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{horizontal()}{horizontal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} Text\+Table\+::horizontal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_text_table_a972e57210f6c9166ae330d019824fd47}\label{class_text_table_a972e57210f6c9166ae330d019824fd47}} 
+\index{TextTable@{TextTable}!repeat@{repeat}}
+\index{repeat@{repeat}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}}
+{\footnotesize\ttfamily static std\+::string Text\+Table\+::repeat (\begin{DoxyParamCaption}\item[{unsigned}]{times,  }\item[{\mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_text_table_a9d7b3ef697180ac3ee957a436a8e1f77}\label{class_text_table_a9d7b3ef697180ac3ee957a436a8e1f77}} 
+\index{TextTable@{TextTable}!rows@{rows}}
+\index{rows@{rows}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{rows()}{rows()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_text_table_a28c4e9f705f83a254c98d2cc54e19f19}{Row}} $>$ const\& Text\+Table\+::rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_text_table_afc5e9e3705e36a32b80ba62b30331476}\label{class_text_table_afc5e9e3705e36a32b80ba62b30331476}} 
+\index{TextTable@{TextTable}!ruler@{ruler}}
+\index{ruler@{ruler}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{ruler()}{ruler()}}
+{\footnotesize\ttfamily std\+::string Text\+Table\+::ruler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_text_table_a185c3b20536bb11bb4928272cd1e3902}\label{class_text_table_a185c3b20536bb11bb4928272cd1e3902}} 
+\index{TextTable@{TextTable}!setAlignment@{setAlignment}}
+\index{setAlignment@{setAlignment}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{setAlignment()}{setAlignment()}}
+{\footnotesize\ttfamily void Text\+Table\+::set\+Alignment (\begin{DoxyParamCaption}\item[{unsigned}]{i,  }\item[{\mbox{\hyperlink{class_text_table_a3921e381a9bfdd728619b6e48968d190}{Alignment}}}]{alignment }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_text_table_a85a77368f0ab509066b8299abddd3545}\label{class_text_table_a85a77368f0ab509066b8299abddd3545}} 
+\index{TextTable@{TextTable}!setup@{setup}}
+\index{setup@{setup}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void Text\+Table\+::setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_text_table_a42de5f9310451f33b9b4ba64a9d2df29}\label{class_text_table_a42de5f9310451f33b9b4ba64a9d2df29}} 
+\index{TextTable@{TextTable}!setupAlignment@{setupAlignment}}
+\index{setupAlignment@{setupAlignment}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{setupAlignment()}{setupAlignment()}}
+{\footnotesize\ttfamily void Text\+Table\+::setup\+Alignment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_text_table_ac4e5f6c6afcaa47d839fa98c81400248}\label{class_text_table_ac4e5f6c6afcaa47d839fa98c81400248}} 
+\index{TextTable@{TextTable}!vertical@{vertical}}
+\index{vertical@{vertical}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{vertical()}{vertical()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} Text\+Table\+::vertical (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_text_table_ad29f49525b33b5f69deb7ad85b705854}\label{class_text_table_ad29f49525b33b5f69deb7ad85b705854}} 
+\index{TextTable@{TextTable}!width@{width}}
+\index{width@{width}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{width()}{width()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_make_cache_8txt_a1cb0c2afe2f6ed3001e79e875440ed60}{int}} Text\+Table\+::width (\begin{DoxyParamCaption}\item[{unsigned}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_text_table_a45aac9fcc25aeb87cadd1280157dc7eb}\label{class_text_table_a45aac9fcc25aeb87cadd1280157dc7eb}} 
+\index{TextTable@{TextTable}!\_alignment@{\_alignment}}
+\index{\_alignment@{\_alignment}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{\_alignment}{\_alignment}}
+{\footnotesize\ttfamily std\+::map$<$ unsigned, \mbox{\hyperlink{class_text_table_a3921e381a9bfdd728619b6e48968d190}{Alignment}} $>$ Text\+Table\+::\+\_\+alignment\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_text_table_aede169ab222c056d083a2fd33a6732b0}\label{class_text_table_aede169ab222c056d083a2fd33a6732b0}} 
+\index{TextTable@{TextTable}!\_corner@{\_corner}}
+\index{\_corner@{\_corner}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{\_corner}{\_corner}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} Text\+Table\+::\+\_\+corner\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_text_table_a96f4b7b4826c847d6d9540c1c10dba53}\label{class_text_table_a96f4b7b4826c847d6d9540c1c10dba53}} 
+\index{TextTable@{TextTable}!\_current@{\_current}}
+\index{\_current@{\_current}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{\_current}{\_current}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_text_table_a28c4e9f705f83a254c98d2cc54e19f19}{Row}} Text\+Table\+::\+\_\+current\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_text_table_a9c3fdde23d06b74c484c6929a27d9a8e}\label{class_text_table_a9c3fdde23d06b74c484c6929a27d9a8e}} 
+\index{TextTable@{TextTable}!\_has\_ruler@{\_has\_ruler}}
+\index{\_has\_ruler@{\_has\_ruler}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{\_has\_ruler}{\_has\_ruler}}
+{\footnotesize\ttfamily const bool Text\+Table\+::\+\_\+has\+\_\+ruler\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_text_table_a342c2f84cb0ff1e31053c992d177ba34}\label{class_text_table_a342c2f84cb0ff1e31053c992d177ba34}} 
+\index{TextTable@{TextTable}!\_horizontal@{\_horizontal}}
+\index{\_horizontal@{\_horizontal}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{\_horizontal}{\_horizontal}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} Text\+Table\+::\+\_\+horizontal\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_text_table_ac9ce549720b3577f68d20e48312601b1}\label{class_text_table_ac9ce549720b3577f68d20e48312601b1}} 
+\index{TextTable@{TextTable}!\_rows@{\_rows}}
+\index{\_rows@{\_rows}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{\_rows}{\_rows}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_text_table_a28c4e9f705f83a254c98d2cc54e19f19}{Row}} $>$ Text\+Table\+::\+\_\+rows\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_text_table_a3653313c05232710fcde98a54f1f7218}\label{class_text_table_a3653313c05232710fcde98a54f1f7218}} 
+\index{TextTable@{TextTable}!\_utf8width@{\_utf8width}}
+\index{\_utf8width@{\_utf8width}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{\_utf8width}{\_utf8width}}
+{\footnotesize\ttfamily std\+::vector$<$ unsigned $>$ Text\+Table\+::\+\_\+utf8width\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_text_table_a74912d7a2f17ede37837f47cf7147475}\label{class_text_table_a74912d7a2f17ede37837f47cf7147475}} 
+\index{TextTable@{TextTable}!\_vertical@{\_vertical}}
+\index{\_vertical@{\_vertical}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{\_vertical}{\_vertical}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} Text\+Table\+::\+\_\+vertical\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_text_table_a8c8070752ac708663659b6d6f2025d95}\label{class_text_table_a8c8070752ac708663659b6d6f2025d95}} 
+\index{TextTable@{TextTable}!\_width@{\_width}}
+\index{\_width@{\_width}!TextTable@{TextTable}}
+\doxysubsubsection{\texorpdfstring{\_width}{\_width}}
+{\footnotesize\ttfamily std\+::vector$<$ unsigned $>$ Text\+Table\+::\+\_\+width\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+apps/include/\mbox{\hyperlink{_text_table_8h}{Text\+Table.\+h}}\end{DoxyCompactItemize}

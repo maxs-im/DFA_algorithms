@@ -1,0 +1,17 @@
+\hypertarget{representation_8hpp}{}\doxysection{include/automaton/utils/representation.hpp File Reference}
+\label{representation_8hpp}\index{include/automaton/utils/representation.hpp@{include/automaton/utils/representation.hpp}}
+{\ttfamily \#include \char`\"{}automates/buchi.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$istream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceutils}{utils}}
+\item 
+ \mbox{\hyperlink{namespaceutils_1_1representation}{utils\+::representation}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \mbox{\hyperlink{namespaceutils_1_1representation_a10e1cd9e66dcab6ea211150de0f613d0}{utils\+::representation\+::construct\+\_\+read}} (std\+::istream \&in) noexcept
+\begin{DoxyCompactList}\small\item\em Construct nondeterministic Büchi automaton from input stream Final states definition\+: set num -\/ a number of final states sets \mbox{[}0, num\mbox{]} Cycle\+: set\+\_\+in num -\/ a number of final states in current set. next \char`\"{}set\+\_\+in num\char`\"{} nums -\/ final states for current set Transition table read (specified by @paired)\+: Cycle while E\+OF\+: state num -\/ number of the start state symbol num -\/ symbol that accepts state num successor num -\/ state after acceptancy. \end{DoxyCompactList}\end{DoxyCompactItemize}

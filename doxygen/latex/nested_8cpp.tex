@@ -1,0 +1,28 @@
+\hypertarget{nested_8cpp}{}\doxysection{src/emptiness\+\_\+check/dfs/nested.cpp File Reference}
+\label{nested_8cpp}\index{src/emptiness\_check/dfs/nested.cpp@{src/emptiness\_check/dfs/nested.cpp}}
+{\ttfamily \#include \char`\"{}dfs/nested.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$bitset$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceemptiness__check}{emptiness\+\_\+check}}
+\item 
+ \mbox{\hyperlink{namespaceemptiness__check_1_1dfs}{emptiness\+\_\+check\+::dfs}}
+\item 
+ \mbox{\hyperlink{namespaceemptiness__check_1_1dfs_1_1nested}{emptiness\+\_\+check\+::dfs\+::nested}}
+\begin{DoxyCompactList}\small\item\em The nested-\/\+D\+FS algorithm. \end{DoxyCompactList}\item 
+ \mbox{\hyperlink{namespace_anonymous}{Anonymous}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceemptiness__check_1_1dfs_1_1nested_a8100c0d1ae1fce4d415615bb8dff019d}{emptiness\+\_\+check\+::dfs\+::nested\+::um}} = std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}}, std\+::bitset$<$ 2 $>$ $>$
+\item 
+using \mbox{\hyperlink{namespaceemptiness__check_1_1dfs_1_1nested_a15add505a6536b82a030ff43e49061fb}{emptiness\+\_\+check\+::dfs\+::nested\+::us}} = std\+::unordered\+\_\+set$<$ \mbox{\hyperlink{classautomates_1_1buchi_af1190361e49f5980ba65772535e4ed7a}{automates\+::buchi\+::atm\+\_\+size}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespaceemptiness__check_1_1dfs_1_1nested_a6da519f3fe2da7ed234fb4d8b198b977}{emptiness\+\_\+check\+::dfs\+::nested\+::is\+\_\+empty}} (const \mbox{\hyperlink{classautomates_1_1buchi}{automates\+::buchi}} \&automat) noexcept
+\begin{DoxyCompactList}\small\item\em Look for the accepting lasso in N\+BA automaton. Will assert on N\+GA usage. \end{DoxyCompactList}\end{DoxyCompactItemize}
