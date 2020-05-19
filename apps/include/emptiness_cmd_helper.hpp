@@ -49,7 +49,7 @@ struct options
     /// \brief Invokes Nested algorithm. We use Two-stack by default (because optimal)
     bool non_optimal_only = false;
     /// \brief Input file name where we store interested automaton
-    std::string in_file = "test_dfs.txt";
+    std::string in_file = "test.txt";
     /// \brief Output file name where we will dump converted automaton (if will exist)
     std::string out_file = "dump.txt";
 };
@@ -60,18 +60,18 @@ struct options
 template<typename T>
 struct emp_differences
 {
-    /// \typedef Short typename for the generator callback
-    using gen_callback_t = std::function<emptiness_check::statistic::callbacks_handler<T>
-            (const utils::generator::generator_opts &opts)>;
-
     /// \brief Author info
     const char* author;
     /// \brief Program calculation mode description
     const char* user_cases_info;
+    /// \brief Algorithms names that will be printed
+    /// \note First NBA then NGA. @gener_cb_init.nba_algorithms + @gener_cb_initnga_algorithms size equality expected
+    std::vector<std::string> algorithm_names;
     /// \brief Handle default usage case: calculation of the input automaton
     std::function<void(const options& opts)> user_case;
     /// \brief Callbacks initializer for generation
-    gen_callback_t gener_cb_init;
+    std::function<emptiness_check::statistic::callbacks_handler<T>
+            (const utils::generator::generator_opts &opts)> gener_cb_init;
 };
 
 /// \brief Read input automaton from file (if it exists) otherwise from console
@@ -140,8 +140,9 @@ void print_generator_info(const automates::buchi::atm_size repetitions,
 /// \brief Print user-friendly statistic table
 /// \param stats: generated statistic
 /// \param name: out file name. Otherwise console will be used
-void print_statistic(const std::vector<emptiness_check::statistic::one_step>& stats,
-                     const std::string& name) noexcept
+/// \param algo_headers: headers algorithms names
+void print_statistic(const std::vector<emptiness_check::statistic::one_step>& stats, const std::string& name,
+                     const std::vector<std::string>& algo_headers) noexcept
 {
     std::ostream *out = &std::cout;
     std::ofstream fs;
@@ -155,45 +156,29 @@ void print_statistic(const std::vector<emptiness_check::statistic::one_step>& st
     }
 
     TextTable t;
-    t.addRow(std::vector<const char *>{"States", "Repetition", "Av. conversation", "Av. generation",
-                                       "NESTED", "TWO-STACK NBA", "TWO-STACK NGA", "Different results"});
+
+    std::vector<std::string> headers{"States", "Repetition", "Av. conversation", "Av. generation", "NGA!=NBA"};
+    headers.insert(std::end(headers), algo_headers.begin(), algo_headers.end());
+    t.addRow(headers);
 
     for (auto& stat : stats)
     {
         using namespace emptiness_check::statistic;
         auto create_word = [](std::optional<automates::buchi::atm_size> num, const call_durration& durr)
         {
-            return std::to_string(durr.count()) + "ms" + (num ? " (" + std::to_string(*num) + ")" : "");
+            return std::to_string(durr.count()) + "us" + (num ? " (" + std::to_string(*num) + ")" : "");
         };
 
         std::vector<std::string> container{std::to_string(stat.states), std::to_string(stat.repetition),
                                            create_word(stat.average_conversion.first, stat.average_conversion.second),
-                                           create_word(std::nullopt, stat.average_generation)};
-        container.reserve(container.size() + 4);
+                                           create_word(std::nullopt, stat.average_generation),
+                                           std::to_string(stat.different_results)};
 
         for (auto& [num, durr] : stat.average_nba)
             container.emplace_back(create_word(num, durr));
         for (auto& [num, durr] : stat.average_nga)
             container.emplace_back(create_word(num, durr));
 
-        std::string text;
-        for (auto& it : stat.different_results)
-        {
-            std::string warning = ":";
-
-            for (auto sit : it.first)
-                if (sit != it.first[0])
-                    warning += "-NBA";
-            for (auto sit : it.second)
-                if (sit != it.second[0])
-                    warning += "-NGA";
-            if (!it.second.empty() && !it.first.empty() &&
-                it.first[0] != it.second[0])
-                warning += "-both";
-            text += warning;
-        }
-
-        container.emplace_back(text);
         t.addRow(container);
     }
 
@@ -238,11 +223,13 @@ std::vector<emptiness_check::statistic::one_step> run_generator(const automates:
 /// \param repetitions: number of re-running procedure for !one automaton
 /// \param opts: generation mode options
 /// \param file_name: output file name
+/// \param headers: headers algorithms names
 /// \param gen_cb: callback for the initialization of the generation logic callback
 template<typename T>
 void handle_generator_case_call(const automates::buchi::atm_size repetitions,
                                 const utils::generator::generator_opts &opts,
                                 const std::string& file_name,
+                                const std::vector<std::string>& headers,
                                 const std::function<emptiness_check::statistic::callbacks_handler<T>
                                         (const utils::generator::generator_opts &opts)>& gen_cb) noexcept
 {
@@ -250,7 +237,7 @@ void handle_generator_case_call(const automates::buchi::atm_size repetitions,
 
     std::vector<emptiness_check::statistic::one_step> statistics;
     // pinpoint generation time
-    std::chrono::duration<double> durration = std::chrono::duration<double>::zero();
+    int durration = 0;
     {
         using namespace std::chrono;
         // starting timepoint
@@ -259,11 +246,11 @@ void handle_generator_case_call(const automates::buchi::atm_size repetitions,
         // ending timepoint
         auto stop = high_resolution_clock::now();
 
-        durration = duration_cast<minutes>(stop - start);
+        durration = duration_cast<minutes>(stop - start).count();
     }
-    print_statistic(statistics, file_name);
-    // TODO: fix and check time
-    std::cout << "Execution took " << durration.count() << " minutes\n";
+    print_statistic(statistics, file_name, headers);
+
+    std::cout << "Execution took " << durration << " minutes\n";
 }
 
 /// \brief Run command line with parsing parameters and invoking needed mode/calculations
@@ -306,7 +293,8 @@ void command_line(int argc, const char *argv[], const emp_differences<T>&& diffe
             /// \note No sense take bigger. UINTMAX < 10^10
             generate_opts.states = std::min(static_cast<uint32_t>(generate_opts.states), 9u);
 
-            handle_generator_case_call(opts.generator, generate_opts, opts.out_file, differences.gener_cb_init);
+            handle_generator_case_call(opts.generator, generate_opts, opts.out_file,
+                                       differences.algorithm_names, differences.gener_cb_init);
         }
     }
     else

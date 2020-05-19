@@ -80,26 +80,22 @@ one_call calculation(const callbacks_handler<T> &callbacks) noexcept
             .nba = std::move(nba_results), .nga = std::move(nga_results)};
 }
 
-/// \brief Check algorithms output. All are assumed to be the same. Otherwise, we will report information
+/// \brief Check algorithms output. All are assumed to be the same. Otherwise, assert. Store positive answers
 /// \param common [out]: general statistic that we will update during the check
-/// \param common_counter [out]: remember number of invocation. (For example NGA algorithms may not be called at all
-///                                 due to only NBA generation)
 /// \param one_run: invariable result during the calculation (local statistic)
-/// \return true if answers are not equal -> need to report this information
-bool one_run_algorithms_gather(std::vector<std::pair<automates::buchi::atm_size, call_durration>> &common,
-                               automates::buchi::atm_size &common_counter,
+/// \return algorithm emtiness answer if exists
+std::optional<bool> verify_algorithms(std::vector<std::pair<automates::buchi::atm_size, call_durration>> &common,
                                const std::vector<std::pair<call_durration, bool>> &one_run
 ) noexcept
 {
     if (one_run.empty())
-        return false;
+        return std::nullopt;
 
-    ++common_counter;
-    bool report = false;
     bool nba_emptiness = one_run[0].second;
     for (size_t j = 0; j < one_run.size(); ++j)
     {
         auto&[durr, val] = one_run[j];
+        // insert empty first and only after that fill in
         if (j == common.size())
             common.emplace_back(std::make_pair(0, call_durration::zero()));
         assert(j < common.size() && "Unexpected behaviour: Vector size less than expected!");
@@ -109,14 +105,10 @@ bool one_run_algorithms_gather(std::vector<std::pair<automates::buchi::atm_size,
             common[j].first++;
         common[j].second += durr;
 
-        // Report if not all results equal. Need further deep investigation
-        if (val != nba_emptiness)
-        {
-            report = true;
-        }
+        assert(val == nba_emptiness && "Not all results equal. Need further deep investigation");
     }
 
-    return report;
+    return nba_emptiness;
 }
 
 /// \brief Gather statistic for each repetition and then average it
@@ -146,23 +138,17 @@ one_step one_step_generation(const automates::buchi::atm_size repetition,
             result.average_conversion.second += *run_result.conversion;
         }
 
+        // Store counters for example NGA algorithms may not be called at all due to only NBA generation
+        if (!run_result.nba.empty())
+            ++nba_calls_counter;
+        if (!run_result.nga.empty())
+            ++nga_calls_counter;
         // Collect NBA and then NGA stat from one shot.
-        // If at least one reports, then return every result (verify results for the identity)
-        if (one_run_algorithms_gather(result.average_nba, nba_calls_counter, run_result.nba)
-            || one_run_algorithms_gather(result.average_nga, nga_calls_counter, run_result.nga))
-        {
-            auto collect = [](const auto &data)
-            {
-                std::vector<bool> answers;
-                answers.reserve(data.size());
-                for (auto&[_, val] : data)
-                    answers.push_back(val);
-
-                return std::move(answers);
-            };
-
-            result.different_results.emplace_back(std::make_pair(collect(run_result.nba), collect(run_result.nga)));
-        }
+        std::optional<bool> nba = verify_algorithms(result.average_nba, run_result.nba),
+                            nga = verify_algorithms(result.average_nga, run_result.nga);
+        // if NGA != NBA
+        if (nga && nba && *nga != *nba)
+            ++result.different_results;
     }
 
     // get average from the total

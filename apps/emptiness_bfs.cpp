@@ -30,7 +30,7 @@ void handle_user_case_call(const emptiness_cmd_helper::options& opts) noexcept
 
     using namespace emptiness_check::bfs;
     std::cout << std::boolalpha << "...\n";
-    // TODO: finish it @karlion!
+    // TODO: finish it @Karlion!
     if (opts.non_optimal_only)
         std::cout << "Emerson: " << emerson::is_empty(get_worker()) << "\n";
     else
@@ -68,6 +68,8 @@ inline emptiness_check::statistic::callbacks_handler<automates::inv_buchi> intia
 int main(int argc, const char *argv[])
 {
     emptiness_cmd_helper::command_line<automates::inv_buchi>(argc, argv,
-                        { AUTHOR_TEXT, INFO_TEXT, &handle_user_case_call, &intialize_callbacks });
+                        { AUTHOR_TEXT, INFO_TEXT,
+                          {"NBA EMERSON", "NGA EMERSON" },
+                          &handle_user_case_call, &intialize_callbacks });
     return 0;
 }

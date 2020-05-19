@@ -90,6 +90,8 @@ inline emptiness_check::statistic::callbacks_handler<automates::buchi> intialize
 int main(int argc, const char *argv[])
 {
     emptiness_cmd_helper::command_line<automates::buchi>(argc, argv,
-                        { AUTHOR_TEXT, INFO_TEXT, &handle_user_case_call, &intialize_callbacks });
+                        { AUTHOR_TEXT, INFO_TEXT,
+                          { "NESTED", "TWO-STACK NBA", "TWO-STACK NGA" },
+                          &handle_user_case_call, &intialize_callbacks });
     return 0;
 }

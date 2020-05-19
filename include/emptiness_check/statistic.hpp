@@ -43,10 +43,8 @@ struct one_step
     /// \brief Collect algorithms answers positime (is_empty = true) with their average time calculation
     std::vector<std::pair<automates::buchi::atm_size, call_durration>> average_nga = {};
 
-    // TODO: remove
-    /// \brief Store algorithms answers for particular generated automaton.
-    /// Only where all outputs (NGA/NBA + all algortithms) are not similar
-    std::vector<std::pair<std::vector<bool>, std::vector<bool>>> different_results = {};
+    /// \brief Increases when NGA != NBA on emptiness
+    automates::buchi::atm_size different_results = 0;
 };
 
 /// \brief Generate particular automatons and collect data. DFS approach

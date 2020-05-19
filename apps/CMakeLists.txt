@@ -1,8 +1,7 @@
 set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${DFA_BINARY_DIR})
 
 file(INSTALL
-        test_dfs.txt
-        test_bfs.txt
+        test.txt
     DESTINATION
         ${DFA_BINARY_DIR}
 )
