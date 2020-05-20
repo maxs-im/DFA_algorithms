@@ -121,11 +121,11 @@ one_step one_step_generation(const automates::buchi::atm_size repetition,
                              const callbacks_handler<T> &callbacks) noexcept
 {
     one_step result{};
-    result.repetition = repetition;
 
     automates::buchi::atm_size nba_calls_counter = 0,
-                               nga_calls_counter = 0;
-    for (automates::buchi::atm_size i = 0; i < result.repetition; ++i)
+                               nga_calls_counter = 0,
+                               conversions_counter = 0;
+    for (automates::buchi::atm_size i = 0; i < repetition; ++i)
     {
         // calculation call
         one_call run_result = calculation(callbacks);
@@ -134,8 +134,8 @@ one_step one_step_generation(const automates::buchi::atm_size repetition,
         result.average_generation += run_result.generation;
         if (run_result.conversion)
         {
-            ++result.average_conversion.first;
-            result.average_conversion.second += *run_result.conversion;
+            ++conversions_counter;
+            result.average_conversion += *run_result.conversion;
         }
 
         // Store counters for example NGA algorithms may not be called at all due to only NBA generation
@@ -152,14 +152,14 @@ one_step one_step_generation(const automates::buchi::atm_size repetition,
     }
 
     // get average from the total
-    result.average_generation /= result.repetition;
+    result.average_generation /= repetition;
     for (auto&[_, durr] : result.average_nba)
         durr /= nba_calls_counter;
     for (auto&[_, durr] : result.average_nga)
         durr /= nga_calls_counter;
 
-    if (result.average_conversion.first)
-        result.average_conversion.second /= result.average_conversion.first;
+    if (conversions_counter)
+        result.average_conversion /= conversions_counter;
 
     return std::move(result);
 }

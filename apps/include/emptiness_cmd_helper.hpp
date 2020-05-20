@@ -132,9 +132,8 @@ void print_generator_info(const automates::buchi::atm_size repetitions,
     std::cout << "Generator will invoke " << repetitions << " for each instance of automaton (average calculation).\n"
         "\tWill be produced " << opts.states << " different generations from 10^0 to 10^" << opts.states <<
         "states per generation.\n\tEach automaton will have " << opts.sets << " sets of final states.\n\tWith maximum"
-        " states / sets / edges = " << std::max(static_cast<double>(opts.states) / opts.sets / opts.edges, 1.0) <<
-        " final states inside.\n\tAutomaton \"complexity\" is approximately " << opts.trees << " merged "<<
-        opts.edges << "-trees.\n";
+        " (10^states / sets / edges) final states inside.\n\tAutomaton \"complexity\" is approximately " <<
+        opts.trees << " merged "<< opts.edges << "-trees.\n";
 }
 
 /// \brief Print user-friendly statistic table
@@ -157,32 +156,31 @@ void print_statistic(const std::vector<emptiness_check::statistic::one_step>& st
 
     TextTable t;
 
-    std::vector<std::string> headers{"States", "Repetition", "Av. conversation", "Av. generation", "NGA!=NBA"};
+    std::vector<std::string> headers{"States", "Av. conversation", "Av. generation", "NGA!=NBA"};
     headers.insert(std::end(headers), algo_headers.begin(), algo_headers.end());
     t.addRow(headers);
 
     for (auto& stat : stats)
     {
         using namespace emptiness_check::statistic;
-        auto create_word = [](std::optional<automates::buchi::atm_size> num, const call_durration& durr)
+        auto create_word = [](const call_durration& durr, std::optional<automates::buchi::atm_size> num = std::nullopt)
         {
-            return std::to_string(durr.count()) + "us" + (num ? " (" + std::to_string(*num) + ")" : "");
+            return !num && !durr.count() ? "" :
+                   std::to_string(durr.count()) + "us" + (num ? " (" + std::to_string(*num) + ")" : "");
         };
 
-        std::vector<std::string> container{std::to_string(stat.states), std::to_string(stat.repetition),
-                                           create_word(stat.average_conversion.first, stat.average_conversion.second),
-                                           create_word(std::nullopt, stat.average_generation),
+        std::vector<std::string> container{std::to_string(stat.states),
+                                           create_word(stat.average_conversion),
+                                           create_word(stat.average_generation),
                                            std::to_string(stat.different_results)};
 
         for (auto& [num, durr] : stat.average_nba)
-            container.emplace_back(create_word(num, durr));
+            container.emplace_back(create_word(durr, num));
         for (auto& [num, durr] : stat.average_nga)
-            container.emplace_back(create_word(num, durr));
+            container.emplace_back(create_word(durr, num));
 
         t.addRow(container);
     }
-
-    t.setAlignment( 0, TextTable::Alignment::RIGHT );
 
     *out << t;
 }
@@ -264,7 +262,7 @@ void handle_generator_case_call(const automates::buchi::atm_size repetitions,
 /// \param argv: list of command-line arguments
 /// \param differences: initialized dfs/bfs differences
 template<typename T>
-void command_line(int argc, const char *argv[], const emp_differences<T>&& differences)
+void command_line(int argc, const char *argv[], const emp_differences<T>&& differences) noexcept
 {
     auto parser = CmdOpts<options>::Create({
         {"--generator", &options::generator},

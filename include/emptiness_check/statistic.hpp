@@ -31,10 +31,8 @@ struct one_step
 {
     /// \brief Future automaton states number
     automates::buchi::atm_size states = 0;
-    /// \brief Number how many times will we repeat generation
-    automates::buchi::atm_size repetition = 0;
-    /// \brief Collect average time for the called conversions <number, time>
-    std::pair<automates::buchi::atm_size, call_durration> average_conversion = {};
+    /// \brief Collect average time for the called conversions
+    call_durration average_conversion = {};
     /// \brief Average one automaton generation time
     call_durration average_generation = call_durration::zero();
 
