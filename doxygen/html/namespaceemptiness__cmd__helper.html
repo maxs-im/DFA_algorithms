@@ -88,6 +88,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ac7677a07cd17dcbc48b450543d0b82c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemptiness__cmd__helper.html#ac7677a07cd17dcbc48b450543d0b82c3">print_generator_info</a> (const <a class="el" href="classautomates_1_1buchi.html#af1190361e49f5980ba65772535e4ed7a">automates::buchi::atm_size</a> repetitions, const <a class="el" href="structutils_1_1generator_1_1generator__opts.html">utils::generator::generator_opts</a> &amp;opts) noexcept</td></tr>
 <tr class="memdesc:ac7677a07cd17dcbc48b450543d0b82c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print what and how we decide to generate.  <a href="namespaceemptiness__cmd__helper.html#ac7677a07cd17dcbc48b450543d0b82c3">More...</a><br /></td></tr>
 <tr class="separator:ac7677a07cd17dcbc48b450543d0b82c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaba864c2f38829c2b106301cf14aa70"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemptiness__cmd__helper.html#adaba864c2f38829c2b106301cf14aa70">time2string</a> (const std::chrono::duration&lt; double, std::micro &gt; &amp;duration)</td></tr>
+<tr class="memdesc:adaba864c2f38829c2b106301cf14aa70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts time to human-readability.  <a href="namespaceemptiness__cmd__helper.html#adaba864c2f38829c2b106301cf14aa70">More...</a><br /></td></tr>
+<tr class="separator:adaba864c2f38829c2b106301cf14aa70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a916fb37864562252cb6b4111f15d8ca2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemptiness__cmd__helper.html#a916fb37864562252cb6b4111f15d8ca2">print_statistic</a> (const std::vector&lt; <a class="el" href="structemptiness__check_1_1statistic_1_1one__step.html">emptiness_check::statistic::one_step</a> &gt; &amp;stats, const std::string &amp;name, const std::vector&lt; std::string &gt; &amp;algo_headers) noexcept</td></tr>
 <tr class="memdesc:a916fb37864562252cb6b4111f15d8ca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print user-friendly statistic table.  <a href="namespaceemptiness__cmd__helper.html#a916fb37864562252cb6b4111f15d8ca2">More...</a><br /></td></tr>
 <tr class="separator:a916fb37864562252cb6b4111f15d8ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -99,10 +102,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a8deb0268a8e3fe05ab334a1af299911d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemptiness__cmd__helper.html#a8deb0268a8e3fe05ab334a1af299911d">handle_generator_case_call</a> (const <a class="el" href="classautomates_1_1buchi.html#af1190361e49f5980ba65772535e4ed7a">automates::buchi::atm_size</a> repetitions, const <a class="el" href="structutils_1_1generator_1_1generator__opts.html">utils::generator::generator_opts</a> &amp;opts, const std::string &amp;file_name, const std::vector&lt; std::string &gt; &amp;headers, const std::function&lt; <a class="el" href="structemptiness__check_1_1statistic_1_1callbacks__handler.html">emptiness_check::statistic::callbacks_handler</a>&lt; T &gt;(const <a class="el" href="structutils_1_1generator_1_1generator__opts.html">utils::generator::generator_opts</a> &amp;opts)&gt; &amp;gen_cb) noexcept</td></tr>
 <tr class="memdesc:a8deb0268a8e3fe05ab334a1af299911d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_handle.html">Handle</a> generation logic for user.  <a href="namespaceemptiness__cmd__helper.html#a8deb0268a8e3fe05ab334a1af299911d">More...</a><br /></td></tr>
 <tr class="separator:a8deb0268a8e3fe05ab334a1af299911d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10a25044e0b26902676a9aa00214686e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a10a25044e0b26902676a9aa00214686e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemptiness__cmd__helper.html#a10a25044e0b26902676a9aa00214686e">command_line</a> (<a class="el" href="_c_make_cache_8txt.html#a1cb0c2afe2f6ed3001e79e875440ed60">int</a> argc, const <a class="el" href="_c_make_cache_8txt.html#afe71f11dacb15682cdc012f7208e6e09">char</a> *argv[], const <a class="el" href="structemptiness__cmd__helper_1_1emp__differences.html">emp_differences</a>&lt; T &gt; &amp;&amp;differences)</td></tr>
-<tr class="memdesc:a10a25044e0b26902676a9aa00214686e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run command line with parsing parameters and invoking needed mode/calculations.  <a href="namespaceemptiness__cmd__helper.html#a10a25044e0b26902676a9aa00214686e">More...</a><br /></td></tr>
-<tr class="separator:a10a25044e0b26902676a9aa00214686e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8bc9e72a5a3aadfe7f6b924f94f05cb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae8bc9e72a5a3aadfe7f6b924f94f05cb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemptiness__cmd__helper.html#ae8bc9e72a5a3aadfe7f6b924f94f05cb">command_line</a> (<a class="el" href="_c_make_cache_8txt.html#a1cb0c2afe2f6ed3001e79e875440ed60">int</a> argc, const <a class="el" href="_c_make_cache_8txt.html#afe71f11dacb15682cdc012f7208e6e09">char</a> *argv[], const <a class="el" href="structemptiness__cmd__helper_1_1emp__differences.html">emp_differences</a>&lt; T &gt; &amp;&amp;differences) noexcept</td></tr>
+<tr class="memdesc:ae8bc9e72a5a3aadfe7f6b924f94f05cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run command line with parsing parameters and invoking needed mode/calculations.  <a href="namespaceemptiness__cmd__helper.html#ae8bc9e72a5a3aadfe7f6b924f94f05cb">More...</a><br /></td></tr>
+<tr class="separator:ae8bc9e72a5a3aadfe7f6b924f94f05cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -111,13 +114,16 @@ Variables</h2></td></tr>
 <tr class="separator:a05cffaa03794282b4f1e16e915f74fb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a10a25044e0b26902676a9aa00214686e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10a25044e0b26902676a9aa00214686e">&#9670;&nbsp;</a></span>command_line()</h2>
+<a id="ae8bc9e72a5a3aadfe7f6b924f94f05cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8bc9e72a5a3aadfe7f6b924f94f05cb">&#9670;&nbsp;</a></span>command_line()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void emptiness_cmd_helper::command_line </td>
@@ -143,6 +149,11 @@ template&lt;typename T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Run command line with parsing parameters and invoking needed mode/calculations. </p>
@@ -467,6 +478,34 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>gather statistic for all stages </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>need to update gen_opts (reference inside generator callback)</dd></dl>
+
+</div>
+</div>
+<a id="adaba864c2f38829c2b106301cf14aa70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaba864c2f38829c2b106301cf14aa70">&#9670;&nbsp;</a></span>time2string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string emptiness_cmd_helper::time2string </td>
+          <td>(</td>
+          <td class="paramtype">const std::chrono::duration&lt; double, std::micro &gt; &amp;&#160;</td>
+          <td class="paramname"><em>duration</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts time to human-readability. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duration</td><td>input time in std::chrono presentation. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string time representation </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>duration that it will be equivalent to the <a class="el" href="namespaceemptiness__check_1_1statistic.html#a9b941f3e9dc5ae99d8a2bd6ceebee8bb">emptiness_check::statistic::call_durration</a> </dd></dl>
 
 </div>
 </div>

@@ -126,25 +126,23 @@ $(function() {
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                visit(</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    [<span class="keyword">this</span>, idx, &amp;argv](<span class="keyword">auto</span>&amp;&amp; arg)</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                        <span class="keywordflow">if</span> (idx &lt; argv.size() - 1)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                        {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                            if constexpr (std::is_same_v&lt;std::decay_t&lt;decltype(arg)&gt;, bool Opts::*&gt;)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                this-&gt;*arg = true;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                            else</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                            {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                stringstream value;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                value &lt;&lt; argv[idx+1];</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                value &gt;&gt; this-&gt;*arg;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                            }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    },</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    prop);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        };</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    };</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="struct_cmd_opts.html#a2e27bbb7c9eedc1e9aee7f0e42054e8c">   78</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="struct_cmd_opts.html#a2e27bbb7c9eedc1e9aee7f0e42054e8c">register_callback</a>(<a class="code" href="struct_cmd_opts.html#ad5672d9dd020b00a578ab98e7941b402">MyArg</a> p) { <span class="keywordflow">return</span> <a class="code" href="struct_cmd_opts.html#a2e27bbb7c9eedc1e9aee7f0e42054e8c">register_callback</a>(p.first, p.second); }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                        <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;std::decay_t&lt;decltype(arg)&gt;, <span class="keywordtype">bool</span> Opts::*&gt;)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                            this-&gt;*arg = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                        <span class="keywordflow">if</span> (idx &lt; argv.size() - 1)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                        {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                            stringstream value;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                            value &lt;&lt; argv[idx+1];</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                            value &gt;&gt; this-&gt;*arg;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    },</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                    prop);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        };</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    };</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="struct_cmd_opts.html#a2e27bbb7c9eedc1e9aee7f0e42054e8c">   76</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="struct_cmd_opts.html#a2e27bbb7c9eedc1e9aee7f0e42054e8c">register_callback</a>(<a class="code" href="struct_cmd_opts.html#ad5672d9dd020b00a578ab98e7941b402">MyArg</a> p) { <span class="keywordflow">return</span> <a class="code" href="struct_cmd_opts.html#a2e27bbb7c9eedc1e9aee7f0e42054e8c">register_callback</a>(p.first, p.second); }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astruct_cmd_opts_html_a2c99606ea87e182326a180f603705c8a"><div class="ttname"><a href="struct_cmd_opts.html#a2c99606ea87e182326a180f603705c8a">CmdOpts::callbacks</a></div><div class="ttdeci">map&lt; string, callback_t &gt; callbacks</div><div class="ttdef"><b>Definition:</b> LightweightParsingCMD.hpp:44</div></div>
 <div class="ttc" id="astruct_cmd_opts_html_aa7ddf973d8a06323bdaaa452c06e1863"><div class="ttname"><a href="struct_cmd_opts.html#aa7ddf973d8a06323bdaaa452c06e1863">CmdOpts::operator=</a></div><div class="ttdeci">CmdOpts &amp; operator=(CmdOpts &amp;&amp;)=delete</div></div>
@@ -153,7 +151,7 @@ $(function() {
 <div class="ttc" id="astruct_cmd_opts_html_a3a07d05551cdabc5e5f342377bf5611c"><div class="ttname"><a href="struct_cmd_opts.html#a3a07d05551cdabc5e5f342377bf5611c">CmdOpts::MyProp</a></div><div class="ttdeci">std::variant&lt; string Opts::*, int Opts::*, bool Opts::*, double Opts::*, uint32_t Opts::*, uint8_t Opts::* &gt; MyProp</div><div class="ttdef"><b>Definition:</b> LightweightParsingCMD.hpp:20</div></div>
 <div class="ttc" id="astruct_cmd_opts_html_a97f3ade0f0b498114c47360ead95022a"><div class="ttname"><a href="struct_cmd_opts.html#a97f3ade0f0b498114c47360ead95022a">CmdOpts::~CmdOpts</a></div><div class="ttdeci">~CmdOpts()=default</div></div>
 <div class="ttc" id="astruct_cmd_opts_html_a9dcd66c384b1f0f1e2f0401a6eb49d8f"><div class="ttname"><a href="struct_cmd_opts.html#a9dcd66c384b1f0f1e2f0401a6eb49d8f">CmdOpts::CmdOpts</a></div><div class="ttdeci">CmdOpts(const CmdOpts &amp;)=delete</div></div>
-<div class="ttc" id="astruct_cmd_opts_html_a2e27bbb7c9eedc1e9aee7f0e42054e8c"><div class="ttname"><a href="struct_cmd_opts.html#a2e27bbb7c9eedc1e9aee7f0e42054e8c">CmdOpts::register_callback</a></div><div class="ttdeci">auto register_callback(MyArg p)</div><div class="ttdef"><b>Definition:</b> LightweightParsingCMD.hpp:78</div></div>
+<div class="ttc" id="astruct_cmd_opts_html_a2e27bbb7c9eedc1e9aee7f0e42054e8c"><div class="ttname"><a href="struct_cmd_opts.html#a2e27bbb7c9eedc1e9aee7f0e42054e8c">CmdOpts::register_callback</a></div><div class="ttdeci">auto register_callback(MyArg p)</div><div class="ttdef"><b>Definition:</b> LightweightParsingCMD.hpp:76</div></div>
 <div class="ttc" id="astruct_cmd_opts_html_a7ed08411d6bd9745ba81948d816b60a5"><div class="ttname"><a href="struct_cmd_opts.html#a7ed08411d6bd9745ba81948d816b60a5">CmdOpts::parse</a></div><div class="ttdeci">Opts parse(int argc, const char *argv[])</div><div class="ttdef"><b>Definition:</b> LightweightParsingCMD.hpp:25</div></div>
 <div class="ttc" id="astruct_cmd_opts_html_a1bf1e85967589f2f949aa3cde33a1338"><div class="ttname"><a href="struct_cmd_opts.html#a1bf1e85967589f2f949aa3cde33a1338">CmdOpts::callback_t</a></div><div class="ttdeci">function&lt; void(int, const vector&lt; string_view &gt; &amp;)&gt; callback_t</div><div class="ttdef"><b>Definition:</b> LightweightParsingCMD.hpp:43</div></div>
 <div class="ttc" id="astruct_cmd_opts_html_ad5672d9dd020b00a578ab98e7941b402"><div class="ttname"><a href="struct_cmd_opts.html#ad5672d9dd020b00a578ab98e7941b402">CmdOpts::MyArg</a></div><div class="ttdeci">std::pair&lt; string, MyProp &gt; MyArg</div><div class="ttdef"><b>Definition:</b> LightweightParsingCMD.hpp:21</div></div>

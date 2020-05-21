@@ -1,0 +1,54 @@
+\doxysubsection*{$\ast$\+Emptiness check\+: Algorithms based on depth-\/first search$\ast$}
+
+We present two emptiness algorithms that explore A using depth-\/first search (D\+FS)\+: \begin{DoxyVerb}1. Nested -- used by NBA only
+
+2. Two-stacked - used by default for both automatone types (NBA/NGA)
+\end{DoxyVerb}
+
+
+N\+BA -- nondeterministic Büchi automaton;
+
+N\+GA -- nondeterministic Generalized Büchi automaton;
+
+This program also provide N\+G\+A-\/to-\/\+N\+BA converter. For greater compatibility.
+
+The A\+IM of the program is to answer if A is nonempty and if it has an accepting lasso! \textquotesingle{}T\+H\+I\+S\+\_\+\+B\+I\+N\+A\+RY\textquotesingle{} usage\+:
+
+
+\begin{DoxyItemize}
+\item --generator \mbox{[}number $>$ 0\mbox{]} enable generation mode. See more info by calling it with help parameter;
+\item --help \mbox{[}N\+O\+N\+E/bool\mbox{]} Show info about this binary (programm);
+\item --nba \mbox{[}N\+O\+N\+E/bool\mbox{]} Works only with N\+BA (converts N\+GA if needed);
+\item --non\+\_\+optimal\+\_\+only \mbox{[}N\+O\+N\+E/bool\mbox{]} Invokes Nested algorithm. We use Two-\/stack by default (because optimal);
+\item --in\+\_\+file \mbox{[}text\mbox{]} Input file name where we store interested automaton;
+\item --out\+\_\+file \mbox{[}text\mbox{]} Output file name where we will dump converted automaton (if will exist);
+\end{DoxyItemize}
+
+Return true or false for selected algorithm
+
+\DoxyHorRuler{0}
+
+
+\doxysubsection*{$\ast$\+Statistic generator. Could show comparative characteristic for all methods$\ast$}
+
+\begin{DoxyVerb}"--generation" parameter will set up number of repetition for each approach. 0 - means disabled
+\end{DoxyVerb}
+
+
+There are some additional parameteres to work with generation mode.
+
+\textquotesingle{}T\+H\+I\+S\+\_\+\+B\+I\+N\+A\+RY --generated 1\textquotesingle{} usage\+:
+
+-- -\/help \mbox{[}N\+O\+N\+E/bool\mbox{]} Show info about this this generated mode;
+\begin{DoxyItemize}
+\item --states \mbox{[}number\mbox{]} Number of power of 10 for automaton states. Will be generated 10$^\wedge$0, 10$^\wedge$1,..,10$^\wedge$n
+\item --trees \mbox{[}number\mbox{]} Number of generated trees for the transition table. Default value is a minimal for really similar table (2);
+\item --sets \mbox{[}number\mbox{]} Number of sets in final states container. Default value for N\+BA (1);
+\item --edges \mbox{[}number\mbox{]} Number of the edges for each (not leaf and not pre-\/leaf) vertex in the tree. Default value for binary tree (2);
+\item --out\+\_\+file \mbox{[}text\mbox{]} Output file name where we will dump generated information;
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+
+
+\doxysubsubsection*{B\+FS Search will be supported later}
