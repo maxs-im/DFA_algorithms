@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <cassert>
+#include <iostream> // debug purposes
 
 using namespace emptiness_check::statistic;
 
@@ -38,7 +39,7 @@ time_call(std::function<T()> fn) noexcept
     // ending timepoint
     auto stop = std::chrono::high_resolution_clock::now();
 
-    return {std::chrono::duration_cast<std::chrono::microseconds>(stop - start), std::move(result)};
+    return {call_durration (stop - start), std::move(result)};
 }
 
 /// \brief Running all available operations with provided authomaton
@@ -48,12 +49,15 @@ time_call(std::function<T()> fn) noexcept
 template<typename T>
 one_call calculation(const callbacks_handler<T> &callbacks) noexcept
 {
+    std::cout << "DEBUG: generation..";
     // run generation
     auto[gen_durr, automaton] = time_call<T>(callbacks.generation_fn);
+    std::cout << "done\nDEBUG: conversion..";
     // run conversion
     auto[conv_durr, nba_automaton] = time_call<std::optional<T>>(
             [&conv_fn = callbacks.conv_fn, &at = automaton]() { return conv_fn(at); }
     );
+    std::cout << (nba_automaton ? "done" : "ignored") << '\n';
     // To prevent copying NBA->NBA
     auto get_worker = [&automaton = automaton, &opt_nba = nba_automaton]() -> const T &
     {
@@ -64,17 +68,25 @@ one_call calculation(const callbacks_handler<T> &callbacks) noexcept
     nba_results.reserve(callbacks.nba_algorithms.size());
     // remember NBA results
     for (const auto &fn : callbacks.nba_algorithms)
+    {
+        std::cout << "DEBUG: another NBA..";
         nba_results.push_back(time_call<bool>([&fn, &nba = get_worker()]() { return fn(nba); }));
+        std::cout << "done\n";
+    }
 
     std::vector<std::pair<call_durration, bool>> nga_results{};
     nga_results.reserve(callbacks.nga_algorithms.size());
     // means @automaton is generalized
     if (nba_automaton)
-    {
         // remember NGA results
         for (const auto &fn : callbacks.nga_algorithms)
+        {
+            std::cout << "DEBUG: another NGA..";
             nga_results.push_back(time_call<bool>([&fn, &nga = automaton]() { return fn(nga); }));
-    }
+            std::cout << "done\n";
+        }
+    else
+        std::cout << "DEBUG: NGA ignored\n";
 
     return {.generation = gen_durr, .conversion = nba_automaton ? std::make_optional(conv_durr) : std::nullopt,
             .nba = std::move(nba_results), .nga = std::move(nga_results)};

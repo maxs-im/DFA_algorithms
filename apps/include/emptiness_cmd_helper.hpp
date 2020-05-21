@@ -136,6 +136,21 @@ void print_generator_info(const automates::buchi::atm_size repetitions,
         opts.trees << " merged "<< opts.edges << "-trees.\n";
 }
 
+/// \brief Converts time to human-readability
+/// \param duration: input time in std::chrono presentation.
+/// \return string time representation
+/// \note duration that it will be equivalent to the emptiness_check::statistic::call_durration
+std::string time2string(const std::chrono::duration<double, std::micro>& duration)
+{
+    if (duration > std::chrono::minutes(1))
+        return std::to_string(duration.count() / 1'000'000 / 60) + "min";
+    else if (duration > std::chrono::seconds(1))
+        return std::to_string(duration.count() / 1'000'000) + "s";
+    if (duration > std::chrono::milliseconds (1))
+        return std::to_string(duration.count() / 1'000) + "ms";
+    else return std::to_string(duration.count()) + "us";
+};
+
 /// \brief Print user-friendly statistic table
 /// \param stats: generated statistic
 /// \param name: out file name. Otherwise console will be used
@@ -166,7 +181,7 @@ void print_statistic(const std::vector<emptiness_check::statistic::one_step>& st
         auto create_word = [](const call_durration& durr, std::optional<automates::buchi::atm_size> num = std::nullopt)
         {
             return !num && !durr.count() ? "" :
-                   std::to_string(durr.count()) + "us" + (num ? " (" + std::to_string(*num) + ")" : "");
+                   time2string(durr) + (num ? " (" + std::to_string(*num) + ")" : "");
         };
 
         std::vector<std::string> container{std::to_string(stat.states),
@@ -210,7 +225,7 @@ std::vector<emptiness_check::statistic::one_step> run_generator(const automates:
         statistic.states = gen_opts.states;
 
         stats.emplace_back(statistic);
-        std::cout << "Generation of a " << statistic.states << " states completed\n";
+        std::cout << "\tCalculation of a " << statistic.states << " states completed\n";
     }
 
     return stats;
@@ -235,7 +250,7 @@ void handle_generator_case_call(const automates::buchi::atm_size repetitions,
 
     std::vector<emptiness_check::statistic::one_step> statistics;
     // pinpoint generation time
-    int durration = 0;
+    emptiness_check::statistic::call_durration duration = emptiness_check::statistic::call_durration::zero();
     {
         using namespace std::chrono;
         // starting timepoint
@@ -244,11 +259,11 @@ void handle_generator_case_call(const automates::buchi::atm_size repetitions,
         // ending timepoint
         auto stop = high_resolution_clock::now();
 
-        durration = duration_cast<minutes>(stop - start).count();
+        duration = stop - start;
     }
     print_statistic(statistics, file_name, headers);
 
-    std::cout << "Execution took " << durration << " minutes\n";
+    std::cout << "Execution took " + time2string(duration)+ "\n";
 }
 
 /// \brief Run command line with parsing parameters and invoking needed mode/calculations

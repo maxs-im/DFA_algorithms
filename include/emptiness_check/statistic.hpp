@@ -9,7 +9,7 @@ namespace emptiness_check::statistic
 {
 
 /// \typedef common time measure
-using call_durration = std::chrono::duration<double, std::milli>;
+using call_durration = std::chrono::duration<double, std::micro>;
 
 /// \struct Handle all time-wasting callbacks (actions)
 /// \param T: selected authomaton class
