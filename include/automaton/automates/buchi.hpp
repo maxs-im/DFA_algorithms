@@ -40,6 +40,10 @@ public:
     /// \return size of @m_final_states
     [[nodiscard]] atm_size get_final_num_sets() const noexcept { return m_final_states.size(); }
 
+    /// \brief Get sets with final states
+    /// \return @m_final_states
+    [[nodiscard]] finals_container get_final_sets() const noexcept { return m_final_states; }
+
     /// \brief Check if this is Generalized Büchi automaton
     /// \return true if is NGA (more than one set of acceptable states)
     [[nodiscard]] bool is_generalized() const noexcept { return get_final_num_sets() > 1; }

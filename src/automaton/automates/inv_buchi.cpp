@@ -8,10 +8,7 @@ namespace automates
 inv_buchi::inv_buchi(buchi&& automat) noexcept
     : m_trans_table_inv(std::move(inv_buchi::inverse_trans_table(m_trans_table))),
       m_set_of_states(collect_states(m_trans_table)),
-      buchi(automat)
-{
-    assert(!is_generalized() && "Need to provide NBA");
-}
+      buchi(automat){}
 
 std::optional<buchi::table_container::const_iterator> inv_buchi::acceptable_inv_transitions(
         const atm_size state) const noexcept
@@ -22,12 +19,15 @@ std::optional<buchi::table_container::const_iterator> inv_buchi::acceptable_inv_
     return std::nullopt;
 }
 
-std::unordered_set<automates::buchi::atm_size> inv_buchi::collect_states(const buchi::table_container &trans_table) noexcept
+std::vector<automates::buchi::atm_size> inv_buchi::collect_states(const buchi::table_container &trans_table) noexcept
 {
-    std::unordered_set<automates::buchi::atm_size> container;
+    std::vector<automates::buchi::atm_size> container;
+    std::unordered_set<automates::buchi::atm_size> temp_container;
     for (const auto& [from, set] : trans_table)
         for (const auto& to : set)
-            container.insert({ from, to });
+            temp_container.insert({ from, to });
+
+    container.assign(temp_container.begin(), temp_container.end());
 
     return std::move(container);
 }

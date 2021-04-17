@@ -1,10 +1,10 @@
-#include "bfs/emerson.hpp"
+#include "bfs/modified_emerson.hpp"
 #include<iostream>
 
-namespace emptiness_check::bfs::emerson
+namespace emptiness_check::bfs::modified_emerson
 {
 
-/// \namespace Anonymous namespace. Helpers with Emerson-Lei algorithm
+/// \namespace Anonymous namespace. Helpers with Modified Emerson-Lei algorithm
 namespace
 {
 
@@ -41,13 +41,28 @@ std::vector<uint32_t> backward_bfs(const automates::inv_buchi &automat, std::vec
     return S;
 }
 
+std::vector<uint32_t> inf(const automates::inv_buchi &automat, std::vector<uint32_t> S) noexcept
+{
+    std::vector<uint32_t> OldS{}, temp_value{}, pre_s{};
+
+    do {
+        OldS = S;
+        pre_s = pre(automat, S);
+        std::set_intersection(S.begin(), S.end(), pre_s.begin(), pre_s.end(), std::back_inserter(temp_value));
+        S = temp_value;
+        temp_value.clear();
+    }while(S != OldS);
+
+    return S;
+}
+
 }
 
 bool is_empty(const automates::inv_buchi &automat) noexcept
 {
     std::vector<std::unordered_set<uint32_t>> final_states = automat.get_final_sets();
     std::vector<std::vector<uint32_t>> F;
-    std::vector<uint32_t> OldL{}, temp_value{}, newL{};
+    std::vector<uint32_t> OldL{}, temp_value{};
     std::vector<uint32_t> L(automat.m_set_of_states);
     std::sort(L.begin(), L.end());
 
@@ -62,16 +77,11 @@ bool is_empty(const automates::inv_buchi &automat) noexcept
         OldL = L;
         for(auto Fi : F)
         {
+            L = inf(automat, OldL);
             std::set_intersection(OldL.begin(), OldL.end(), Fi.begin(), Fi.end(), std::back_inserter(temp_value));
             L = pre(automat, temp_value);
             temp_value.clear();
-            std::set_difference(L.begin(), L.end(), OldL.begin(), OldL.end(), std::back_inserter(temp_value));
-            L = temp_value;
-            temp_value.clear();
             L = backward_bfs(automat, L);
-            std::set_union(L.begin(), L.end(), OldL.begin(), OldL.end(), std::back_inserter(temp_value));
-            L = temp_value;
-            temp_value.clear();
         }
     }while( OldL != L);
 
@@ -81,4 +91,4 @@ bool is_empty(const automates::inv_buchi &automat) noexcept
         return true;
 }
 
-} // namespace emptiness_check::dfs::emerson
+} // namespace emptiness_check::dfs::modified_emerson

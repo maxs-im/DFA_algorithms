@@ -14,14 +14,13 @@ public:
     [[nodiscard]]
     std::optional<table_container::const_iterator> acceptable_inv_transitions(atm_size state) const noexcept;
 
-    const std::unordered_set<atm_size> m_set_of_states = {};
+    const std::vector<atm_size> m_set_of_states = {};
 private:
     const table_container m_trans_table_inv = {};
 
     static table_container inverse_trans_table(const table_container &trans_table) noexcept;
 
-    static std::unordered_set<atm_size> collect_states(const table_container &trans_table) noexcept;
-
+    static std::vector<atm_size> collect_states(const table_container &trans_table) noexcept;
 };
 
 } // namespace automates

@@ -47,7 +47,7 @@ struct options
     /// \brief Works only with NBA (converts NGA if needed)
     bool nba = false;
     /// \brief Invokes Nested algorithm. We use Two-stack by default (because optimal)
-    bool non_optimal_only = false;
+    bool modified = false;
     /// \brief Input file name where we store interested automaton
     std::string in_file = "test.txt";
     /// \brief Output file name where we will dump converted automaton (if will exist)
@@ -106,7 +106,7 @@ std::optional<automates::buchi> proceed_conversion(const automates::buchi& autom
     if (!converted_automat)
         return converted_automat;
 
-    std::cout << "Successfully converted to NGA\n";
+    std::cout << "Successfully converted to NBA\n";
 
     if (!name.empty())
     {
@@ -283,7 +283,7 @@ void command_line(int argc, const char *argv[], const emp_differences<T>&& diffe
         {"--generator", &options::generator},
         {"--help", &options::help},
         {"--nba", &options::nba},
-        {"--non_optimal_only", &options::non_optimal_only},
+        {"--modified", &options::modified},
         {"--in_file", &options::in_file},
         {"--out_file", &options::out_file},
     });

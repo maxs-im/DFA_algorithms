@@ -14,6 +14,7 @@ add_library(EmptinessCheck STATIC
     emptiness_check/dfs/nested.cpp
     emptiness_check/dfs/two_stack.cpp
     emptiness_check/bfs/emerson.cpp
+    emptiness_check/bfs/modified_emerson.cpp
     emptiness_check/statistic.cpp
 )
 
